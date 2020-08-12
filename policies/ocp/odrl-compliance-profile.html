@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+      <meta charset='utf-8'>
+      <title>ODRL Compliance Profile</title>
+      <script src='https://www.w3.org/Tools/respec/respec-w3c-common' class='remove'></script>
+      <script class='remove'>
+        var respecConfig = {
+          specStatus: "unofficial",
+          subtitle:"version 1.0",
+          shortName: "odrl-generic-policies-",
+          copyrightStart: "2019",
+          publishDate: "2020-08-12",
+          editors: [
+              {   name:       "Sabrina Kirrane",
+                      url:        "http://sabrinakirrane.com/",
+                      company:    "Vienna University of Economics and Business",
+                      companyURL: "http://wu.ac.at",
+                      mailto:     "sabrina.kirrane@wu.ac.at"
+                  }],
+          authors: [
+              {   name:       "Sabrina Kirrane",
+                      url:        "http://sabrinakirrane.com/",
+                      company:    "Vienna University of Economics and Business",
+                      companyURL: "http://wu.ac.at",
+                      mailto:     "sabrina.kirrane@wu.ac.at"
+                  },
+              {   name:        "Marina De Vos",
+                      url:        "http://www.cs.bath.ac.uk/~mdv/",
+                      company:    "University of Bath",
+                      companyURL: "https://www.bath.ac.uk/",
+                      mailto:     "M.D.Vos@bath.ac.uk"
+                  },
+             {   name:        "Julian Padget",
+                          url:        "http://www.cs.bath.ac.uk/~jap/",
+                          company:    "University of Bath",
+                          companyURL: "https://www.bath.ac.uk/",
+                          mailto:     "jap@cs.bath.ac.uk"
+                  },
+              {   name:        "Simon Steyskal",
+                      url:        "http://www.cs.bath.ac.uk/~jap/",
+                      company:    "Siemens AG Austria",
+                      companyURL: "https://new.siemens.com/at/de.html",
+                      mailto:     "jsimon.steyskal@siemens.com"
+              }],
+        };
+      </script>
+      <style>
+      	html { background-image: none !important; }
+      	dd ul { margin: 0 0 .5em; }
+      	dl.triple dt { float: left; clear: left; width: 6em; }
+      	table { border-collapse: collapse; margin: 1.5em auto 2em; }
+      	table caption { margin-bottom: 0.2em; }
+      	th { background: #ddd; }
+      	th, td { border: 1px solid #888; margin: 0; padding: 0.3em 0.5em; }
+      </style>
+  </head>
+
+  <body>
+
+    <section id="abstract">
+      <p>The Open Digital Rights Language (ODRL) is a policy expression language that provides a flexible and interoperable information model, vocabulary, and encoding mechanisms for representing statements about the usage of content and services. </p>
+  	  <p>This document constitutes an ODRL profile entitled ODRL Compliance Profile that adapts the ODRL Core Model and Vocabulary with concepts and terms to support compliance checking.</p>
+      <p>In essence, ODRL Compliance profile policies are used to represent permissions, prohibitions, obligations, and dispensations, which may be limited by constraints. </p>
+      <p class="note">Significant portions of this document are reproduced from the ODRL Information Model standard.</p>
+    </section>
+
+    <section class="informative" id="intro">
+  	   <h2>Introduction</h2>
+       <p>This document provides and overview of the ODRL Compliance profile classes and properties. </p>
+       <section id="aimsModel">
+         <h3>Aims of the Model</h3>
+  		   <p>The primary aim of the ODRL Compliance Profile model is to provide a model and vocabularies that can be used to express permissions, prohibitions, obligations, and dispensations in a manner such that they can be checked automatically. </p>
+       </section>
+
+       <section id="conformance">
+          <h3>Conformance</h3>
+          <p>The examples throughout the document are serialized as [[turtle]]. </p>
+          <p>The examples presented here make use if the following prefixes: </p>
+          <p>@prefix ocp: &lt;https://ai.wu.ac.at/policies/ocp/odrl-compliance-profile/&gt; .  </p>
+          <p>@prefix odrl: &lt;http://www.w3.org/ns/odrl/2/&gt; .  </p>
+          <p>@prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; . </p>
+          <p class="note">TODO add general examples.</p>
+  	    </section>
+
+      	<section id="terminology">
+      		<h3>Terminology</h3>
+      		<dl class="termlist">
+            <dt><dfn>Policy</dfn></dt>
+      	    <dd>One or more Rules.</dd>
+
+      	    <dt><dfn>Set</dfn></dt>
+      	    <dd>A set of one or more Rules.</dd>
+
+      	    <dt><dfn>ConflictTerm</dfn></dt>
+      	    <dd>A means to specific the conflict resolution strategy.</dd>
+
+      			<dt><dfn>Rule</dfn></dt>
+      	    <dd>An abstract concept that represents the common characteristics of Permissions, Prohibitions, Obligations and Dispensations.</dd>
+
+      			<dt><dfn>Action</dfn></dt>
+      	    <dd>Something done or performed.</dd>
+
+      			<dt><dfn>Resource</dfn></dt>
+      	    <dd>An object or a collection of objects that are the subject of a Rule.</dd>
+
+      			<dt><dfn>Party</dfn></dt>
+      	    <dd>An entity or a collection of entities that undertake roles in a Rule.</dd>
+
+      			<dt><dfn>Permission</dfn></dt>
+            <dd>Indication that an Action is allowed.</dd>
+
+      			<dt><dfn>Prohibition</dfn></dt>
+            <dd>Indication that an Action is not allowed.</dd>
+
+      			<dt><dfn>Obligation</dfn></dt>
+      	    <dd>An Action that must be performed.</dd>
+
+      			<dt><dfn>Dispensation</dfn></dt>
+      	    <dd>The exemption from an obligation.</dd>
+
+      			<dt><dfn>Constraint</dfn></dt>
+      	    <dd>An expression that refines a Rule.</dd>
+
+      			<dt><dfn>PredicateConstraint</dfn></dt>
+      	    <dd>A constraint that relates to a given predicate.</dd>
+
+      			<dt><dfn>ODRL Core Vocabulary</dfn></dt>
+      	    <dd>The set of terms that are represented by the ODRL Information Model.</dd>
+
+      			<dt><dfn>ODRL Profile</dfn></dt>
+      	    <dd>An adaption of the ODRL Core Model and Vocabulary in order to meet the needs of a specific community or sector.</dd>
+
+      			<dt><dfn>ODRL Common Vocabulary</dfn></dt>
+      	    <dd>A set of generic terms that may be re-used by ODRL profiles.</dd>
+
+      			<dt><dfn>ODRL Compliance Profile Vocabulary</dfn></dt>
+      	    <dd>A set of terms used to specify policies.</dd>
+          </dl>
+      	</section>
+    </section>
+
+    <section id="complianceModel">
+    	<h2>ODRL Compliance Profile Model</h2>
+
+    	<p>The ODRL Compliance Profile model represents Policies that express Permissions, Prohibitions, Obligations, and Dispensations related to actions.</p>
+    	<p>The figure below shows the ODRL Compliance Profile model, which is an adaptation of the ODRL Information model.</p>
+
+    	<figure>
+    		<img src="RModel.png" alt="ODRL Compliance Profile model" width="800"/>
+        <figcaption>The ODRL Compliance Profile model (Also available in <a href="RModel.svg">SVG format</a>)</figcaption>
+    	</figure>
+
+    	<p>The ODRL Compliance Profile model has the following core classes:
+        <ul>
+          <li><code>Policy</code> - A non-empty <code>Set</code> of <code>Permissions</code> (via the permission property) and/or <code>Prohibitions</code> (via the prohibition property) and/or <code>Obligations</code> (via the obligation property) and/or <code>Dispensations</code> (via the dispensation property).
+    			</li>
+
+    	    <li><code>ConflictTerm </code> - A means to specific the conflict resolution strategy.</li>
+
+    			<li><code>Rule</code> - An abstract concept that represents the common characteristics of Permissions, Prohibitions, Obligations and Dispensations.
+        	</li>
+
+    			<li><code>Action</code> - An operation referred to in a Rule.
+    			</li>
+
+    			<li><code>Resource</code> - An object referred to in a Rule.
+    			</li>
+
+    			<li><code>Party</code> - An entity referred to in a Rule.
+    			</li>
+
+    			<li><code>Constraint</code> - An abstract concept denoting constraints used to refine a Rule. The profile currently supports <code>PredicateConstraints</code>.
+    			</li>
+        </ul>
+    	</p>
+
+    	<section id="policy">
+    		<h3>Policy Class</h3>
+    		<p>The Policy class has the following properties:</p>
+    		<ul>
+    			<li>A Policy MUST have one <code>uid</code> property value (of type IRI [[!rfc3987]]) to identify the Policy.</li>
+    			<li>A Policy MUST have at least one <code>permission</code>, <code>prohibition</code>, <code>obligation</code> or <code>dispensation</code> property of type Rule.  (See the <a href="#permission">Permission</a>,  <a href="#prohibition">Prohibition</a>, <a href="#obligation">Obligation</a> and <a href="#dispensation">Dispensation</a> sections for more details.)</li>
+    			<li>A Policy MUST use a <code>profile</code> property value (of type IRI [[!rfc3987]]) to identify the ODRL Compliance Profile. </li>
+    			<li>A Policy MAY have none, one, or many <code>inheritFrom</code> property values (of type IRI [[!rfc3987]]) to identify the parent Policy from which this child Policy inherits from. </li>
+    			<li>A Policy MAY have none or one <code>conflict</code> property values (of type ConflictTerm) for Conflict Strategy Preferences indicating how to handle Policy conflicts.</li>
+    		</ul>
+
+      	<section id="policy-set">
+      		<h4>Set subClass</h4>
+          <p>An ODRL Policy of subclass <code>Set</code> represents any combination of Rules. The <code>Set</code> Policy subclass is also the default subclass of Policy (if none is specified).</p>
+      	</section>
+
+      	<section id="conflict">
+      		<h4>conflict property</h4>
+      		<p>The <code>conflict</code> property is used to establish strategies to resolve conflicts that arise from the merging of Policies or conflicts between Permissions, Prohibitions and Obligations in the same Policy. Conflicts may arise when merging Policies as a result of policy inheritance and the resultant Rules are inconsistent.</p>
+      	</section>
+
+      	<section id="inheritedFrom">
+      		<h4>inheritedFrom property</h4>
+      		<p> A property which is used to cater for policies inheritance. </p>
+      	</section>
+
+      	<section id="profile">
+      		<h4> profile property</h4>
+      		<p> A property which is used to specify the policies profile. </p>
+      	</section>
+
+      	<section id="ppod">
+      		<h4>permission/prohibition/obligation/dispensation properties</h4>
+          <p> Properties that relate rules of type Permission, Prohibition, Obligation, or Dispensation to a Policy.</p>
+      	</section>
+
+      </section>
+
+      <section id="conflict-class">
+      	<h3>ConflictTerm Class </h3>
+
+      	<p>The <code>conflict</code> property is used to establish strategies to resolve conflicts that arise from the merging of Policies or conflicts between Permissions/Obligations and Prohibitions in the same Policy. Conflicts may arise when merging Policies, as a result of policy inheritance, or when Rules are inconsistent.</p>
+      	<p>The <code>conflict</code> property SHOULD take one of the following conflict strategy preference values (instances of the ConflictTerm class):</p>
+
+      	<ul>
+      		<li><code>perm</code>: Permissions and Obligations MUST override the Prohibitions</li>
+      		<li><code>prohibit</code>: Prohibitions MUST override the Permissions and Obligations</li>
+      		<li><code>invalid</code>: the entire Policy MUST be void if any conflict is detected</li>
+      	</ul>
+
+      	<p>If the <code>conflict</code> property is not explicitly set, the default of <code>invalid</code> will be used.
+      	<p>The conflict strategy requirements include:</p>
+
+      	<ol>
+          <li>If a Policy has the <code>conflict</code> property of <code>perm</code> then any conflicting Permission/Obligation Rule MUST override the Prohibition Rule.</li>
+       		<li>If a Policy has the <code>conflict</code> property of <code>prohibit</code> then any conflicting Prohibition Rule MUST override the Permission/Obligation Rule.</li>
+        	<li>If a Policy has the <code>conflict</code> property of <code>invalid</code> then any conflicting Rules MUST void  the entire Policy.</li>
+       		<li>If a Policy has multiple <code>conflict</code> property values (for example, after a Policy merge or inheritance) and there are conflicting Rules then the entire Policy MUST be void.</li>
+       	</ol>
+
+      </section>
+
+      <section id="action-class">
+      	<h3>Action Class</h3>
+        <p>An <code>Action</code> class indicates an operation. </p>
+
+        <p>The Action class has the following properties:</p>
+      	 <ul>
+          <li>An Action SHOULD have one <code>uid</code> property value (of type IRI [[!rfc3987]]) to identify the Action.</li>
+      	 </ul>
+
+      </section>
+
+      <section id="resource-class">
+      	<h3>Resource Class</h3>
+      	<p>A <code>Resource</code> class is a resource or a collection of resources that are the subject of a Rule. The Resource can be any form of identifiable resource, such as data/information, content/media, applications, services, or physical artefacts.
+        <p>The Resource class has the following properties:</p>
+
+      	<ul>
+      		<li>A Resource SHOULD have one <code>uid</code> property value (of type IRI [[!rfc3987]]) to identify the Resource.</li>
+      	</ul>
+
+      	<section id="hasPolicy">
+      		<h4>hasPolicy property</h4>
+      		<p>An ODRL Policy class MAY also be referenced by the <code>hasPolicy</code> property. This supports ODRL Policy Rules being the object of external metadata expressions (that identifies a Resource). When <code>hasPolicy</code> has been asserted between a metadata expression and an ODRL Policy, the Resource being identified MUST be inferred to be the <code>resource</code> of all the Rules of that Policy. If there are multiple Rules in the Policy, then the inferred Resource will be the target Resource to <strong>every</strong> Rule in the Policy.</p>
+      	</section>
+      </section>
+
+      <section id="party-class">
+      	<h3>Party Class </h3>
+      	<p>A <code>Party</code> is an entity or a collection of entities that undertake roles in a Rule, such as a person, collection of people, organisation, or agent. The <code>Party</code> performs (or does not perform) Actions or has a function in an Obligation.</p>
+        <p>The Party class has the following properties:</p>
+
+      	<ul>
+      		<li>A Party SHOULD have one <code>uid</code> property value (of type IRI [[!rfc3987]]) to identify the Party.</li>
+      	</ul>
+      </section>
+
+      <section id="constraint-class">
+      	<h3>Constraint Class</h3>
+      	<p>The <code>Constraint</code> class is used to specify expressions that can be used to refine the semantics of an Action or declare the conditions applicable to a Rule. When multiple Constraints apply to the same Rule or Action, then they are interpreted as conjunction and all MUST be satisfied.</p>
+
+      	<section id="PredicateConstraint-subclass">
+      		<h4>PredicateConstraint subClass</h4>
+      		<p>A PredicateConstraint class is used for expressions which compare two operands by one relational operator, where the leftOperand is a predicate and the rightOperand is an object. If the comparison returns a match the PredicateConstraint is <strong>satisfied</strong>, otherwise it is <strong>not satisfied</strong>. The Constraint class formulates a comparison expression, such as, ocp:organisationType (the <code>leftOperand</code>) must be equal to (the <code>operator</code>) ocp:InternationalOrganisation (the <code>rightOperand</code>). </p>
+      		<p>The Constraint class has the following properties:</p>
+      		<ul>
+      			<li>A Constraint MUST have none or one <code>uid</code> property value (of type IRI [[!rfc3987]]) to identify the Constraint.</li>
+      			<li>A Constraint MUST have one <code>leftOperand</code> property value of type LeftOperand.</li>
+      			<li>A Constraint MUST have one <code>operator</code> property value of type Operator.</li>
+      			<li>A Constraint MUST have one <code>rightOperand </code> property value of type RightOperator.</li>
+      		</ul>
+
+      		<section id="leftOperand-property">
+      		  <h5>leftOperand property</h5>
+      			<p>Used to define the predicate of the constraint which must be satisfied.</p>
+      		</section>
+
+      		<section id="operator-property">
+      		  <h5>operator property</h5>
+      			<p>Used to define the operator for the constraint which must be satisfied.</p>
+
+      			<p>This profile adopts the following top-level Operators:</p>
+      			<ul>
+      				<li><code>isA </code></li>
+      				<li><code>isAnyOf </code></li>
+      			</ul>
+      		</section>
+
+      		<section id="rightOperand-proprty">
+      		  <h5>rightOperand property</h5>             
+      			<p>Used to define the object of the constraint that must be satisfied.</p>
+      		</section>
+      	</section>
+      </section>
+
+      <section id="rule-class">
+      	<h3>Rule Class</h3>
+      	<p>The <code>Rule</code> class is the parent of the Permission, Prohibition, Obligations and Dispensation classes. The Rule class represents the common characteristics of these five classes. A Rule class MUST be disjoint with all other Rule subclasses.</p>
+      	<p>The Rule class has the following properties:</p>
+
+      	<ul>
+      		<li>A Rule MAY have none or one <code>uid</code> property values (of type IRI [[!rfc3987]]) to identify the Rule so it MAY be referenced by other Rules.</li>
+      		<li>A Rule MUST have one <code>action</code> property value of type Action.</li>
+      		<li>A Rule MAY have none, one or many <code><em>permission</em></code>, <code><em>prohibition</em></code>, <code><em>obligation</em></code> or <code><em>dispensation</em></code> property values of type Rule.</li>
+      		<li>A Rule MAY have none, one or many <code>constraint</code> property values of type Constraint.</li>
+      		<li>A Rule MAY have none or one <code>legalBasis</code> property values to identify the <code>LegalBasis</code> for processing. </li>
+      		<li>A Rule MAY have none or one <code>purpose</code> property values to identify the <code>Purpose</code> of the processing. </li>
+      		<li>A Rule MAY have none or one <code>location</code> property values to identify the <code>Location</code> of the resource. </li>
+      	</ul>
+
+      	<section id="permission">
+      		<h4>Permission subClass</h4>
+      		<p>A Permission <strong>allows</strong> an action to be <strong>exercised</strong> if all constraints are <strong>satisfied</strong> and if all obligations are <strong>fulfilled</strong>.</p>
+      		<p>The Permission class is a subclass of, and inherits all the properties from, the Rule class.</p>
+        </section>
+
+      	<section id="prohibition">
+      		<h4>Prohibition subClass</h4>
+      		<p>A Prohibition <strong>disallows</strong> an action to be <strong>exercised</strong> if all constraints are <strong>satisfied</strong>.</p>
+      		<p>The Prohibition class is a subclass of, and inherits all the properties from, the Rule class.</p>
+      	</section>
+
+      	<section id="obligation">
+      		<h4>Obligation subClass</h4>
+      		<p>An Obligation is requirement to perform an action. An Obligation is <strong>fulfilled</strong> if all constraints are <strong>satisfied</strong> and if its action has been <strong>exercised</strong>.</p>
+      		<p>The Obligation class is a subclass of, and inherits all the properties from, the Rule class.</p>
+      	</section>
+
+      	<section id="dispensation">
+      		<h4>Dispensation subClass</h4>
+      		<p>A Dispensation is an <strong>exemption</strong> from the obligation to <strong>perform</strong> an action. </p>
+      		<p>The Dispensation class is a subclass of, and inherits all the properties from, the Rule class.</p>
+      	</section>
+
+      	<section id="relation">
+      		<h4>relation property</h4>
+      		<p>A <code><em>relation</em></code> property is used to link a Rule to a Resource. The <code><em>relation</em></code> property itself is abstract; sub-properties represent explicit semantics of the relationship between the Resource and the Rule.</p>
+      	</section>
+
+      	<section id="function">
+      		<h4>function property</h4>
+      		<p>A <code><em>function</em></code> property is used to link a Rule to a Party, indicating the function undertaken by the Party in respect to the Rule that links to it. The <code><em>function</em></code> property itself is abstract; sub-properties represent explicit semantics of the functional role between the Party and the Rule.</p>
+      	</section>
+
+      	<section id="action">
+      		<h4>action property</h4>
+          <p> A property that is used to relate an Action to a Rule. </p>
+      	</section>
+
+      	<section id="constraint">
+      		<h4>constraint property</h4>
+          <p> Specifies a constraint which must be satisfied in order for the rule to be valid. </p>
+      	</section>
+
+      	<section id="ppod">
+      		<h4>permission/prohibition/obligation/dispensation property</h4>
+          <p> A property that allows for the nesting of rules of type Permission, Prohibition, Obligation, or Dispensation.</p>
+      	</section>
+      </section>
+
+    </section>
+
+  </body>
+
+</html>

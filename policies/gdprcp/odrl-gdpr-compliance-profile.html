@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset='utf-8'>
+    <title>ODRL GDPR Compliance Profile</title>
+    <script src='https://www.w3.org/Tools/respec/respec-w3c-common' class='remove'></script>
+    <script class='remove'>
+      var respecConfig = {
+        specStatus: "unofficial",
+        subtitle:"version 1.0",
+        shortName: "odrl-gdpr-compliance-profile-",
+        copyrightStart: "2020",
+        publishDate: "2020-08-12",
+        editors: [
+            {   name:       "Sabrina Kirrane",
+                    url:        "http://sabrinakirrane.com/",
+                    company:    "Vienna University of Economics and Business",
+                    companyURL: "http://wu.ac.at",
+                    mailto:     "sabrina.kirrane@wu.ac.at"
+                }],
+        authors: [
+            {   name:       "Sabrina Kirrane",
+                    url:        "http://sabrinakirrane.com/",
+                    company:    "Vienna University of Economics and Business",
+                    companyURL: "http://wu.ac.at",
+                    mailto:     "sabrina.kirrane@wu.ac.at"
+                },
+            {   name:        "Marina De Vos",
+                    url:        "http://www.cs.bath.ac.uk/~mdv/",
+                    company:    "University of Bath",
+                    companyURL: "https://www.bath.ac.uk/",
+                    mailto:     "M.D.Vos@bath.ac.uk"
+                },
+           {   name:        "Julian Padget",
+                        url:        "http://www.cs.bath.ac.uk/~jap/",
+                        company:    "University of Bath",
+                        companyURL: "https://www.bath.ac.uk/",
+                        mailto:     "jap@cs.bath.ac.uk"
+                },
+            {   name:        "Simon Steyskal",
+                    url:        "http://www.cs.bath.ac.uk/~jap/",
+                    company:    "Siemens AG Austria",
+                    companyURL: "https://new.siemens.com/at/de.html",
+                    mailto:     "jsimon.steyskal@siemens.com"
+            }],
+      };
+    </script>
+    <style>
+    	html { background-image: none !important; }
+    	dd ul { margin: 0 0 .5em; }
+    	dl.triple dt { float: left; clear: left; width: 6em; }
+    	table { border-collapse: collapse; margin: 1.5em auto 2em; }
+    	table caption { margin-bottom: 0.2em; }
+    	th { background: #ddd; }
+    	th, td { border: 1px solid #888; margin: 0; padding: 0.3em 0.5em; }
+    </style>
+</head>
+
+  <body>
+    <section id="abstract">
+      <p>The Open Digital Rights Language (ODRL) is a policy expression language that provides a flexible and interoperable information model, vocabulary, and encoding mechanisms for representing statements about the usage of content and services. </p>
+
+      <p>The <a href="https://ai.wu.ac.at/policies/ocp/odrl-compliance-profile/"> ODRL Compliance Profile </a> adapts the <a href="https://www.w3.org/TR/odrl-model/"> ODRL Information Model</a> and <a href="https://www.w3.org/TR/odrl-vocab/"> ODRL Vocabulary & Expression </a> specifications in order to support automated compliance checking. </p>
+
+  	  <p>The goal of this document is to demonstrate how the ODRL Compliance Profile can be extended to support GDPR compliance checking in particular.</p>
+
+      <p class="note">Significant portions of this document are reproduced from the ODRL Information Model standard and the ODRP Compliance Profile.</p>
+    </section>
+
+    <section class="informative" id="intro">
+  	   <h2>Introduction</h2>
+       <p>This document provides and overview of the ODRL GDPR Compliance Profile classes and properties. The work is guided by our analysis of Article 6 "Lawfulness of processing", Article 13 "Information to be provided where personal data are collected from the data subject", and Article 46 "Transfers subject to appropriate safeguards" of the GDPR. At this stage we are not aiming to be exhaustive in terms of modelling the GDPR but rather to demonstrate the potential of ODRL for modelling regulatory obligations. </p>
+
+       <section id="aimsModel">
+         <h3>Aims of the Model</h3>
+  		   <p>The primary aim of the document is to demonstrate the effectiveness of the ODRL Compliance Profile for expressing permissions, prohibitions, obligations, and dispensations in a manner such that they can be checked automatically. </p>
+       </section>
+
+       <section id="conformance">
+          <p>The examples throughout the document are serialized as [[turtle]]. </p>
+  		    <p>The examples presented here make use if the following prefixes: </p>
+          <p>@prefix gdprcp: &lt;https://ai.wu.ac.at/policies/ocp/odrl-gdpr-compliance-profile/&gt; .  </p>
+  		    <p>@prefix ocp: &lt;https://ai.wu.ac.at/policies/ocp/odrl-compliance-profile/&gt; .  </p>
+  		    <p>@prefix odrl: &lt;http://www.w3.org/ns/odrl/2/&gt; .  </p>
+  		    <p>@prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; . </p>
+  	    </section>
+
+    </section>
+
+    <section id="complianceModel">
+    	<h2>ODRL Compliance Profile</h2>
+    	<p>Before going into details on how the ODRL Compliance Profile can be used to model the General Data Protection Regulation we first provide an overview of the code ODRL compliance model as specified in the <a href="https://ai.wu.ac.at/policies/ocp/odrl-compliance-profile/"> ODRL Compliance Profile </a>.</p>
+
+    	<figure>
+    		<img src="RModel.png" alt="ODRL GDPR Compliance Profile model" width="800"/>
+        <figcaption>The ODRL Compliance Profile model (Also available in <a href="RModel.svg">SVG format</a>)</figcaption>
+    	</figure>
+
+    	<p>The ODRL Compliance Profile model has the following core classes:
+        <ul>
+          <li><code>Policy</code> - A non-empty <code>Set</code> of <code>Permissions</code> (via the permission property) and/or <code>Prohibitions</code> (via the prohibition property) and/or <code>Obligations</code> (via the obligation property) and/or <code>Dispensations</code> (via the dispensation property).
+    			</li>
+
+    	    <li><code>ConflictTerm </code> - A means to specific the conflict resolution strategy.</li>
+
+    			<li><code>Rule</code> - An abstract concept that represents the common characteristics of Permissions, Prohibitions, Obligations and Dispensations.
+        	</li>
+
+    			<li><code>Action</code> - An operation referred to in a Rule.
+    			</li>
+
+    			<li><code>Resource</code> - An object referred to in a Rule.
+    			</li>
+
+    			<li><code>Party</code> - An entity referred to in a Rule.
+    			</li>
+
+    			<li><code>Constraint</code> - An abstract concept denoting constraints used to refine a Rule. The profile currently supports <code>PredicateConstraints</code>.
+    			</li>
+        </ul>
+    	</p>
+    </section>
+
+    <section id="GDPRComplianceModel">
+    	<h2>GDPR Compliance Profile Vocabulary</h2>
+
+      <p>This section describes how the ODRL Compliance Profile extends the <a href="https://ai.wu.ac.at/policies/ocp/odrl-compliance-profile/"> ODRL Compliance Profile </a> vocabularies.</p>
+
+      <section id="classes">
+        <h3>GDPR Compliance Profile Classes</h3>
+
+        <section id="action-class">
+        	<h4>Action Class</h4>
+          <p>An <code>Action</code> class indicates an operation. </p>
+
+          <p>The ODRL GDPR Compliance Profile model defines the following top-level Actions:</p>
+          <ul>
+            <li><code>Processing</code> - actions that involve processing by parties. </li>
+            <li><code>Transfer</code> - actions that involve transfers between parties.</li>
+            <li><code> ProcessingEffectingFundamentalRightsAndFreedomsOfTheDataSubject </code></li>
+        	</ul>
+        </section>
+
+        <section id="resource-class">
+        	<h4>Resource Class</h4>
+        	<p>A <code>Resource</code> class is a resource or a collection of resources that are the subject of a Rule. The Resource can be any form of identifiable resource, such as data/information, content/media, applications, services, or physical artefacts.
+
+        	<p>Based on the analysis of Articles 6 and 46 of the GDPR, we propose the following entities of type <code><em> Resource </em></code>:</p>
+
+        	<ul>
+        		<li><code>PersonalData</code></li>
+        		<li><code>AppropriateSafeguards</code></li>
+        		<li><code>EnforceableDataSubjectRights</code></li>
+        		<li><code>LegallyBindingEnforceableInstrument</code></li>
+        		<li><code>BindingCorporateRules</code></li>
+        		<li><code>StandardDataProtectionClauses</code></li>
+        		<li><code>ApprovedCodeOfConduct</code></li>
+        	</ul>
+        </section>
+
+        <section id="party-class">
+        	<h4>Party Class </h4>
+        	<p>A <code>Party</code> is an entity or a collection of entities that undertake roles in a Rule, such as a person, collection of people, organisation, or agent. The <code>Party</code> performs (or does not perform) Actions or has a function in an Obligation.</p>
+          <p>The Party class has the following properties:</p>
+
+        	<p>Based on the analysis of Articles 6 and 46 of the GDPR, we propose the following entities of type <code><em>Party</em></code>:</p>
+        	<ul>
+        		<li><code>Controller</code></li>
+        		<li><code>Processor</code></li>
+        		<li><code>PublicAuthority</code></li>
+        		<li><code>InternationalOrganisation</code></li>
+        	</ul>
+
+        </section>
+
+        <section id="legalBasis-class">
+        	<h4>LegalBasis Class</h4>
+          <p> A class denoting the legal basis for processing. </p>
+        	<p>The profile has the following subclasses of type <code><em> LegalBasis </em></code> that are associated with an action via the <code>legalBasis</code> property:</p>
+        	<ul>
+        		<li><code>Consent</code></li>
+        		<li><code>Contract</code></li>
+        		<li><code>LegalObligation</code></li>
+        		<li><code>VitalInterest</code></li>
+        		<li><code>PublicInterest</code></li>
+        		<li><code>ExerciseOfficialAuthority</code></li>
+        		<li><code>LegitimateInterest</code></li>
+        	</ul>
+        </section>
+
+        <section id="location-class">
+        	<h4>Location Class</h4>
+          <p> A class denoting the location of the processing. </p>
+        	<p>The profile has the following subclasses of type <code><em> Location </em></code> that are associated with an action via the <code>location</code> property:</p>
+
+        	<ul>
+        		<li><code>ThirdCountry</code></li>
+        		<li><code>EU</code></li>
+        	</ul>
+        </section>
+
+        <section id="purpose-class">
+        	<h4>Purpose Class</h4>
+          <p> A class denoting the reason for the processing. </p>
+        	<p>The profile has the following subclasses of type <code><em> Purpose </em></code> that are associated with an action via the <code>purpose</code> property:</p>
+
+        	<ul>
+        		<li><code>PublicAuthorityTask</code></li>
+        		<li><code>PersonalRecommendations</code></li>
+        	</ul>
+        </section>
+      </section>
+
+      <section id="properties">
+        <h3>GDPR Compliance Profile Properties</h3>
+
+        <section id="relation">
+          <h4>relation property</h4>
+          <p>A <code><em>relation</em></code> property is used to link a Rule to a Resource. The <code><em>relation</em></code> property itself is abstract; sub-properties represent explicit semantics of the relationship between the Resource and the Rule.</p>
+          <p>The profile has the following sub-properties of <code><em>relation</em></code>:</p>
+          <ul>
+            <li><code>data</code>: indicates the Resource referred to in the rule.</li>
+          </ul>
+        </section>
+
+        <section id="function">
+          <h4>function property</h4>
+          <p>A <code><em>function</em></code> property is used to link a Rule to a Party, indicating the function undertaken by the Party in respect to the Rule that links to it. The <code><em>function</em></code> property itself is abstract; sub-properties represent explicit semantics of the functional role between the Party and the Rule.</p>
+          <p>The profile has the following sub-properties of <code><em>function</em></code>:</p>
+          <ul>
+            <li><code>controller</code></li>
+            <li><code>processor</code></li>
+            <li><code>sender</code></li>
+            <li><code>recipient</code></li>
+            <li><code>responsibleParty</code></li>
+          </ul>
+        </section>
+
+        <section id="legalBasis">
+          <h4>legalBasis property</h4>
+          <p> A property used to assert the legal basis for processing. This property is used to link a Rule to a LegalBasis.</p>
+        </section>
+
+        <section id="purpose">
+          <h4>purpose property</h4>
+          <p> A property used to assert the purpose for the processing. This property is used to link a Rule to a Purpose.</p>
+        </section>
+
+        <section id="processingLocation">
+          <h4> processingLocation property</h4>
+          <p> A property used to assert the location of the processing. This property is used to link a Rule to a Location.</p>
+        </section>
+
+        <section id="recipientLocation">
+          <h4> recipientLocation property</h4>
+          <p> A property used to assert the location where the recipient is located. This property is used to link a Rule to a Location.</p>
+        </section>
+
+        <section id="organisationType">
+          <h4>organisationType property</h4>
+          <p> A property used to assert the type of organisation. This property is used to link a Rule to a Party.</p>
+        </section>
+
+        <section id="appropriateSafeguards">
+          <h4>appropriateSafeguards property</h4>
+          <p> A property used to assert the type of safeguards that are in place. This property is used to link a Rule to a Resource of type AppropriateSafeguards.</p>
+        </section>
+
+        <section id="dataSubjectProvisions">
+          <h4>dataSubjectProvisions property</h4>
+          <p> A property used to assert the data subject provisions that are in place. This property is used to link a Rule to a Resource of type DataSubjectProvisions.</p>
+        </section>
+      </section>
+    </section>
+
+    <section id="GDPRComplianceModelRules">
+      <h2>GDPR Compliance Profile Rules</h2>
+
+      <p>This section describes how the ODRL Compliance Profile uses the <a href="https://ai.wu.ac.at/policies/ocp/odrl-compliance-profile/"> ODRL Compliance Profile </a> to model Permissions, Prohibitions, Obligations, and Dispenations.</p>
+
+    	<section id="permission">
+    		<h3>Permission subClass</h3>
+    		<p>A Permission <strong>allows</strong> an action to be <strong>exercised</strong> if all constraints are <strong>satisfied</strong> and if all obligations are <strong>fulfilled</strong>.</p>
+    		<p>The Permission class is a subclass of, and inherits all the properties from, the Rule class.</p>
+
+    		<blockquote>
+    			<p><b>Example: Article 6, Paragraph 1, of the GDPR.</b> <i><p>"Processing shall be lawful only if and to the extent that at least one of the following applies: </p>
+    			<p> (a) the data subject has given consent to the processing of his or her personal data for one or more specific purposes; </p>
+    			<p> (b) processing is necessary for the performance of a contract to which the data subject is party or in order to take steps at the request of the data subject prior to entering into a contract; </p>
+    			<p> (c) processing is necessary for compliance with a legal obligation to which the controller is subject; </p>
+    			<p> (d) processing is necessary in order to protect the vital interests of the data subject or of another natural person; </p>
+    			<p> (e) processing is necessary for the performance of a task carried out in the public interest or in the exercise of official authority vested in the controller; </p>
+    			<p> (f) processing is necessary for the purposes of the legitimate interests pursued by the controller or by a third party.... </p></i></p>
+    		</blockquote>
+
+    		<p class="note">
+    			For now we ignore the exception specified in Article 6, paragraph 1, point f. We will deal with this in examples 3 & 4.
+    		</p>
+
+        <pre class="example" title="Article 6 Paragraph 1 Turtle" id="eg-article6-perm-n3">
+
+        &lt;https://ai.wu.ac.at/policies/ocp/odrl-gdpr-compliance-profile/policy:gdpr-article6&gt; a ocp:Set ;
+          ocp:permission &lt;https://ai.wu.ac.at/policies/ocp/odrl-gdpr-compliance-profile/policy:gdpr-article6-legalbasis&gt; ;
+          odrl:profile &lt;https://ai.wu.ac.at/policies/ocp/odrl_regulatory_profile&gt; ;
+
+        &lt;https://ai.wu.ac.at/policies/ocp/odrl-gdpr-compliance-profile/policy:gdpr-article6-legalbasis&gt; odrl:action gdprcp:Processing ;
+          gdprcp:data gdprcp:PersonalData ;
+          ocp:predicateConstraint
+            [ odrl:leftOperand gdprcp:legalBasis ;
+              odrl:operator odrl:isAnyOf ;
+              odrl:rightOperand ( gdprcp:Consent
+                                  gdprcp:Contract
+                                  gdprcp:LegalObligation
+                                  gdprcp:VitalInterest
+                                  gdprcp:PublicInterest
+                                  gdprcp:ExerciseOfOfficialAuthority
+                                  gdprcp:LegitimateInterest )
+            ] .
+        </pre>
+      </section>
+
+    	<section id="prohibition">
+    		<h3>Prohibition subClass</h3>
+    		<p>A Prohibition <strong>disallows</strong> an action to be <strong>exercised</strong> if all constraints are <strong>satisfied</strong>.</p>
+    		<p>The Prohibition class is a subclass of, and inherits all the properties from, the Rule class.</p>
+
+    		<blockquote>
+    			<p><b>Example: Article 6, Paragraph 1, of the GDPR.</b> <i><p>"Processing shall be lawful only if and to the extent that at least one of the following applies: </p>
+    			<p> (a) the data subject has given consent to the processing of his or her personal data for one or more specific purposes; </p>
+    			<p> (b) processing is necessary for the performance of a contract to which the data subject is party or in order to take steps at the request of the data subject prior to entering into a contract; </p>
+    			<p> (c) processing is necessary for compliance with a legal obligation to which the controller is subject; </p>
+    			<p> (d) processing is necessary in order to protect the vital interests of the data subject or of another natural person; </p>
+    			<p> (e) processing is necessary for the performance of a task carried out in the public interest or in the exercise of official authority vested in the controller; </p>
+    			<p> (f) processing is necessary for the purposes of the legitimate interests pursued by the controller or by a third party, except where such interests are overridden by the interests or fundamental rights and freedoms of the data subject which require protection of personal data, in particular where the data subject is a child. </p></i></p>
+    		</blockquote>
+
+        <pre class="example" title="Article 6 Paragraph 1 Turtle" id="eg-article6-pro-n3">
+
+        &lt;https://ai.wu.ac.at/policies/ocp/odrl-gdpr-compliance-profile/policy:gdpr-article6&gt; a ocp:Set ;
+            ocp:permission &lt;https://ai.wu.ac.at/policies/ocp/odrl-gdpr-compliance-profile/policy:gdpr-article6-legalbasis&gt; ;
+            odrl: &lt;https://ai.wu.ac.at/policies/ocp/odrl_regulatory_profile&gt; .
+
+        &lt;https://ai.wu.ac.at/policies/ocp/odrl-gdpr-compliance-profile/policy:gdpr-article6-legalbasis&gt; odrl:action gdprcp:Processing ;
+          gdprcp:data gdprcp:PersonalData ;
+          ocp:predicateConstraint
+            [ odrl:leftOperand gdprcp:legalBasis ;
+              odrl:operator odrl:isAnyOf ;
+              odrl:rightOperand ( gdprcp:Consent
+                                  gdprcp:Contract
+                                  gdprcp:LegalObligation
+                                  gdprcp:VitalInterest
+                                  gdprcp:PublicInterest
+                                  gdprcp:ExerciseOfOfficialAuthority
+                                  gdprcp:LegitimateInterest )
+            ] ;
+          ocp:prohibition
+            [ gdprcp:legalBasis gdprcp:LegitimateInterest ;
+              odrl:predicateConstraint
+                [ odrl:leftOperand odrl:action ;
+                  odrl:operator odrl:isA ;
+                  odrl:rightOperand gdprcp:ProcessingEffectingFundamentalRightsAndFreedomsOfTheDataSubject
+                ]
+            ].
+        </pre>
+    	</section>
+
+    	<section id="obligation">
+    		<h3>Obligation subClass</h3>
+    		<p>An Obligation is requirement to perform an action. An Obligation is <strong>fulfilled</strong> if all constraints are <strong>satisfied</strong> and if its action has been <strong>exercised</strong>.</p>
+    		<p>The Obligation class is a subclass of, and inherits all the properties from, the Rule class.</p>
+    		<blockquote>
+    			<p><b>Example: transfers. </b> Transfers are permitted if there are binding corporate rules in accordance with Article 47; ....</p>
+        </blockquote>
+
+        <pre class="example hljs n3" title="Article 46 Turtle" id="eg-article46-n3">
+        &lt;https://ai.wu.ac.at/policies/ocp/odrl-gdpr-compliance-profile/policy:gdpr-article46&gt; a ocp:Set ;
+        odrl:profile &lt;https://ai.wu.ac.at/policies/ocp/odrl_regulatory_profile&gt; ;
+        ocp:permission
+          [ odrl:action gdprcp:Transfer ;
+            gdprcp:data gdprcp:PersonalData ;
+            odrl:predicateConstraint
+              [ odrl:or (
+                [ odrl:leftOperand gdprcp:organisationType ;
+                  odrl:operator odrl:isA ;
+                  odrl:rightOperand gdprcp:InternationalOrganisation
+                ]
+                [ odrl:leftOperand gdprcp:recipientLocation ;
+                  odrl:operator odrl:isA ;
+                  odrl:rightOperand gdprcp:ThirdCountry
+                ] )
+              ] ;
+            ocp:obligation
+              [ odrl:predicateConstraint
+                [ odrl:leftOperand gdprcp:dataSubjectProvisions ;
+                  odrl:operator odrl:isA ;
+                  odrl:rightOperand gdprcp:EnforceableDataSubjectRights
+                ]
+              ],
+              [ odrl:predicateConstraint
+                [ odrl:leftOperand gdprcp:dataSubjectProvisions ;
+                  odrl:operator odrl:isA ;
+                  odrl:rightOperand gdprcp:LegalRemediesForDataSubjects
+                ]
+              ],
+              [ odrl:predicateConstraint
+                [ odrl:leftOperand gdprcp:appropriateSafeguards ;
+                  odrl:operator odrl:isAnyOf ;
+                  odrl:rightOperand ( gdprcp:LegallyBindingEnforceableInstrument
+                                      gdprcp:BindingCorporateRules
+                                      gdprcp:StandardDataProtectionClauses
+                                      gdprcp:ApprovedCodeOfConduct
+                                      gdprcp:ApprovedCertificateMechanism )
+                ]
+              ]
+          ] .
+        </pre>
+
+    	</section>
+
+    	<section id="dispensation">
+    		<h3>Dispensation subClass</h3>
+    		<p>A Dispensation is an <strong>exemption</strong> from the obligation to <strong>perform</strong> an action. </p>
+    		<p>The Dispensation class is a subclass of, and inherits all the properties from, the Rule class.</p>
+    		<p><b>Example: Article 6 paragraph 2. </b> ...... Point f of the first subparagraph shall not apply to processing carried out by public authorities in the performance of their tasks.</p>
+
+        <pre class="example" title="Article 6 Paragraph 1 Turtle" id="eg-article6-n3">
+
+        &lt;https://ai.wu.ac.at/policies/ocp/odrl-gdpr-compliance-profile/policy:gdpr-article6&gt; a ocp:Set ;
+            ocp:permission &lt;https://ai.wu.ac.at/policies/ocp/odrl-gdpr-compliance-profile/policy:gdpr-article6-legalbasis&gt ;
+            odrl: &lt;https://ai.wu.ac.at/policies/ocp/odrl_regulatory_profile&gt; .
+
+        &lt;https://ai.wu.ac.at/policies/ocp/odrl-gdpr-compliance-profile/policy:gdpr-article6-legalbasis&gt; odrl:action gdprcp:processing ;
+            gdprcp:data gdprcp:PersonalData ;
+            odrl:predicateConstraint
+              [ odrl:leftOperand gdprcp:legalBasis ;
+                odrl:operator odrl:isAnyOf ;
+                odrl:rightOperand ( gdprcp:Consent
+                                    gdprcp:Contract
+                                    gdprcp:LegalObligation
+                                    gdprcp:VitalInterest
+                                    gdprcp:PublicInterest
+                                    gdprcp:ExerciseOfOfficialAuthority
+                                    gdprcp:LegitimateInterest )
+              ] ;
+            ocp:prohibition
+              [ ocp:legalBasis gdprcp:LegitimateInterest ;
+                odrl:predicateConstraint
+                  [ odrl:leftOperand odrl:action ;
+                    odrl:operator odrl:isA ;
+                    odrl:rightOperand gdprcp:ProcessingEffectingFundamentalRightsAndFreedomsOfTheDataSubject
+                  ] ;
+                ocp:dispensation
+                  [ odrl:predicateConstraint
+                    [ odrl:leftOperand gdprcp:organisationType ;
+                      odrl:operator odrl:isA ;
+                      odrl:rightOperand gdprcp:PublicAuthority
+                    ]
+                  ],
+                  [ odrl:predicateConstraint
+                    [ odrl:leftOperand gdprcp:purpose ;
+                      odrl:operator odrl:isA ;
+                      odrl:rightOperand gdprcp:PublicAuthorityTask
+                    ]
+                  ]
+              ] .
+        </pre>
+      </section>
+
+    </section>
+
+    <section id="example">
+      <h2>Extracts from the General Data Protection Regulation</h2>
+      <p> In this section we demonstrate how Article 6 Lawfulness of processing and Article 46 Transfers subject to appropriate safeguards would be modelled using the proposed ODRL GDPR Compliance Profile.</p>
+
+      <section id="gdpr-lawfulness">
+      	<h3>GDPR Lawfulness of Processing</h3>
+        <p>Article 6 Lawfulness of processing</p>
+
+        <section id="gdpr-article61">
+      		<h4>Article 6, Paragraph 1</h4>
+          <p> According to Article 6, Paragraph 1, of the GDPR:</p>
+
+      		<i><p>"Processing shall be lawful only if and to the extent that at least one of the following applies: </p>
+      			<p> (a) the data subject has given consent to the processing of his or her personal data for one or more specific purposes; </p>
+      			<p> (b) processing is necessary for the performance of a contract to which the data subject is party or in order to take steps at the request of the data subject prior to entering into a contract; </p>
+      			<p> (c) processing is necessary for compliance with a legal obligation to which the controller is subject; </p>
+      			<p> (d) processing is necessary in order to protect the vital interests of the data subject or of another natural person; </p>
+      			<p> (e) processing is necessary for the performance of a task carried out in the public interest or in the exercise of official authority vested in the controller; </p>
+      			<p> (f) processing is necessary for the purposes of the legitimate interests pursued by the controller or by a third party, except where such interests are overridden by the interests or fundamental rights and freedoms of the data subject which require protection of personal data, in particular where the data subject is a child. </p>
+      			<p> Point (f) of the first subparagraph shall not apply to processing carried out by public authorities in the performance of their tasks."</p>
+      		</i>
+      		<blockquote>
+      			<p><b>Example: Article 6 Lawfulness of processing.</b></p>
+      		</blockquote>
+
+          <pre class="example" title="Article 6 Paragraph 1 Turtle" id="eg-article6-n3">
+
+          &lt;https://ai.wu.ac.at/policies/ocp/odrl-gdpr-compliance-profile/policy:gdpr-article6&gt; a ocp:Set ;
+              ocp:permission &lt;https://ai.wu.ac.at/policies/ocp/odrl-gdpr-compliance-profile/policy:gdpr-article6-para1&gt; ;
+              odrl: &lt;https://ai.wu.ac.at/policies/ocp/odrl_regulatory_profile&gt; .
+
+          &lt;https://ai.wu.ac.at/policies/ocp/odrl-gdpr-compliance-profile/policy:gdpr-article6-legalbasis&gt; odrl:action ocp:Processing ;
+            ocp:data ocp:PersonalData ;
+            odrl:predicateConstraint
+              [ odrl:leftOperand ocp:legalBasis ;
+                odrl:operator odrl:isAnyOf ;
+                odrl:rightOperand ( ocp:Consent
+                ocp:Contract
+                ocp:LegalObligation
+                ocp:VitalInterest
+                ocp:PublicInterest
+                ocp:ExerciseOfOfficialAuthority
+                ocp:LegitimateInterest )
+              ] ;
+            ocp:prohibition
+              [ ocp:legalBasis ocp:LegitimateInterest ;
+                odrl:predicateConstraint
+                  [ odrl:leftOperand odrl:action ;
+                    odrl:operator odrl:isA ;
+                    odrl:rightOperand ocp:ProcessingEffectingFundamentalRightsAndFreedomsOfTheDataSubject
+                  ] ;
+                ocp:dispensation
+                  [ odrl:predicateConstraint
+                    [ odrl:leftOperand ocp:organisationType ;
+                      odrl:operator odrl:isA ;
+                      odrl:rightOperand ocp:PublicAuthority
+                    ]
+                  ],
+                  [ odrl:predicateConstraint
+                    [ odrl:leftOperand ocp:purpose ;
+                      odrl:operator odrl:isA ;
+                      odrl:rightOperand ocp:PublicAuthorityTask
+                    ]
+                  ]
+                ]
+              ] .
+          </pre>
+        </section>
+
+        <section id="gdpr-article6-ex">
+        		<h4>Business policy permission request to process personal data</h4>
+        		<blockquote>
+        			<p><b>Example: Processing, inside the EU, with consent of the data subject.</b></p>
+        		</blockquote>
+
+            <pre class="example" title="Permission request Turtle with legal basis" id="eg-article6-req-n3-pass">
+
+            &lt;http://example.com/policy:policy:bp-processing-withLegalBasis&gt; a ocp:Set ;
+                odrl:profile &lt;https://ai.wu.ac.at/policies/ocp/odrl_regulatory_profile&gt; ;
+                ocp:permission
+                [ odrl:action ocp:Processing ;
+                  ocp:data ocp:PersonalData ;
+                  ocp:controller &lt;http://example-company.com/CompanyA&gt; ;
+                  ocp:purpose ocp:PersonalRecommendations ;
+                  ocp:ProcessingLocation ocp:EU ;
+                  ocp:legalBasis ocp:Consent ;
+                  odrl:responsibleParty ocp:Controller
+                ] .
+            </pre>
+
+        		<blockquote>
+        			<p><b>Example: Processing, inside the EU, with consent of the data subject, without a legal basis.</b></p>
+        		</blockquote>
+
+            <pre class="example" title="Permission request Turtle without legal basis" id="eg-article6-req-n3-fail">
+
+            &lt;http://example.com/policy:bp-processing-withoutLegalBasis&gt; a ocp:Set ;
+                odrl:profile &lt;https://ai.wu.ac.at/policies/ocp/odrl_regulatory_profile&gt; ;
+                ocp:permission
+                  [ odrl:action ocp:Processing ;
+                    ocp:data ocp:PersonalData ;
+                    ocp:controller &lt;http://example-company.com/CompanyA&gt; ;
+                    ocp:purpose ocp:PersonalRecommendations ;
+                    ocp:ProcessingLocation ocp:EU ;
+                    odrl:responsibleParty ocp:Controller
+                  ] .
+            </pre>
+        </section>
+      </section>
+
+      <section id="gdpr-transfer">
+        <h2>GDPR Lawfulness of Transfers</h2>
+        <p>Article 46 Transfers subject to appropriate safeguards</p>
+
+        <section id="gdpr-transfer-article46">
+          <h4>Article 46 Paragraphs 1 and 2</h3>
+          <p> According to Article 46, Paragraphs 1 and 2, of the GDPR:</p>
+
+          <i>
+          	<p>1. In the absence of a decision pursuant to Article 45(3), a controller or processor may transfer personal data to a third country or an international organisation only if the controller or processor has provided appropriate safeguards, and on condition that enforceable data subject rights and effective legal remedies for data subjects are available.
+
+          	<p>2.The appropriate safeguards referred to in paragraph 1 may be provided for, without requiring any specific authorisation from a supervisory authority, by: </p>
+
+          	<p>(a) a legally binding and enforceable instrument between public authorities or bodies; </p>
+
+          	<p>(b) binding corporate rules in accordance with Article 47; </p>
+
+          	<p>(c) standard data protection clauses adopted by the Commission in accordance with the examination procedure referred to in Article 93(2); </p>
+
+          	<p>(d) standard data protection clauses adopted by a supervisory authority and approved by the Commission pursuant to the examination procedure referred to in Article 93(2); </p>
+
+          	<p>(e) an approved code of conduct pursuant to Article 40 together with binding and enforceable commitments of the controller or processor in the third country to apply the appropriate safeguards, including as regards data subjects' rights; or </p>
+
+          	<p>(f) an approved certification mechanism pursuant to Article 42 together with binding and enforceable commitments of the controller or processor in the third country to apply the appropriate safeguards, including as regards data subjects' rights. </p>
+          </i>
+
+          <blockquote>
+           <p><b>Example: Article 46 Transfers subject to appropriate safeguards.</b></p>
+          </blockquote>
+
+          <pre class="example hljs n3" title="Article 46 Turtle" id="eg-article46-n3">
+
+          &lt;https://ai.wu.ac.at/policies/ocp/odrl-gdpr-compliance-profile/policy:gdpr-article46&gt; a ocp:Set ;
+            odrl:profile &lt;https://ai.wu.ac.at/policies/ocp/odrl_regulatory_profile&gt; ;
+              ocp:permission
+                [ odrl:action ocp:Transfer ;
+                  ocp:data ocp:PersonalData ;
+                  odrl:predicateConstraint
+                [ odrl:or (
+                  [ odrl:leftOperand ocp:organisationType ;
+                    odrl:operator odrl:isA ;
+                    odrl:rightOperand ocp:InternationalOrganisation
+                  ]
+                  [ odrl:leftOperand ocp:recipientLocation ;
+                    odrl:operator odrl:isA ;
+                    odrl:rightOperand ocp:ThirdCountry
+                  ] )
+                ] ;
+                ocp:obligation
+                  [ odrl:predicateConstraint
+                    [ odrl:leftOperand ocp:dataSubjectProvisions ;
+                      odrl:operator odrl:isA ;
+                      odrl:rightOperand ocp:EnforceableDataSubjectRights
+                    ]
+                  ],
+                [ odrl:predicateConstraint
+                  [ odrl:leftOperand ocp:dataSubjectProvisions ;
+                    odrl:operator odrl:isA ;
+                    odrl:rightOperand ocp:LegalRemediesForDataSubjects
+                  ]
+                ],
+                [ odrl:predicateConstraint
+                  [ odrl:leftOperand ocp:appropriateSafeguards ;
+                    odrl:operator odrl:isAnyOf ;
+                    odrl:rightOperand ( ocp:LegallyBindingEnforceableInstrument
+                    ocp:BindingCorporateRules
+                    ocp:StandardDataProtectionClauses
+                    ocp:ApprovedCodeOfConduct
+                    ocp:ApprovedCertificateMechanism )
+                  ]
+                ]
+              ] .
+          </pre>
+        </section>
+
+        <section id="gdpr-transfer-article46-ex">
+        	<h4>Business policy permission request to transfer personal data</h4>
+        	<blockquote>
+        		<p>Transfer outside the EU by an international organisation.</p>
+        	</blockquote>
+
+          <pre class="example hljs n3" title="Request Turtle with appropriate safeguards" id="eg-article46-req-n3">
+
+          &lt;http://example.com/policy:bp-transfer-withSafeguards&gt; a ocp:Set ;
+              odrl:profile &lt;https://ai.wu.ac.at/policies/ocp/odrl_regulatory_profile&gt; ;
+              ocp:permission
+                [ odrl:action ocp:Transfer ;
+                  ocp:data ocp:PersonalData ;
+                  ocp:responsibleParty ocp:Controller ;
+                  ocp:organisationType ocp:InternationalOrganisation ;
+                  ocp:sender &lt;http://example-company.com/CompanyA_Ireland&gt; ;
+                  ocp:recipient &lt;http://example-company.com/CompanyA_USA&gt; ;
+                  ocp:recipientLocation ocp:ThirdCountry ;
+                  ocp:purpose ocp:PersonalRecommendations ;
+                  ocp:legalBasis ocp:Consent ;
+                  odrl:dataSubjectProvisions ocp:EnforceableDataSubjectRights ;
+                  odrl:dataSubjectProvisions ocp:LegalRemediesForDataSubjects ;
+                  ocp:appropriateSafeguards ocp:BindingCorporateRules
+               ] .
+          </pre>
+
+        	<blockquote>
+        		<p>Transfer outside the EU by an international organisation without appropriate safeguards.</p>
+        	</blockquote>
+
+          <pre class="example hljs n3" title="Permission request Turtle without appropriate safeguards" id="eg-article46-req-n3">
+
+          &lt;http://example-company.com/policy:bp-transfer-withoutSafeguards&gt; a ocp:Set ;
+              odrl:profile &lt;https://ai.wu.ac.at/policies/ocp/odrl_regulatory_profile&gt; ;
+              ocp:permission
+                [ odrl:action ocp:Transfer ;
+                  ocp:data ocp:PersonalData ;
+                  ocp:responsibleParty ocp:Controller ;
+                  ocp:organisationType ocp:InternationalOrganisation ;
+                  ocp:sender &lt;http://example-company.com/CompanyA_Ireland&gt; ;
+                  ocp:recipient &lt;http://example-company.com/CompanyA_USA&gt; ;
+                  ocp:recipientLocation ocp:ThirdCountry ;
+                  ocp:purpose ocp:PersonalRecommendations ;
+                  ocp:legalBasis ocp:Consent ;
+                  odrl:dataSubjectProvisions ocp:EnforceableDataSubjectRights ;
+                  odrl:dataSubjectProvisions ocp:LegalRemediesForDataSubjects
+                ] .
+          </pre>
+
+        </section>
+      </section>
+
+      <section id="gdpr-information">
+        <h2>GDPR Information for Data Subjects</h2>
+        <p>Article 13 Information to be provided where personal data have not been obtained from the data subject.</p>
+
+        <section id="gdpr-info-article13">
+          <h4>Article 13, Paragraph 1, of the GDPR</h3>
+
+          <p>According to Article 13, Paragraph 1, of the GDPR:</p>
+
+          <i>
+          	<p>1.Where personal data relating to a data subject are collected from the data subject, the controller shall, at the time when personal data are obtained, provide the data subject with all of the following information:</p>
+
+          	<p>(a) the identity and the contact details of the controller and, where applicable, of the controller's representative;</p>
+
+            <p>(b) the contact details of the data protection officer, where applicable;</p>
+
+            <p>(c) the purposes of the processing for which the personal data are intended as well as the legal basis for the processing;</p>
+
+            <p>(d) where the processing is based on point (f) of Article 6(1), the legitimate interests pursued by the controller or by a third party;</p>
+
+            <p>(e) the recipients or categories of recipients of the personal data, if any;</p>
+
+            <p>(f) where applicable, the fact that the controller intends to transfer personal data to a third country or international organisation and the existence or absence of an adequacy decision by the Commission, or in the case of transfers referred to in Article 46 or 47, or the second subparagraph of Article 49(1), reference to the appropriate or suitable safeguards and the means by which to obtain a copy of them or where they have been made available.</p>
+          </i>
+
+          <blockquote>
+          	<p><b>Example: Article 13 Information to be provided where personal data have not been obtained from the data subject.</b></p>
+          </blockquote>
+
+          <pre class="example hljs n3" title="Article 13 Turtle" id="eg-article13-n3">
+
+          &lt;https://ai.wu.ac.at/policies/ocp/odrl-gdpr-compliance-profile/policy:gdpr-article13&gt; a ocp:Set ;
+              odrl:profile &lt;https://ai.wu.ac.at/policies/ocp/odrl_regulatory_profile&gt; ;
+              ocp:permission
+                [ odrl:action ocp:Collect ;
+                  ocp:data ocp:PersonalData ;
+                  ocp:obligation
+                    [ odrl:predicateConstraint
+                        [ odrl:leftOperand ocp:controllerIdentity ;
+                          odrl:operator odrl:isA ;
+                          odrl:rightOperand ocp:Controller
+                        ],
+                      odrl:predicateConstraint
+                        [ odrl:leftOperand ocp:controllerContactDetails ;
+                          odrl:operator odrl:isA ;
+                          odrl:rightOperand xsd:string
+                        ],
+                      odrl:softPredicateConstraint
+                        [ odrl:leftOperand ocp:controllersRepresentative ;
+                          odrl:operator odrl:isA ;
+                          odrl:rightOperand ocp:Representative
+                        ],
+                      odrl:softPredicateConstraint
+                        [ odrl:leftOperand ocp:dataProtectionOfficer ;
+                          odrl:operator odrl:isA ;
+                          odrl:rightOperand ocp:DataProtectionOfficer
+                        ],
+                      odrl:predicateConstraint
+                        [ odrl:leftOperand ocp:purpose ;
+                          odrl:operator odrl:isA ;
+                          odrl:rightOperand ocp:Purpose
+                        ],
+                      odrl:predicateConstraint
+                        [ odrl:leftOperand ocp:legalBasis ;
+                          odrl:operator odrl:isA ;
+                          odrl:rightOperand ocp:LegalBasis
+                        ],
+                      odrl:softPredicateConstraint
+                        [ odrl:leftOperand ocp:legalBasis ;
+                          odrl:operator odrl:isA ;
+                          odrl:rightOperand ocp:LegitimateInterest
+                        ],
+                      odrl:softPredicateConstraint
+                        [ odrl:leftOperand ocp:recipent ;
+                          odrl:operator odrl:isA ;
+                          odrl:rightOperand ocp:Recipent
+                        ],
+                      odrl:softPredicateConstraint
+                        [ odrl:or (
+                          [ odrl:leftOperand ocp:organisationType ;
+                            odrl:operator odrl:isA ;
+                            odrl:rightOperand ocp:InternationalOrganisation
+                          ]
+                          [ odrl:leftOperand ocp:recipientLocation ;
+                            odrl:operator odrl:isA ;
+                            odrl:rightOperand ocp:ThirdCountry
+                          ] )
+                        ]
+                    ]
+                ]  .
+          </pre>
+        </section>
+
+        <section id="gdpr-info-article14-ex">
+        	<h4>Business policy request to collect personal data.</h3>
+        	<blockquote>
+        		<p>Request for permission to collect personal data in order to provide recommendations.</p>
+        	</blockquote>
+
+          <pre class="example hljs n3" title="Permission request Turtle without recipents" id="eg-article13-req-n3">
+          &lt;http://example-company.com/policy:bp-collect-for-recommendations&gt; a ocp:Set ;
+              odrl:profile &lt;https://ai.wu.ac.at/policies/ocp/odrl_regulatory_profile&gt; ;
+              ocp:permission
+                [ odrl:action ocp:Collect ;
+                  ocp:data ocp:PersonalData ;
+                  ocp:controllerIdentity &lt;http://example-company.com/CompanyA_Ireland&gt; ;
+                  ocp:organisationType ocp:InternationalOrganisation ;
+                  ocp:controllerContactDetails "CompanyA, IFIC, Dublin, Ireland"^^xsd:string ;
+                  ocp:purpose ocp:PersonalRecommendations ;
+                  ocp:legalBasis ocp:Consent
+                 ] .
+          </pre>
+        </section>
+
+      </section>
+
+    </section>
+
+  </body>
+
+</html>
