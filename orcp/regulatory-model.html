@@ -1,0 +1,1416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset='utf-8'>
+    <title>ODRL Regulatory Compliance Profile</title>
+    <script src='https://www.w3.org/Tools/respec/respec-w3c-common' class='remove'></script>
+    <script class='remove'>
+      var respecConfig = {
+        specStatus: "unofficial",
+        subtitle:"version 0.2",
+        shortName: "odrl-generic-policies-profile",
+        copyrightStart: "2019",
+        publishDate: "2020-08-10",
+        editors: [
+            {   name:       "Sabrina Kirrane",
+                    url:        "http://sabrinakirrane.com/",
+                    company:    "Vienna University of Economics and Business",
+                    companyURL: "http://wu.ac.at",
+                    mailto:     "sabrina.kirrane@wu.ac.at"
+                }],
+        authors: [
+            {   name:       "Sabrina Kirrane",
+                    url:        "http://sabrinakirrane.com/",
+                    company:    "Vienna University of Economics and Business",
+                    companyURL: "http://wu.ac.at",
+                    mailto:     "sabrina.kirrane@wu.ac.at"
+                },
+            {   name:        "Marina De Vos",
+                    url:        "http://www.cs.bath.ac.uk/~mdv/",
+                    company:    "University of Bath",
+                    companyURL: "https://www.bath.ac.uk/",
+                    mailto:     "M.D.Vos@bath.ac.uk"
+                },
+	    {   name:        "Julian Padget",
+                    url:        "http://www.cs.bath.ac.uk/~jap/",
+                    company:    "University of Bath",
+                    companyURL: "https://www.bath.ac.uk/",
+                    mailto:     "jap@cs.bath.ac.uk"
+                }],
+      };
+    </script>
+    <style>
+    	html { background-image: none !important; }
+    	dd ul { margin: 0 0 .5em; }
+    	dl.triple dt { float: left; clear: left; width: 6em; }
+    	table { border-collapse: collapse; margin: 1.5em auto 2em; }
+    	table caption { margin-bottom: 0.2em; }
+    	th { background: #ddd; }
+    	th, td { border: 1px solid #888; margin: 0; padding: 0.3em 0.5em; }
+    </style>
+</head>
+
+<body>
+
+<section id="abstract">
+
+    	<p>The Open Digital Rights Language (ODRL) is a policy expression language that provides a flexible and interoperable information model, vocabulary, and encoding mechanisms for representing statements about the usage of content and services. </p>
+
+	<p>This document constitutes an ODRL profile that adapts the ODRL Core Model and Vocabulary with concepts and terms to support regulatory compliance checking of business policies.</p>
+
+	<p>In essence, ODRL Regulatory Compliance Profile policies are used to represent regulatory permissions, prohibitions, obligations, and dispensations, which may be limited by constraints (e.g., temporal, spatial). </p>
+
+	<p class="note">
+	Significant portions of this document are reproduced from the ODRL Information Model standard. We would particularly like to thank Benedict Whittamsmith (Refinitiv) and Piero Bonatti (CeRICT) for their comments on this draft specification.
+	</p>
+
+</section>
+
+<section id="sotd">
+</section>
+
+
+<section class="informative" id="intro">
+	<h2>Introduction</h2>
+
+	<p>This document provides and overview of the ODRL Regulatory Compliance Profile classes and properties. The work is guided by our analysis of Article 6 "Lawfulness of processing" and and Article 46 "Transfers subject to appropriate safeguards" of the GDPR. At this stage we are not aiming to be exhaustive in terms of modelling the GDPR but rather to demonstrate the potential of ODRL for modelling regulatory obligations. </p>
+
+	<section id="aimsModel">
+		<h3>Aims of the Model</h3>
+
+		<p>The primary aim of the ODRL Regulatory Compliance Profile model is to provide a model and vocabularies that can be used to express permissions, prohibitions, obligations, and dispensations in a manner such that they can be checked automatically. </p>
+	</section>
+
+
+	<section id="conformance">
+
+    		<p>The examples throughout the document are serialized as [[json-ld]]. and [[turtle]]. </p>
+
+		<p>The examples presented here make use if the following prefixes: </p>
+		<p>@prefix orcp: &lt;http://example.com/odrl:profile:regulatory-compliance/&gt; .  </p>
+		<p>@prefix odrl: &lt;http://www.w3.org/ns/odrl/2/&gt; .  </p>
+		<p>@prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; . </p>
+
+
+	</section>
+
+	<section id="terminology">
+		<h3>Terminology</h3>
+
+		<dl class="termlist">
+
+	       		<dt><dfn>Policy</dfn></dt>
+	          	<dd>One or more Rules.</dd>
+
+	       		<dt><dfn>Set</dfn></dt>
+	          	<dd>A set of one or more Rules.</dd>
+
+	       		<dt><dfn>ConflictTerm</dfn></dt>
+	          	<dd>A means to specific the conflict resolution strategy.</dd>
+
+			<dt><dfn>Rule</dfn></dt>
+	          	<dd>An abstract concept that represents the common characteristics of Permissions, Prohibitions, Obligations and Dispensations.</dd>
+
+			<dt><dfn>Action</dfn></dt>
+	          	<dd>Something done or performed.</dd>
+
+			<dt><dfn>Resource</dfn></dt>
+	          	<dd>An object or a collection of objects that are the subject of a Rule.</dd>
+
+			<dt><dfn>Party</dfn></dt>
+	          	<dd>An entity or a collection of entities that undertake roles in a Rule.</dd>
+
+			<dt><dfn>Permission</dfn></dt>
+                  	<dd>Indication that an Action is allowed.</dd>
+
+			<dt><dfn>Prohibition</dfn></dt>
+                  	<dd>Indication that an Action is not allowed.</dd>
+
+			<dt><dfn>Obligation</dfn></dt>
+	          	<dd>An Action that must be performed.</dd>
+
+			<dt><dfn>Dispensation</dfn></dt>
+	          	<dd>The exemption from an obligation.</dd>
+
+			<dt><dfn>Constraint</dfn></dt>
+	          	<dd>An expression that refines a Rule.</dd>
+
+			<dt><dfn>PredicateConstraint</dfn></dt>
+	          	<dd>A constraint that relates to a given predicate.</dd>
+
+			<dt><dfn>ODRL Core Vocabulary</dfn></dt>
+	          	<dd>The set of terms that are represented by the ODRL Information Model.</dd>
+
+			<dt><dfn>ODRL Profile</dfn></dt>
+	          	<dd>An adaption of the ODRL Core Model and Vocabulary in order to meet the needs of a specific community or sector.</dd>
+
+			<dt><dfn>ODRL Common Vocabulary</dfn></dt>
+	          	<dd>A set of generic terms that may be re-used by ODRL Profiles.</dd>
+
+			<dt><dfn>ODRL Regulatory Compliance Profile Vocabulary</dfn></dt>
+	          	<dd>A set of terms used to specify regulatory policies.</dd>
+             </dl>
+
+	</section>
+
+</section>
+
+<section id="infoModel">
+	<h2>ODRL Regulatory Compliance Profile</h2>
+
+	<p>The ODRL Regulatory Compliance Profile model represents Policies that express Permissions, Prohibitions, Obligations, and Dispensations related to actions.</p>
+
+	<p>The figure below shows the ODRL Regulatory Compliance Profile model, which is an adaptation of the ODRL Information model.</p>
+
+	<figure>
+		<img src="RModel.png" alt="ODRL Regulatory Compliance Profile model" width="800"/>
+    		<figcaption>The ODRL Regulatory Compliance Profile model (Also available in <a href="RModel.svg">SVG format</a>)</figcaption>
+	</figure>
+
+
+	<p>The ODRL Regulatory Compliance Profile model has the following core classes:
+    		<ul>
+        		<li><code>Policy</code> - A non-empty <code>Set</code> of <code>Permissions</code> (via the permission property) and/or <code>Prohibitions</code> (via the prohibition property) and/or <code>Obligations</code> (via the obligation property) and/or <code>Dispensations</code> (via the dispensation property).
+			</li>
+
+	          	<li><code>ConflictTerm </code> - A means to specific the conflict resolution strategy.</li>
+
+			<li><code>Rule</code> - An abstract concept that represents the common characteristics of Permissions, Prohibitions, Obligations and Dispensations.
+    			</li>
+
+			<li><code>Action</code> - An operation referred to in a Rule.
+			</li>
+
+			<li><code>Resource</code> - An object referred to in a Rule.
+			</li>
+
+			<li><code>Party</code> - An entity referred to in a Rule.
+			</li>
+
+			<li><code>Constraint</code> - An abstract concept denoting constraints used to refine a Rule. The profile currently supports <code>PredicateConstraints</code>.
+			</li>
+    		</ul>
+
+	</p>
+
+	<section id="policy">
+		<h3>Policy Class</h3>
+
+		<p>The Policy class has the following properties:</p>
+		<ul>
+			<li>A Policy MUST have one <code>uid</code> property value (of type IRI [[!rfc3987]]) to identify the Policy.</li>
+
+			<li>A Policy MUST have at least one <code>permission</code>, <code>prohibition</code>, <code>obligation</code> or <code>dispensation</code> property of type Rule.  (See the <a href="#permission">Permission</a>,  <a href="#prohibition">Prohibition</a>, <a href="#obligation">Obligation</a> and <a href="#dispensation">Dispensation</a> sections for more details.)</li>
+
+			<li>A Policy MUST use a <code>profile</code> property value (of type IRI [[!rfc3987]]) to identify the ODRL Regulatory Compliance Profile. </li>
+
+			<li>A Policy MAY have none, one, or many <code>inheritFrom</code> property values (of type IRI [[!rfc3987]]) to identify the parent Policy from which this child Policy inherits from. </li>
+
+			<li>A Policy MAY have none or one <code>conflict</code> property values (of type ConflictTerm) for Conflict Strategy Preferences indicating how to handle Policy conflicts.</li>
+
+		</ul>
+
+	<section id="policy-set">
+		<h3>Set subClass</h3>
+
+    		<p>An ODRL Policy of subclass <code>Set</code> represents any combination of Rules. The <code>Set</code> Policy subclass is also the default subclass of Policy (if none is specified).</p>
+
+	</section>
+
+
+	<section id="conflict">
+		<h3>conflict property</h3>
+		<p>The <code>conflict</code> property is used to establish strategies to resolve conflicts that arise from the merging of Policies or conflicts between Permissions, Prohibitions and Obligations in the same Policy. Conflicts may arise when merging Policies as a result of policy inheritance and the resultant Rules are inconsistent.</p>
+
+	</section>
+
+
+	<section id="inheritedFrom">
+		<h3>inheritedFrom property</h3>
+		<p> A property which is used to cater for policies inheritance. </p>
+	</section>
+
+
+	<section id="profile">
+		<h3>profile property</h3>
+		<p> A property which is used to specify the policies profile. </p>
+	</section>
+
+
+	<section id="ppod">
+		<h3>permission/prohibition/obligation/dispensation properties</h3>
+     		<p> Properties that relate rules of type Permission, Prohibition, Obligation, or Dispensation to a Policy.</p>
+	</section>
+
+</section>
+
+<section id="conflict-class">
+	<h3>ConflictTerm Class </h3>
+
+	<p>The <code>conflict</code> property is used to establish strategies to resolve conflicts that arise from the merging of Policies or conflicts between Permissions/Obligations and Prohibitions in the same Policy. Conflicts may arise when merging Policies, as a result of policy inheritance, or when Rules are inconsistent.</p>
+
+	<p>The <code>conflict</code> property SHOULD take one of the following conflict strategy preference values (instances of the ConflictTerm class):</p>
+
+	<ul>
+		<li><code>perm</code>: Permissions and Obligations MUST override the Prohibitions</li>
+		<li><code>prohibit</code>: Prohibitions MUST override the Permissions and Obligations</li>
+		<li><code>invalid</code>: the entire Policy MUST be void if any conflict is detected</li>
+	</ul>
+
+	<p>If the <code>conflict</code> property is not explicitly set, the default of <code>invalid</code> will be used.
+
+	<p>The conflict strategy requirements include:</p>
+
+	<ol>
+       	<li>If a Policy has the <code>conflict</code> property of <code>perm</code> then any conflicting Permission/Obligation Rule MUST override the Prohibition Rule.</li>
+ 		<li>If a Policy has the <code>conflict</code> property of <code>prohibit</code> then any conflicting Prohibition Rule MUST override the Permission/Obligation Rule.</li>
+  		<li>If a Policy has the <code>conflict</code> property of <code>invalid</code> then any conflicting Rules MUST void  the entire Policy.</li>
+ 		<li>If a Policy has multiple <code>conflict</code> property values (for example, after a Policy merge or inheritance) and there are conflicting Rules then the entire Policy MUST be void.</li>
+
+ 	</ol>
+
+</section>
+
+
+<section id="action-class">
+	<h3>Action Class</h3>
+
+    	<p>An <code>Action</code> class indicates an operation. </p>
+
+    	<p>The ODRL Regulatory Compliance Profile model defines the following top-level Actions:</p>
+    	<ul>
+    		<li><code>Processing</code> - actions that involve processing by parties. </li>
+    		<li><code>Transfer</code> - actions that involve transfers between parties.</li>
+    	</ul>
+
+    	<p>The Action class has the following properties:</p>
+	<ul>
+		<li>An Action SHOULD have one <code>uid</code> property value (of type IRI [[!rfc3987]]) to identify the Action.</li>
+	</ul>
+
+	<p>Based on the analysis of Articles 6 and 46 of the GDPR, we propose the following subclasses of the Processing class:</p>
+	<ul>
+		<li><code> ProcessingEffectingFundamentalRightsAndFreedomsOfTheDataSubject </code></li>
+	</ul>
+
+</section>
+
+<section id="resource-class">
+	<h3>Resource Class</h3>
+	<p>A <code>Resource</code> class is a resource or a collection of resources that are the subject of a Rule. The Resource can be any form of identifiable resource, such as data/information, content/media, applications, services, or physical artefacts.
+
+    	<p>The Resource class has the following properties:</p>
+
+	<ul>
+		<li>A Resource SHOULD have one <code>uid</code> property value (of type IRI [[!rfc3987]]) to identify the Resource.</li>
+
+	</ul>
+
+	<p>Based on the analysis of Articles 6 and 46 of the GDPR, we propose the following entities of type <code><em> Resource </em></code>:</p>
+
+	<ul>
+		<li><code>PersonalData</code></li>
+		<!--<li><code>ADecisionPursuantToArticle45(3)GDPR</code></li>-->
+		<li><code>AppropriateSafeguards</code></li>
+		<li><code>EnforceableDataSubjectRights</code></li>
+		<!--<li><code>EffectiveLegalRemedies</code></li>-->
+		<li><code>LegallyBindingEnforceableInstrument</code></li>
+		<li><code>BindingCorporateRules</code></li>
+		<li><code>StandardDataProtectionClauses</code></li>
+		<li><code>ApprovedCodeOfConduct</code></li>
+		<!--<li><code>BindingEnforceableCommitments</code></li>-->
+		<!--<li><code>ApprovedCertificationMechanism</code></li>-->
+		<!--<li><code>AuthorisationFromTheCompetentSuperviosryAuthority</code></li>-->
+		<!--<li><code>ContractualClauses</code></li>-->
+		<!--<li><code>ProvisionsToBeInsertedIntoAdministrariveAgreements </code></li>-->
+		<!--<li><code>AuthorisationsOnTheBasisOfArticle26(2)Directive95/46/EC</code></li>-->
+		<!--<li><code>DecisionsOnTheBasisOfArticle26(4)Directive95/46/EC</code></li>-->
+		<!--<li><code>DecisionsOnTheBasisOfArticle46(2)GDPR</code></li>-->
+	</ul>
+
+	<section id="hasPolicy">
+		<h3>hasPolicy property</h3>
+
+		<p>An ODRL Policy class MAY also be referenced by the <code>hasPolicy</code> property. This supports ODRL Policy Rules being the object of external metadata expressions (that identifies a Resource). When <code>hasPolicy</code> has been asserted between a metadata expression and an ODRL Policy, the Resource being identified MUST be inferred to be the <code>resource</code> of all the Rules of that Policy. If there are multiple Rules in the Policy, then the inferred Resource will be the target Resource to <strong>every</strong> Rule in the Policy.</p>
+
+	</section>
+
+</section>
+
+
+<section id="party-class">
+	<h3>Party Class </h3>
+
+	<p>A <code>Party</code> is an entity or a collection of entities that undertake roles in a Rule, such as a person, collection of people, organisation, or agent. The <code>Party</code> performs (or does not perform) Actions or has a function in an Obligation.</p>
+
+
+    	<p>The Party class has the following properties:</p>
+
+	<ul>
+		<li>A Party SHOULD have one <code>uid</code> property value (of type IRI [[!rfc3987]]) to identify the Party.</li>
+	</ul>
+
+	<p>Based on the analysis of Articles 6 and 46 of the GDPR, we propose the following entities of type <code><em>Party</em></code>:</p>
+	<ul>
+		<!--<li><code>DataSubject</code></li>-->
+		<li><code>Controller</code></li>
+		<li><code>Processor</code></li>
+		<!--<li><code>SupervisoryAuthority</code></li>-->
+		<li><code>PublicAuthority</code></li>
+		<!--<li><code>PublicBody</code></li>-->
+		<li><code>InternationalOrganisation</code></li>
+	</ul>
+
+</section>
+
+<section id="legalBasis-class">
+	<h3>LegalBasis Class</h3>
+     	<p> A class denoting the legal basis for processing. </p>
+
+	<p>The profile has the following subclasses of type <code><em> LegalBasis </em></code> that are associated with an action via the <code>legalBasis</code> property:</p>
+	<ul>
+		<li><code>Consent</code></li>
+		<li><code>Contract</code></li>
+		<li><code>LegalObligation</code></li>
+		<li><code>VitalInterest</code></li>
+		<li><code>PublicInterest</code></li>
+		<li><code>ExerciseOfficialAuthority</code></li>
+		<li><code>LegitimateInterest</code></li>
+	</ul>
+</section>
+
+<section id="location-class">
+	<h3>Location Class</h3>
+     	<p> A class denoting the location of the processing. </p>
+
+	<p>The profile has the following subclasses of type <code><em> Location </em></code> that are associated with an action via the <code>location</code> property:</p>
+
+	<ul>
+		<li><code>ThirdCountry</code></li>
+		<li><code>EU</code></li>
+	</ul>
+</section>
+
+
+<section id="purpose-class">
+	<h3>Purpose Class</h3>
+     	<p> A class denoting the reason for the processing. </p>
+
+	<p>The profile has the following subclasses of type <code><em> Purpose </em></code> that are associated with an action via the <code>purpose</code> property:</p>
+
+	<ul>
+		<li><code>PublicAuthorityTask</code></li>
+		<li><code>PersonalRecommendations</code></li>
+	</ul>
+</section>
+
+<section id="constraint-class">
+	<h3>Constraint Class</h3>
+
+	<p>The <code>Constraint</code> class is used to specify expressions that can be used to refine the semantics of an Action or declare the conditions applicable to a Rule. When multiple Constraints apply to the same Rule or Action, then they are interpreted as conjunction and all MUST be satisfied.</p>
+
+	<section id="PredicateConstraint-subclass">
+		<h3>PredicateConstraint subClass</h3>
+
+		<p>A PredicateConstraint class is used for expressions which compare two operands by one relational operator, where the leftOperand is a predicate and the rightOperand is an object. If the comparison returns a match the PredicateConstraint is <strong>satisfied</strong>, otherwise it is <strong>not satisfied</strong>. The Constraint class formulates a comparison expression, such as, orcp:organisationType (the <code>leftOperand</code>) must be equal to (the <code>operator</code>) orcp:InternationalOrganisation (the <code>rightOperand</code>). </p>
+
+		<p>The Constraint class has the following properties:</p>
+		<ul>
+			<li>A Constraint MUST have none or one <code>uid</code> property value (of type IRI [[!rfc3987]]) to identify the Constraint.</li>
+			<li>A Constraint MUST have one <code>leftOperand</code> property value of type LeftOperand.</li>
+			<li>A Constraint MUST have one <code>operator</code> property value of type Operator.</li>
+			<li>A Constraint MUST have one <code>rightOperand </code> property value of type RightOperator.</li>
+		</ul>
+
+
+		<section id="leftOperand-property">
+			<h3>leftOperand property</h3>
+			<p>Used to define the predicate of the constraint which must be satisfied.</p>
+		</section>
+
+		<section id="operator-property">
+			<h3>operator property</h3>
+			<p>Used to define the operator for the constraint which must be satisfied.</p>
+
+			<p>This profile adopts the following top-level Operators:</p>
+			<ul>
+				<li><code>isA </code></li>
+				<li><code>isAnyOf </code></li>
+			</ul>
+		</section>
+
+		<section id="RightOperand-proprty">
+			<h3>RightOperand Class</h3>
+			<p>Used to define the object of the constraint that must be satisfied.</p>
+		</section>
+
+	</section>
+
+</section>
+
+<section id="rule-class">
+	<h3>Rule Class</h3>
+
+	<p>The <code>Rule</code> class is the parent of the Permission, Prohibition, Obligations and Dispensation classes. The Rule class represents the common characteristics of these five classes. A Rule class MUST be disjoint with all other Rule subclasses.
+	</p>
+
+	<p>The Rule class has the following properties:</p>
+
+	<ul>
+		<li>A Rule MAY have none or one <code>uid</code> property values (of type IRI [[!rfc3987]]) to identify the Rule so it MAY be referenced by other Rules.</li>
+		<li>A Rule MUST have one <code>action</code> property value of type Action.</li>
+		<li>A Rule MAY have none, one or many <code><em>permission</em></code>, <code><em>prohibition</em></code>, <code><em>obligation</em></code> or <code><em>dispensation</em></code> property values of type Rule.</li>
+		<li>A Rule MAY have none, one or many <code>constraint</code> property values of type Constraint.</li>
+		<li>A Rule MAY have none or one <code>legalBasis</code> property values to identify the <code>LegalBasis</code> for processing. </li>
+		<li>A Rule MAY have none or one <code>purpose</code> property values to identify the <code>Purpose</code> of the processing. </li>
+		<li>A Rule MAY have none or one <code>location</code> property values to identify the <code>Location</code> of the resource. </li>
+	</ul>
+
+		<p class="note">
+			We need to determine where we are going to host this page as it effects the namespace "@context": "https://ai.wu.ac.at/policies/orcp/odrl_regulatory_profile.jsonid",
+		</p>
+
+	<section id="permission">
+		<h3>Permission subClass</h3>
+
+		<p>A Permission <strong>allows</strong> an action to be <strong>exercised</strong> if all constraints are <strong>satisfied</strong> and if all obligations are <strong>fulfilled</strong>.</p>
+
+		<p>The Permission class is a subclass of, and inherits all the properties from, the Rule class.</p>
+
+
+		<blockquote>
+			<p><b>Example: Article 6, Paragraph 1, of the GDPR.</b> <i><p>"Processing shall be lawful only if and to the extent that at least one of the following applies: </p>
+
+			<p> (a) the data subject has given consent to the processing of his or her personal data for one or more specific purposes; </p>
+
+			<p> (b) processing is necessary for the performance of a contract to which the data subject is party or in order to take steps at the request of the data subject prior to entering into a contract; </p>
+
+			<p> (c) processing is necessary for compliance with a legal obligation to which the controller is subject; </p>
+
+			<p> (d) processing is necessary in order to protect the vital interests of the data subject or of another natural person; </p>
+
+			<p> (e) processing is necessary for the performance of a task carried out in the public interest or in the exercise of official authority vested in the controller; </p>
+
+			<p> (f) processing is necessary for the purposes of the legitimate interests pursued by the controller or by a third party.... </p></i></p>
+		</blockquote>
+
+
+		<p class="note">
+			For now we ignore the exception specified in Article 6, paragraph 1, point f. We will deal with this in examples 3 & 4.
+		</p>
+
+<pre id="eg-article6-json-ld" title="Article 6 Paragraph 1 JSON-LD"  class="example hljs json">
+{
+    "@context": "https://ai.wu.ac.at/policies/orcp/odrl_regulatory_profile.jsonid",
+    "@type": "Set",
+    "uid": "http://example.com/policy:gdpr-article6",
+    "profile": "http://example.com/odrl:profile:regulatory-compliance",
+    "permission": [{
+        "uid": "http://example.com/policy:gdpr-article6-para1",
+        "action": "Processing",
+        "data": "PersonalData",
+        "predicateConstraint": {
+	    "leftOperand": "legalBasis",
+            "operator": "isAnyOf",
+            "rightOperand": {
+                "@list": [
+                    { "@id": "Consent" },
+                    { "@id": "Contract" },
+                    { "@id": "LegalObligation" },
+                    { "@id": "VitalInterest" },
+                    { "@id": "PublicInterest" },
+                    { "@id": "ExerciseOfOfficialAuthority" },
+                    { "@id": "LegitimateInterest" }
+                ]
+            }
+        }
+    }]
+}
+</pre>
+
+
+<pre class="example" title="Article 6 Paragraph 1 Turtle" id="eg-article6-n3">
+
+&lt;http://example.com/policy:gdpr-article6&gt; a orcp:Set ;
+    orcp:permission &lt;http://example.com/policy:gdpr-article-para1&gt; ;
+    odrl:profile &lt;http://example.com/odrl:profile:regulatory-compliance&gt; .
+
+&lt;http://example.com/policy:gdpr-article-para1&gt; odrl:action orcp:Processing ;
+    orcp:data orcp:PersonalData ;
+    odrl:predicateConstraint
+	[ odrl:leftOperand orcp:legalBasis ;
+          odrl:operator odrl:isAnyOf ;
+          odrl:rightOperand ( orcp:Consent
+                              orcp:Contract
+                              orcp:LegalObligation
+                              orcp:VitalInterest
+                              orcp:PublicInterest
+                              orcp:ExerciseOfOfficialAuthority
+                              orcp:LegitimateInterest )
+        ] .
+</pre>
+
+	</section>
+
+	<section id="prohibition">
+		<h3>Prohibition subClass</h3>
+
+		<p>A Prohibition <strong>disallows</strong> an action to be <strong>exercised</strong> if all constraints are <strong>satisfied</strong>.
+		</p>
+
+		<p>The Prohibition class is a subclass of, and inherits all the properties from, the Rule class.</p>
+
+
+		<blockquote>
+			<p><b>Example: Article 6, Paragraph 1, of the GDPR.</b> <i><p>"Processing shall be lawful only if and to the extent that at least one of the following applies: </p>
+
+			<p> (a) the data subject has given consent to the processing of his or her personal data for one or more specific purposes; </p>
+
+			<p> (b) processing is necessary for the performance of a contract to which the data subject is party or in order to take steps at the request of the data subject prior to entering into a contract; </p>
+
+			<p> (c) processing is necessary for compliance with a legal obligation to which the controller is subject; </p>
+
+			<p> (d) processing is necessary in order to protect the vital interests of the data subject or of another natural person; </p>
+
+			<p> (e) processing is necessary for the performance of a task carried out in the public interest or in the exercise of official authority vested in the controller; </p>
+
+			<p> (f) processing is necessary for the purposes of the legitimate interests pursued by the controller or by a third party, except where such interests are overridden by the interests or fundamental rights and freedoms of the data subject which require protection of personal data, in particular where the data subject is a child. </p></i></p>
+		</blockquote>
+
+<pre id="eg-article6-json-ld" title="Article 6 Paragraph 1 JSON-LD"  class="example hljs json">
+{
+    "@context": "https://ai.wu.ac.at/policies/orcp/odrl_regulatory_profile.jsonid",
+    "@type": "Set",
+    "uid": "http://example.com/policy:gdpr-article6",
+    "profile": "http://example.com/odrl:profile:regulatory-compliance",
+    "permission": [{
+        "uid": "http://example.com/policy:gdpr-article6-para1",
+        "action": "Processing",
+        "data": "PersonalData",
+        "predicateConstraint": {
+	    "leftOperand": "legalBasis",
+            "operator": "isAnyOf",
+            "rightOperand": {
+                "@list": [
+                    { "@id": "Consent" },
+                    { "@id": "Contract" },
+                    { "@id": "LegalObligation" },
+                    { "@id": "VitalInterest" },
+                    { "@id": "PublicInterest" },
+                    { "@id": "ExerciseOfOfficialAuthority" },
+                    { "@id": "LegitimateInterest" }
+                ]
+            }
+        },
+        "prohibition": [{
+            "legalBasis": "LegitimateInterest",
+            "predicateConstraint": [{
+		"leftOperand": "action",
+		"operator": "isA",
+		"rightOperand": "ProcessingEffectingFundamentalRightsAndFreedomsOfTheDataSubject"
+            }]
+        }]
+
+    }]
+}
+</pre>
+
+
+<pre class="example" title="Article 6 Paragraph 1 Turtle" id="eg-article6-n3">
+
+&lt;http://example.com/policy:gdpr-article6&gt; a orcp:Set ;
+    orcp:permission &lt;http://example.com/policy:gdpr-article-para1&gt; ;
+    odrl:profile &lt;http://example.com/odrl:profile:regulatory-compliance&gt; .
+
+&lt;http://example.com/policy:gdpr-article-para1&gt; odrl:action orcp:Processing ;
+    orcp:data orcp:PersonalData ;
+    odrl:predicateConstraint
+	[ odrl:leftOperand orcp:legalBasis ;
+          odrl:operator odrl:isAnyOf ;
+          odrl:rightOperand ( orcp:Consent
+                              orcp:Contract
+                              orcp:LegalObligation
+                              orcp:VitalInterest
+                              orcp:PublicInterest
+                              orcp:ExerciseOfOfficialAuthority
+                              orcp:LegitimateInterest )
+	] ;
+    orcp:prohibition
+        [ orcp:legalBasis orcp:LegitimateInterest ;
+	  odrl:predicateConstraint
+	      [ odrl:leftOperand odrl:action ;
+                odrl:operator odrl:isA ;
+                odrl:rightOperand orcp:ProcessingEffectingFundamentalRightsAndFreedomsOfTheDataSubject
+              ]
+        ].
+</pre>
+
+	</section>
+
+	<section id="obligation">
+		<h3>Obligation subClass</h3>
+
+		<p>An Obligation is requirement to perform an action. An Obligation is <strong>fulfilled</strong> if all constraints are <strong>satisfied</strong> and if its action has been <strong>exercised</strong>.
+		</p>
+
+		<p>The Obligation class is a subclass of, and inherits all the properties from, the Rule class.</p>
+
+
+		<blockquote>
+			<p><b>Example: transfers. </b> Transfers are permitted if there are binding corporate rules in accordance with Article 47; ....</p>
+    		</blockquote>
+
+<pre id="eg-article46-json-ld" title="Article 46 JSON-LD" class="example hljs json">
+ {
+    "@context": "https://ai.wu.ac.at/policies/orcp/odrl_regulatory_profile.jsonid",
+    "@type": "Set",
+    "uid": "http://example.com/policy:gdpr-article46",
+    "profile": "http://example.com/odrl:profile:regulatory-compliance",
+
+    "permission": [{
+        "action": "Transfer",
+	"data": "PersonalData",
+        "predicateConstraint": [{
+            "or": {
+                "@list": [{
+                    "leftOperand": "organisationType",
+                    "operator": "isA",
+                    "rightOperand": { "@id": "InternationalOrganisation" }
+                 },{
+                    "leftOperand": "recipientLocation",
+                    "operator": "isA",
+                    "rightOperand": { "@id": "ThirdCountry" }
+                }]
+	    }
+        }],
+        "obligation": [{
+            "predicateConstraint": [{
+		"leftOperand": "appropriateSafeguards",
+                "operator": "isAnyOf",
+                "rightOperand": {
+                    "@list": [
+                    	{ "@id": "LegallyBindingEnforceableInstrument" },
+                        { "@id": "BindingCorporateRules"  },
+                        { "@id": "StandardDataProtectionClauses" },
+                        { "@id": "ApprovedCodeOfConduct"  },
+                        { "@id": "ApprovedCertificateMechanism"  }
+                ]}
+            }]
+        },{
+	     "predicateConstraint": [{
+             	"leftOperand": "dataSubjectProvisions",
+             	"operator": "isA",
+             	"rightOperand": { "@id": "EnforceableDataSubjectRights"}
+             }]
+        },{
+	     "predicateConstraint": [{
+             	"leftOperand": "dataSubjectProvisions",
+             	"operator": "isA",
+             	"rightOperand": { "@id": "LegalRemediesForDataSubjects"}
+             }]
+        }]
+    }]
+}
+</pre>
+
+<pre class="example hljs n3" title="Article 46 Turtle" id="eg-article46-n3">
+
+&lt;http://example.com/policy:gdpr-article46&gt; a orcp:Set ;
+    odrl:profile &lt;http://example.com/odrl:profile:regulatory-compliance&gt; ;
+    orcp:permission
+	[ odrl:action orcp:Transfer ;
+	  orcp:data orcp:PersonalData ;
+          odrl:predicateConstraint
+		[ odrl:or (
+                        [ odrl:leftOperand orcp:organisationType ;
+                          odrl:operator odrl:isA ;
+                          odrl:rightOperand orcp:InternationalOrganisation
+                        ]
+                        [ odrl:leftOperand orcp:recipientLocation ;
+                          odrl:operator odrl:isA ;
+                          odrl:rightOperand orcp:ThirdCountry
+                        ] )
+		] ;
+          orcp:obligation
+		[ odrl:predicateConstraint
+			[ odrl:leftOperand orcp:dataSubjectProvisions ;
+                          odrl:operator odrl:isA ;
+                          odrl:rightOperand orcp:EnforceableDataSubjectRights
+                        ]
+                ],
+                [ odrl:predicateConstraint
+			[ odrl:leftOperand orcp:dataSubjectProvisions ;
+                          odrl:operator odrl:isA ;
+                          odrl:rightOperand orcp:LegalRemediesForDataSubjects
+                        ]
+		],
+                [ odrl:predicateConstraint
+			[ odrl:leftOperand orcp:appropriateSafeguards ;
+                          odrl:operator odrl:isAnyOf ;
+                          odrl:rightOperand ( orcp:LegallyBindingEnforceableInstrument
+					      orcp:BindingCorporateRules
+                                              orcp:StandardDataProtectionClauses
+					      orcp:ApprovedCodeOfConduct
+                                              orcp:ApprovedCertificateMechanism )
+                        ]
+		]
+	] .
+</pre>
+
+	</section>
+
+	<section id="dispensation">
+		<h3>Dispensation subClass</h3>
+
+		<p>A Dispensation is an <strong>exemption</strong> from the obligation to <strong>perform</strong> an action. </p>
+
+
+		<p>The Dispensation class is a subclass of, and inherits all the properties from, the Rule class.</p>
+
+
+		<p><b>Example: Article 6 paragraph 2. </b> ...... Point f of the first subparagraph shall not apply to processing carried out by public authorities in the performance of their tasks.</p>
+
+
+<pre id="eg-article6-json-ld" title="Article 6 Paragraph 1 JSON-LD"  class="example hljs json">
+{
+    "@context": "https://ai.wu.ac.at/policies/orcp/odrl_regulatory_profile.jsonid",
+    "@type": "Set",
+    "uid": "http://example.com/policy:gdpr-article6",
+    "profile": "http://example.com/odrl:profile:regulatory-compliance",
+    "permission": [{
+        "uid": "http://example.com/policy:gdpr-article6-para1",
+        "action": "Processing",
+        "data": "PersonalData",
+        "predicateConstraint": {
+	    "leftOperand": "legalBasis",
+            "operator": "isAnyOf",
+            "rightOperand": {
+                "@list": [
+                    { "@id": "Consent" },
+                    { "@id": "Contract" },
+                    { "@id": "LegalObligation" },
+                    { "@id": "VitalInterest" },
+                    { "@id": "PublicInterest" },
+                    { "@id": "ExerciseOfOfficialAuthority" },
+                    { "@id": "LegitimateInterest" }
+                ]
+            }
+        },
+        "prohibition": [{
+            "legalBasis": "LegitimateInterest",
+            "predicateConstraint": [{
+		"leftOperand": "action",
+		"operator": "isA",
+		"rightOperand": "ProcessingEffectingFundamentalRightsAndFreedomsOfTheDataSubject"
+            }],
+            "dispensation": [{
+                "predicateConstraint": [{
+                    "and": {
+                        "@list": [{
+                            "leftOperand": "organisationType",
+                            "operator": "isA",
+                            "rightOperand": "PublicAuthority"
+                         },{
+                            "leftOperand": "purpose",
+                            "operator": "isA",
+                            "rightOperand": "PublicAuthorityTask"
+                        }]
+	            }
+                }]
+            }]
+        }]
+
+    }]
+}
+</pre>
+
+
+
+<pre class="example" title="Article 6 Paragraph 1 Turtle" id="eg-article6-n3">
+
+&lt;http://example.com/policy:gdpr-article6&gt; a orcp:Set ;
+    orcp:permission &lt;http://example.com/policy:gdpr-article-para1&gt ;
+    odrl:profile &lt;http://example.com/odrl:profile:regulatory-compliance&gt; .
+
+&lt;http://example.com/policy:gdpr-article-para1&gt; odrl:action orcp:processing ;
+    orcp:data orcp:PersonalData ;
+    odrl:predicateConstraint
+	[ odrl:leftOperand orcp:legalBasis ;
+          odrl:operator odrl:isAnyOf ;
+          odrl:rightOperand ( orcp:Consent
+                              orcp:Contract
+                              orcp:LegalObligation
+                              orcp:VitalInterest
+                              orcp:PublicInterest
+                              orcp:ExerciseOfOfficialAuthority
+                              orcp:LegitimateInterest )
+	] ;
+    orcp:prohibition
+	[ orcp:legalBasis orcp:LegitimateInterest ;
+	  odrl:predicateConstraint
+	       [ odrl:leftOperand odrl:action ;
+              	 odrl:operator odrl:isA ;
+              	 odrl:rightOperand orcp:ProcessingEffectingFundamentalRightsAndFreedomsOfTheDataSubject
+               ] ;
+	  orcp:dispensation
+	      [ odrl:predicateConstraint
+		     [ odrl:and (
+                         [ odrl:leftOperand orcp:organisationType ;
+                           odrl:operator odrl:isA ;
+                           odrl:rightOperand orcp:PublicAuthority
+                         ]
+                         [ odrl:leftOperand orcp:purpose ;
+                           odrl:operator odrl:isA ;
+                           odrl:rightOperand orcp:PublicAuthorityTask
+                         ] )
+		     ]
+               ]
+	] .
+</pre>
+
+
+	</section>
+
+
+
+	<section id="relation">
+		<h3>relation property</h3>
+		<p>A <code><em>relation</em></code> property is used to link a Rule to a Resource. The <code><em>relation</em></code> property itself is abstract; sub-properties represent explicit semantics of the relationship between the Resource and the Rule.</p>
+
+		<p>The profile has the following sub-properties of <code><em>relation</em></code>:</p>
+
+		<ul>
+			<li><code>data</code>: indicates the Resource referred to in the rule.</li>
+		</ul>
+	</section>
+
+
+	<section id="function">
+		<h3>function property</h3>
+		<p>A <code><em>function</em></code> property is used to link a Rule to a Party, indicating the function undertaken by the Party in respect to the Rule that links to it. The <code><em>function</em></code> property itself is abstract; sub-properties represent explicit semantics of the functional role between the Party and the Rule.</p>
+
+		<p>The profile has the following sub-properties of <code><em>function</em></code>:</p>
+		<ul>
+			<li><code>controller</code></li>
+			<li><code>processor</code></li>
+			<li><code>sender</code></li>
+			<li><code>recipient</code></li>
+			<!--<li><code>agreementParty1</code></li>-->
+			<!--<li><code>agreementParty2</code></li>-->
+			<li><code>responsibleParty</code></li>
+		</ul>
+	</section>
+
+
+	<section id="action">
+		<h3>action property</h3>
+     		<p> A property that is used to relate an Action to a Rule. </p>
+	</section>
+
+	<section id="constraint">
+		<h3>constraint property</h3>
+     		<p> Specifies a constraint which must be satisfied in order for the rule to be valid. </p>
+	</section>
+
+	<section id="ppod">
+		<h3>permission/prohibition/obligation/dispensation property</h3>
+     		<p> A property that allows for the nesting of rules of type Permission, Prohibition, Obligation, or Dispensation.</p>
+	</section>
+
+
+	<section id="legalBasis">
+		<h3>legalBasis property</h3>
+     		<p> A property used to assert the legal basis for processing. This property is used to link a Rule to a LegalBasis.</p>
+	</section>
+
+	<section id="purpose">
+		<h3>purpose property</h3>
+     		<p> A property used to assert the purpose for the processing. This property is used to link a Rule to a Purpose.</p>
+	</section>
+
+	<section id="processingLocation">
+		<h3> processingLocation property</h3>
+     		<p> A property used to assert the location of the processing. This property is used to link a Rule to a Location.</p>
+	</section>
+
+	<section id="recipientLocation">
+		<h3> recipientLocation property</h3>
+     		<p> A property used to assert the location where the recipient is located. This property is used to link a Rule to a Location.</p>
+	</section>
+
+	<section id="organisationType">
+		<h3>organisationType property</h3>
+     		<p> A property used to assert the type of organisation. This property is used to link a Rule to a Party.</p>
+	</section>
+
+	<section id="appropriateSafeguards">
+		<h3>appropriateSafeguards property</h3>
+     		<p> A property used to assert the type of safeguards that are in place. This property is used to link a Rule to a Resource of type AppropriateSafeguards.</p>
+	</section>
+
+	<section id="dataSubjectProvisions">
+		<h3>dataSubjectProvisions property</h3>
+     		<p> A property used to assert the data subject provisions that are in place. This property is used to link a Rule to a Resource of type DataSubjectProvisions.</p>
+	</section>
+
+</section>
+
+
+
+
+
+
+
+
+
+<section id="example">
+	<h2>Examples</h2>
+
+	<p> In this chapter we demonstrate how Article 6 Lawfulness of processing and Article 46 Transfers subject to appropriate safeguards would be modelled using the proposed ODRL Regulatory Compliance Profile.</p>
+
+	<section id="gdpr-lawfulness">
+		<h3>GDPR Lawfulness of Processing</h3>
+
+		<p> According to Article 6, Paragraph 1, of the GDPR:</p>
+
+		<i><p>"Processing shall be lawful only if and to the extent that at least one of the following applies: </p>
+
+			<p> (a) the data subject has given consent to the processing of his or her personal data for one or more specific purposes; </p>
+
+			<p> (b) processing is necessary for the performance of a contract to which the data subject is party or in order to take steps at the request of the data subject prior to entering into a contract; </p>
+
+			<p> (c) processing is necessary for compliance with a legal obligation to which the controller is subject; </p>
+
+			<p> (d) processing is necessary in order to protect the vital interests of the data subject or of another natural person; </p>
+
+			<p> (e) processing is necessary for the performance of a task carried out in the public interest or in the exercise of official authority vested in the controller; </p>
+
+			<p> (f) processing is necessary for the purposes of the legitimate interests pursued by the controller or by a third party, except where such interests are overridden by the interests or fundamental rights and freedoms of the data subject which require protection of personal data, in particular where the data subject is a child. </p>
+
+			<p> Point (f) of the first subparagraph shall not apply to processing carried out by public authorities in the performance of their tasks."</p>
+		</i>
+
+	<section id="gdpr-article6">
+		<h4>Article 6 Lawfulness of processing</h3>
+
+
+		<blockquote>
+			<p><b>Example: Article 6 Lawfulness of processing.</b></p>
+		</blockquote>
+
+<pre id="eg-article6-json-ld" title="Article 6 Paragraph 1 JSON-LD"  class="example hljs json">
+{
+    "@context": "https://ai.wu.ac.at/policies/orcp/odrl_regulatory_profile.jsonid",
+    "@type": "Set",
+    "uid": "http://example.com/policy:gdpr-article6",
+    "profile": "http://example.com/odrl:profile:regulatory-compliance",
+    "permission": [{
+        "uid": "http://example.com/policy:gdpr-article6-para1",
+        "action": "Processing",
+        "data": "PersonalData",
+        "predicateConstraint": {
+	    "leftOperand": "legalBasis",
+            "operator": "isAnyOf",
+            "rightOperand": {
+                "@list": [
+                    { "@id": "Consent" },
+                    { "@id": "Contract" },
+                    { "@id": "LegalObligation" },
+                    { "@id": "VitalInterest" },
+                    { "@id": "PublicInterest" },
+                    { "@id": "ExerciseOfOfficialAuthority" },
+                    { "@id": "LegitimateInterest" }
+                ]
+            }
+        },
+        "prohibition": [{
+            "legalBasis": "LegitimateInterest",
+            "predicateConstraint": [{
+		"leftOperand": "action",
+		"operator": "isA",
+		"rightOperand": "ProcessingEffectingFundamentalRightsAndFreedomsOfTheDataSubject"
+            }],
+            "dispensation": [{
+                "predicateConstraint": [{
+                    "and": {
+                        "@list": [{
+                            "leftOperand": "organisationType",
+                            "operator": "isA",
+                            "rightOperand": "PublicAuthority"
+                         },{
+                            "leftOperand": "purpose",
+                            "operator": "isA",
+                            "rightOperand": "PublicAuthorityTask"
+                        }]
+	            }
+                }]
+            }]
+        }]
+
+    }]
+}
+</pre>
+
+
+
+<pre class="example" title="Article 6 Paragraph 1 Turtle" id="eg-article6-n3">
+
+&lt;http://example.com/policy:gdpr-article6&gt; a orcp:Set ;
+    orcp:permission &lt;http://example.com/policy:gdpr-article-para1&gt; ;
+    odrl:profile &lt;http://example.com/odrl:profile:regulatory-compliance&gt; .
+
+&lt;http://example.com/policy:gdpr-article-para1&gt; odrl:action orcp:Processing ;
+    orcp:data orcp:PersonalData ;
+    odrl:predicateConstraint
+	[ odrl:leftOperand orcp:legalBasis ;
+          odrl:operator odrl:isAnyOf ;
+          odrl:rightOperand ( orcp:Consent
+                              orcp:Contract
+                              orcp:LegalObligation
+                              orcp:VitalInterest
+                              orcp:PublicInterest
+                              orcp:ExerciseOfOfficialAuthority
+                              orcp:LegitimateInterest )
+	] ;
+    orcp:prohibition
+	[ orcp:legalBasis orcp:LegitimateInterest ;
+	  odrl:predicateConstraint
+		[ odrl:leftOperand odrl:action ;
+                  odrl:operator odrl:isA ;
+                  odrl:rightOperand orcp:ProcessingEffectingFundamentalRightsAndFreedomsOfTheDataSubject
+                ] ;
+	  orcp:dispensation
+		[ odrl:predicateConstraint
+			[ odrl:and (
+                              [ odrl:leftOperand orcp:organisationType ;
+                                odrl:operator odrl:isA ;
+                                odrl:rightOperand orcp:PublicAuthority
+                              ]
+                              [ odrl:leftOperand orcp:purpose ;
+                                odrl:operator odrl:isA ;
+                                odrl:rightOperand orcp:PublicAuthorityTask
+                              ] )
+			]
+                ]
+	] .
+</pre>
+
+	</section>
+
+	<section id="gdpr-article6-ex">
+		<h4>Business policy permission for Processing, inside the EU, with consent of the data subject</h3>
+
+
+		<blockquote>
+			<p><b>Example: Processing, inside the EU, with consent of the data subject.</b></p>
+		</blockquote>
+
+<pre id="eg-article6-req-json-ld" title="Permission request JSON-LD with legal basis" class="example hljs json">
+{
+    "@context": "https://ai.wu.ac.at/policies/orcp/odrl_regulatory_profile.jsonid",
+    "@type": "Set",
+    "uid": "http://example.com/policy:bp-processing-withLegalBasis",
+    "profile": "http://example.com/odrl:profile:regulatory-compliance",
+    "permission": [{
+        "action": "Processing",
+	"data": "PersonalData",
+	"controller": "http://example.com/CompanyA",
+	"purpose" : "PersonalRecommendations",
+	"processingLocation" : "EU",
+        "legalBasis": "Consent",
+	"responsibleParty": "Controller"
+    }]
+}
+</pre>
+
+<pre class="example" title="Permission request Turtle with legal basis" id="eg-article6-req-n3-pass">
+
+&lt;http://example.com/policy:policy:bp-processing-withLegalBasis&gt; a orcp:Set ;
+    odrl:profile &lt;http://example.com/odrl:profile:regulatory-compliance&gt; ;
+    orcp:permission
+	[ odrl:action orcp:Processing ;
+          orcp:data orcp:PersonalData ;
+          orcp:controller &lt;http://example.com/CompanyA&gt; ;
+          orcp:purpose orcp:PersonalRecommendations ;
+          orcp:ProcessingLocation orcp:EU ;
+	  orcp:legalBasis orcp:Consent ;
+	  odrl:responsibleParty orcp:Controller
+        ] .
+</pre>
+
+		<blockquote>
+			<p><b>Example: Processing, inside the EU, with consent of the data subject, without a legal basis.</b></p>
+		</blockquote>
+
+
+<pre id="eg-article6-req-json-ld" title="Permission request JSON-LD without legal basis" class="example hljs json">
+{
+    "@context": "https://ai.wu.ac.at/policies/orcp/odrl_regulatory_profile.jsonid",
+    "@type": "Set",
+    "uid": "http://example.com/policy:bp-processing-withoutLegalBasis",
+    "profile": "http://example.com/odrl:profile:regulatory-compliance",
+    "permission": [{
+        "action": "Processing",
+	"data": "PersonalData",
+	"controller": "http://example.com/CompanyA",
+	"purpose" : "PersonalRecommendations",
+	"processingLocation" : "EU",
+	"responsibleParty": "Controller"
+    }]
+}
+</pre>
+
+<pre class="example" title="Permission request Turtle without legal basis" id="eg-article6-req-n3-fail">
+
+&lt;http://example.com/policy:bp-processing-withoutLegalBasis&gt; a orcp:Set ;
+    odrl:profile &lt;http://example.com/odrl:profile:regulatory-compliance&gt; ;
+    orcp:permission
+	[ odrl:action orcp:Processing ;
+          orcp:data orcp:PersonalData ;
+          orcp:controller &lt;http://example.com/CompanyA&gt; ;
+          orcp:purpose orcp:PersonalRecommendations ;
+          orcp:ProcessingLocation orcp:EU ;
+	  odrl:responsibleParty orcp:Controller
+        ] .
+</pre>
+
+	</section>
+
+</section>
+
+<section id="gdpr-transfer">
+	<h2>GDPR Lawfulness of Transfers</h2>
+
+	<p> According to Article 46, of the GDPR:</p>
+
+	<i>
+		<p>1. In the absence of a decision pursuant to Article 45(3), a controller or processor may transfer personal data to a third country or an international organisation only if the controller or processor has provided appropriate safeguards, and on condition that enforceable data subject rights and effective legal remedies for data subjects are available.
+
+		<p>2.The appropriate safeguards referred to in paragraph 1 may be provided for, without requiring any specific authorisation from a supervisory authority, by: </p>
+
+		<p>(a) a legally binding and enforceable instrument between public authorities or bodies; </p>
+
+		<p>(b) binding corporate rules in accordance with Article 47; </p>
+
+		<p>(c) standard data protection clauses adopted by the Commission in accordance with the examination procedure referred to in Article 93(2); </p>
+
+		<p>(d) standard data protection clauses adopted by a supervisory authority and approved by the Commission pursuant to the examination procedure referred to in Article 93(2); </p>
+
+		<p>(e) an approved code of conduct pursuant to Article 40 together with binding and enforceable commitments of the controller or processor in the third country to apply the appropriate safeguards, including as regards data subjects' rights; or </p>
+
+		<p>(f) an approved certification mechanism pursuant to Article 42 together with binding and enforceable commitments of the controller or processor in the third country to apply the appropriate safeguards, including as regards data subjects' rights. </p>
+
+	</i>
+
+	<section id="gdpr-transfer-article46">
+		<h4>Article 46 Transfers subject to appropriate safeguards</h3>
+
+		<blockquote>
+			<p><b>Example: Article 46 Transfers subject to appropriate safeguards.</b></p>
+		</blockquote>
+
+<pre id="eg-article46-json-ld" title="Article 46 JSON-LD" class="example hljs json">
+ {
+    "@context": "https://ai.wu.ac.at/policies/orcp/odrl_regulatory_profile.jsonid",
+    "@type": "Set",
+    "uid": "http://example.com/policy:gdpr-article46",
+    "profile": "http://example.com/odrl:profile:regulatory-compliance",
+
+    "permission": [{
+        "action": "Transfer",
+	"data": "PersonalData",
+        "predicateConstraint": [{
+            "or": {
+                "@list": [{
+                    "leftOperand": "organisationType",
+                    "operator": "isA",
+                    "rightOperand": { "@id": "InternationalOrganisation" }
+                 },{
+                    "leftOperand": "recipientLocation",
+                    "operator": "isA",
+                    "rightOperand": { "@id": "ThirdCountry" }
+                }]
+	    }
+        }],
+        "obligation": [{
+            "predicateConstraint": [{
+		"leftOperand": "appropriateSafeguards",
+                "operator": "isAnyOf",
+                "rightOperand": {
+                    "@list": [
+                    	{ "@id": "LegallyBindingEnforceableInstrument" },
+                        { "@id": "BindingCorporateRules"  },
+                        { "@id": "StandardDataProtectionClauses" },
+                        { "@id": "ApprovedCodeOfConduct"  },
+                        { "@id": "ApprovedCertificateMechanism"  }
+                ]}
+            }]
+        },{
+	     "predicateConstraint": [{
+             	"leftOperand": "dataSubjectProvisions",
+             	"operator": "isA",
+             	"rightOperand": { "@id": "EnforceableDataSubjectRights"}
+             }]
+        },{
+	     "predicateConstraint": [{
+             	"leftOperand": "dataSubjectProvisions",
+             	"operator": "isA",
+             	"rightOperand": { "@id": "LegalRemediesForDataSubjects"}
+             }]
+        }]
+    }]
+}
+</pre>
+
+<pre class="example hljs n3" title="Article 46 Turtle" id="eg-article46-n3">
+
+&lt;http://example.com/policy:gdpr-article46&gt; a orcp:Set ;
+    odrl:profile &lt;http://example.com/odrl:profile:regulatory-compliance&gt; ;
+    orcp:permission
+	[ odrl:action orcp:Transfer ;
+	  orcp:data orcp:PersonalData ;
+          odrl:predicateConstraint
+		[ odrl:or (
+                        [ odrl:leftOperand orcp:organisationType ;
+                          odrl:operator odrl:isA ;
+                          odrl:rightOperand orcp:InternationalOrganisation
+                        ]
+                        [ odrl:leftOperand orcp:recipientLocation ;
+                          odrl:operator odrl:isA ;
+                          odrl:rightOperand orcp:ThirdCountry
+                        ] )
+		] ;
+          orcp:obligation
+		[ odrl:predicateConstraint
+			[ odrl:leftOperand orcp:dataSubjectProvisions ;
+                          odrl:operator odrl:isA ;
+                          odrl:rightOperand orcp:EnforceableDataSubjectRights
+                        ]
+                ],
+                [ odrl:predicateConstraint
+			[ odrl:leftOperand orcp:dataSubjectProvisions ;
+                          odrl:operator odrl:isA ;
+                          odrl:rightOperand orcp:LegalRemediesForDataSubjects
+                        ]
+		],
+                [ odrl:predicateConstraint
+			[ odrl:leftOperand orcp:appropriateSafeguards ;
+                          odrl:operator odrl:isAnyOf ;
+                          odrl:rightOperand ( orcp:LegallyBindingEnforceableInstrument
+					      orcp:BindingCorporateRules
+                                              orcp:StandardDataProtectionClauses
+					      orcp:ApprovedCodeOfConduct
+                                              orcp:ApprovedCertificateMechanism )
+                        ]
+		]
+	] .
+</pre>
+
+
+</section>
+
+	<section id="gdpr-transfer-article46-ex">
+		<h4>Business policy permission request for international organisation.</h3>
+
+		<blockquote>
+			<p>Transfer outside the EU by an international organisation.</p>
+		</blockquote>
+
+<pre id="eg-article46-req-json-ld" title="Permission request JSON-LD with appropriate safeguards" class="example hljs json">
+ {
+    "@context": "https://ai.wu.ac.at/policies/orcp/odrl_regulatory_profile.jsonid",
+    "@type": "Set",
+    "uid": "http://example.com/policy:bp-transfer-withSafeguards",
+    "profile": "http://example.com/odrl:profile:regulatory-compliance",
+
+    "permission": [{
+        "action": "Transfer",
+	"data": "PersonalData",
+	"responsibleParty": "Controller",
+	"organisationType": "InternationalOrganisation",
+	"sender": "http://example.com/CompanyA_Ireland",
+	"recipient": "http://example.com/CompanyA_USA",
+	"recipientLocation": "ThirdCountry",
+	"purpose": "PersonalRecommendations",
+        "legalBasis": "Consent",
+        "dataSubjectProvisions": "EnforceableDataSubjectRights",
+        "dataSubjectProvisions": "LegalRemediesForDataSubjects",
+	"appropriateSafeguards": "BindingCorporateRules"
+    }]
+}
+</pre>
+
+<pre class="example hljs n3" title="Request Turtle with appropriate safeguards" id="eg-article46-req-n3">
+
+&lt;http://example.com/policy:bp-transfer-withSafeguards&gt; a orcp:Set ;
+    odrl:profile &lt;http://example.com/odrl:profile:regulatory-compliance&gt; ;
+    orcp:permission
+	[ odrl:action orcp:Transfer ;
+          orcp:data orcp:PersonalData ;
+          orcp:responsibleParty orcp:Controller ;
+	  orcp:organisationType orcp:InternationalOrganisation ;
+          orcp:sender &lt;http://example.com/CompanyA_Ireland&gt; ;
+          orcp:recipient &lt;http://example.com/CompanyA_USA&gt; ;
+	  orcp:recipientLocation orcp:ThirdCountry ;
+          orcp:purpose orcp:PersonalRecommendations ;
+          orcp:legalBasis orcp:Consent ;
+          odrl:dataSubjectProvisions orcp:EnforceableDataSubjectRights ;
+          odrl:dataSubjectProvisions orcp:LegalRemediesForDataSubjects ;
+	  orcp:appropriateSafeguards orcp:BindingCorporateRules
+        ] .
+</pre>
+
+
+		<blockquote>
+			<p>Transfer outside the EU by an international organisation without appropriate safeguards.</p>
+		</blockquote>
+
+<pre id="eg-article46-req-json-ld" title="Permission request JSON-LD without appropriate safeguards" class="example hljs json">
+ {
+    "@context": "https://ai.wu.ac.at/policies/orcp/odrl_regulatory_profile.jsonid",
+    "@type": "Set",
+    "uid": "http://example.com/policy:bp-transfer-withoutSafeguards",
+    "profile": "http://example.com/odrl:profile:regulatory-compliance",
+
+    "permission": [{
+        "action": "Transfer",
+	"data": "PersonalData",
+	"responsibleParty": "Controller",
+	"organisationType": "InternationalOrganisation",
+	"sender": "http://example.com/CompanyA_Ireland",
+	"recipient": "http://example.com/CompanyA_USA",
+	"recipientLocation": "ThirdCountry",
+	"purpose": "PersonalRecommendations",
+        "legalBasis": "Consent",
+        "dataSubjectProvisions": "EnforceableDataSubjectRights",
+        "dataSubjectProvisions": "LegalRemediesForDataSubjects"
+    }]
+}
+</pre>
+
+<pre class="example hljs n3" title="Permission request Turtle without appropriate safeguards" id="eg-article46-req-n3">
+
+&lt;http://example.com/policy:bp-transfer-withoutSafeguards&gt; a orcp:Set ;
+    odrl:profile &lt;http://example.com/odrl:profile:regulatory-compliance&gt; ;
+    orcp:permission
+	[ odrl:action orcp:Transfer ;
+          orcp:data orcp:PersonalData ;
+          orcp:responsibleParty orcp:Controller ;
+	  orcp:organisationType orcp:InternationalOrganisation ;
+          orcp:sender &lt;http://example.com/CompanyA_Ireland&gt; ;
+          orcp:recipient &lt;http://example.com/CompanyA_USA&gt; ;
+	  orcp:recipientLocation orcp:ThirdCountry ;
+          orcp:purpose orcp:PersonalRecommendations ;
+          orcp:legalBasis orcp:Consent ;
+          odrl:dataSubjectProvisions orcp:EnforceableDataSubjectRights ;
+          odrl:dataSubjectProvisions orcp:LegalRemediesForDataSubjects
+        ] .
+</pre>
+
+	</section>
+
+</section>
+
+
+</body>
+</html>

@@ -1,0 +1,140 @@
+{
+ "@context": {
+    "orcp":    "http://example.com/odrl:profile:regulatoryCompliance/",
+    "odrl":    "http://www.w3.org/ns/odrl/2/",
+    "rdf":     "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs":    "http://www.w3.org/2000/01/rdf-schema#",
+    "owl":     "http://www.w3.org/2002/07/owl#",
+    "skos":    "http://www.w3.org/2004/02/skos/core#",
+    "dct":     "http://purl.org/dc/terms/",
+    "xsd":     "http://www.w3.org/2001/XMLSchema#",
+    "vcard":   "http://www.w3.org/2006/vcard/ns#",
+    "foaf":    "http://xmlns.com/foaf/0.1/",
+    "schema":  "http://schema.org/",
+    "cc":      "http://creativecommons.org/ns#",
+
+    "uid":     "@id",
+    "type":    "@type",
+
+    "Policy":           "orcp:Policy",
+    "Set":              "orcp:Set",
+
+    "conflict":         {"@type": "@vocab", "@id": "odrl:conflict"},
+    "inheritFrom":      {"@type": "@id", "@id": "odrl:inheritFrom"},
+    "profile":          {"@type": "@id", "@id": "odrl:profile"},
+
+    "permission":            	{"@type": "@id", "@id": "orcp:permission"},
+    "prohibition":           	{"@type": "@id", "@id": "orcp:prohibition"},
+    "obligation":            	{"@type": "@id", "@id": "orcp:obligation"},
+    "dispensation":           {"@type": "@id", "@id": "orcp:dispensation"},
+
+    "ConflictTerm":     "odrl:ConflictTerm",
+    "perm":             "odrl:perm",
+    "prohibit":         "odrl:prohibit",
+    "invalid":          "odrl:invalid",
+
+    "Action":                "orcp:Action",
+    "Processing":            "orcp:Processing",
+    "Transfer":              "orcp:Transfer",
+    "ProcessingEffectingFundamentalRightsAndFreedomsOfTheDataSubject":              "orcp:ProcessingEffectingFundamentalRightsAndFreedomsOfTheDataSubject",
+
+
+    "relation":               {"@type": "@vocab", "@id": "odrl:relation"},
+    "data":               {"@type": "@vocab", "@id": "orcp:data"},
+
+
+    "Resource":               "orcp:Resource",
+    "PersonalData":        								"orcp:PersonalData",
+    "AppropriateSafeguards":        					"orcp:AppropriateSafeguards",
+    "EnforceableDataSubjectRights":        					"orcp:EnforceableDataSubjectRights",
+    "LegalRemediesForDataSubjects":           "orcp:LegalRemediesForDataSubjects",
+    "LegallyBindingAndEnforceableInstrument":        			"orcp:LegallyBindingAndEnforceableInstrument",
+    "BindingCorporateRules":        						"orcp:BindingCorporateRules",
+    "StandardProtectionClauses":        					"orcp:StandardProtectionClauses",    
+    "ApprovedCodeOfConduct":        						"orcp:ApprovedCodeOfConduct", 
+    "hasPolicy":              {"@type": "@id", "@id": "orcp:hasPolicy"},
+
+  
+    "Party":              		"odrl:Party",
+    "Controller":            		"orcp:Controller",
+    "Processor":             		"orcp:Processor",
+    "PublicAuthority":      		"orcp:PublicAuthority",
+    "InternationalOrganisation": 	"orcp:InternationalOrganisation",
+
+    "LegalBasis":           "orcp:LegalBasis",
+    "Consent":        	   "orcp:Consent",
+    "Contract": 		   "orcp:Contract",
+    "LegalObligation":      "orcp:LegalObligation",
+    "VitalInterest":        "orcp:VitalInterest",
+    "PublicInterest":       "orcp:PublicInterest",    
+    "ExerciseOfOfficialAuthority":   "orcp:ExerciseOfOfficialAuthority", 
+    "LegitimateInterest":   "orcp:LegitimateInterest", 
+
+
+    "Location":     "orcp:Location",
+    "ThirdCountry": "orcp:ThirdCountry",
+    "EU":        	"orcp:EU",
+
+
+    "Purpose":        							"orcp:Purpose",
+    "PublicAuthorityTask":        	"orcp:PublicAuthorityTask",
+    "PersonalRecommendations":        	"orcp:PersonalRecommendations",
+ 
+
+    "Constraint":           "odrl:Constraint",
+    "PredicateConstraint":    "odrl:PredicateConstraint",
+
+    "Operator":             "odrl:Operator",
+    "operator":             {"@type": "@vocab", "@id": "odrl:operator"},
+    "RightOperand":         "odrl:RightOperand",
+    "rightOperand":          {"@type": "@vocab", "@id": "odrl:rightOperand"},
+    "LeftOperand":          "odrl:LeftOperand",
+    "leftOperand":          {"@type": "@vocab", "@id": "odrl:leftOperand"},
+
+    "isA":                  "odrl:isA",
+    "isAnyOf":              "odrl:isAnyOf",
+    "or":                   "odrl:or",
+    "and":                  "odrl:and",
+
+
+    "Rule":             	    	"orcp:Rule",
+    "Permission":            	"orcp:Permission",
+    "Prohibition":           	"orcp:Prohibition",
+    "Obligation":            	"orcp:Obligation",
+    "Dispensation":           "orcp:Dispensation",
+
+
+
+
+    "function":               {"@type": "@vocab", "@id": "odrl:function"},
+    "controller":        	{"@type": "@vocab", "@id": "orcp:controller"},
+    "processor": 			{"@type": "@vocab", "@id": "orcp:processor"},
+    "sender":      			{"@type": "@vocab", "@id": "orcp:sender"},
+    "recipient":        		{"@type": "@vocab", "@id": "orcp:recipient"},
+    "responsibleParty":       {"@type": "@vocab", "@id": "orcp:responsibleParty"},
+
+
+
+    "action":                	{"@type": "@vocab", "@id": "odrl:action"},
+
+    "constraint":           	{"@type": "@vocab", "@id": "odrl:constraint"},
+
+    "predicateConstraint":           	{"@type": "@vocab", "@id": "odrl:constraint"},
+
+    "legalBasis":             {"@type": "@vocab", "@id": "orcp:legalBasis"},
+
+    "purpose":        		{"@type": "@vocab", "@id": "orcp:purpose"},
+
+    "processingLocation":        		{"@type": "@vocab", "@id": "orcp:processingLocation"},
+
+    "recipientLocation":        		{"@type": "@vocab", "@id": "orcp:recipientLocation"},
+
+    "organisationType":  	{"@type": "@vocab", "@id": "orcp:organisationType"},
+
+    "appropriateSafeguards":  	{"@type": "@vocab", "@id": "orcp:appropriateSafeguards"},	
+
+    "dataSubjectProvisions":  	{"@type": "@vocab", "@id": "orcp:dataSubjectProvisions"}	
+
+
+    }
+}
