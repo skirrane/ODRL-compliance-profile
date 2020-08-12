@@ -80,7 +80,7 @@
        <section id="conformance">
           <p>The examples throughout the document are serialized as [[turtle]]. </p>
   		    <p>The examples presented here make use if the following prefixes: </p>
-          <p>@prefix gdprcp: &lt;https://ai.wu.ac.at/policies/ocp/odrl-gdpr-compliance-profile/&gt; .  </p>
+          <p>@prefix gdprcp: &lt;https://ai.wu.ac.at/policies/gdprcp/odrl-gdpr-compliance-profile/&gt; .  </p>
   		    <p>@prefix ocp: &lt;https://ai.wu.ac.at/policies/ocp/odrl-compliance-profile/&gt; .  </p>
   		    <p>@prefix odrl: &lt;http://www.w3.org/ns/odrl/2/&gt; .  </p>
   		    <p>@prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; . </p>
@@ -300,11 +300,11 @@
 
         <pre class="example" title="Article 6 Paragraph 1 Turtle" id="eg-article6-perm-n3">
 
-        &lt;https://ai.wu.ac.at/policies/ocp/odrl-gdpr-compliance-profile/policy:gdpr-article6&gt; a ocp:Set ;
-          ocp:permission &lt;https://ai.wu.ac.at/policies/ocp/odrl-gdpr-compliance-profile/policy:gdpr-article6-legalbasis&gt; ;
+        &lt;https://ai.wu.ac.at/policies/gdprcp/odrl-gdpr-compliance-profile/policy:gdpr-article6&gt; a ocp:Set ;
+          ocp:permission &lt;https://ai.wu.ac.at/policies/gdprcp/odrl-gdpr-compliance-profile/policy:gdpr-article6-legalbasis&gt; ;
           odrl:profile &lt;https://ai.wu.ac.at/policies/ocp/odrl_regulatory_profile&gt; ;
 
-        &lt;https://ai.wu.ac.at/policies/ocp/odrl-gdpr-compliance-profile/policy:gdpr-article6-legalbasis&gt; odrl:action gdprcp:Processing ;
+        &lt;https://ai.wu.ac.at/policies/gdprcp/odrl-gdpr-compliance-profile/policy:gdpr-article6-legalbasis&gt; odrl:action gdprcp:Processing ;
           gdprcp:data gdprcp:PersonalData ;
           ocp:predicateConstraint
             [ odrl:leftOperand gdprcp:legalBasis ;
@@ -337,11 +337,11 @@
 
         <pre class="example" title="Article 6 Paragraph 1 Turtle" id="eg-article6-pro-n3">
 
-        &lt;https://ai.wu.ac.at/policies/ocp/odrl-gdpr-compliance-profile/policy:gdpr-article6&gt; a ocp:Set ;
-            ocp:permission &lt;https://ai.wu.ac.at/policies/ocp/odrl-gdpr-compliance-profile/policy:gdpr-article6-legalbasis&gt; ;
+        &lt;https://ai.wu.ac.at/policies/gdprcp/odrl-gdpr-compliance-profile/policy:gdpr-article6&gt; a ocp:Set ;
+            ocp:permission &lt;https://ai.wu.ac.at/policies/gdprcp/odrl-gdpr-compliance-profile/policy:gdpr-article6-legalbasis&gt; ;
             odrl: &lt;https://ai.wu.ac.at/policies/ocp/odrl_regulatory_profile&gt; .
 
-        &lt;https://ai.wu.ac.at/policies/ocp/odrl-gdpr-compliance-profile/policy:gdpr-article6-legalbasis&gt; odrl:action gdprcp:Processing ;
+        &lt;https://ai.wu.ac.at/policies/gdprcp/odrl-gdpr-compliance-profile/policy:gdpr-article6-legalbasis&gt; odrl:action gdprcp:Processing ;
           gdprcp:data gdprcp:PersonalData ;
           ocp:predicateConstraint
             [ odrl:leftOperand gdprcp:legalBasis ;
@@ -374,7 +374,7 @@
         </blockquote>
 
         <pre class="example hljs n3" title="Article 46 Turtle" id="eg-article46-n3">
-        &lt;https://ai.wu.ac.at/policies/ocp/odrl-gdpr-compliance-profile/policy:gdpr-article46&gt; a ocp:Set ;
+        &lt;https://ai.wu.ac.at/policies/gdprcp/odrl-gdpr-compliance-profile/policy:gdpr-article46&gt; a ocp:Set ;
         odrl:profile &lt;https://ai.wu.ac.at/policies/ocp/odrl_regulatory_profile&gt; ;
         ocp:permission
           [ odrl:action gdprcp:Transfer ;
@@ -426,11 +426,11 @@
 
         <pre class="example" title="Article 6 Paragraph 1 Turtle" id="eg-article6-n3">
 
-        &lt;https://ai.wu.ac.at/policies/ocp/odrl-gdpr-compliance-profile/policy:gdpr-article6&gt; a ocp:Set ;
-            ocp:permission &lt;https://ai.wu.ac.at/policies/ocp/odrl-gdpr-compliance-profile/policy:gdpr-article6-legalbasis&gt ;
+        &lt;https://ai.wu.ac.at/policies/gdprcp/odrl-gdpr-compliance-profile/policy:gdpr-article6&gt; a ocp:Set ;
+            ocp:permission &lt;https://ai.wu.ac.at/policies/gdprcp/odrl-gdpr-compliance-profile/policy:gdpr-article6-legalbasis&gt ;
             odrl: &lt;https://ai.wu.ac.at/policies/ocp/odrl_regulatory_profile&gt; .
 
-        &lt;https://ai.wu.ac.at/policies/ocp/odrl-gdpr-compliance-profile/policy:gdpr-article6-legalbasis&gt; odrl:action gdprcp:processing ;
+        &lt;https://ai.wu.ac.at/policies/gdprcp/odrl-gdpr-compliance-profile/policy:gdpr-article6-legalbasis&gt; odrl:action gdprcp:processing ;
             gdprcp:data gdprcp:PersonalData ;
             odrl:predicateConstraint
               [ odrl:leftOperand gdprcp:legalBasis ;
@@ -496,11 +496,11 @@
 
           <pre class="example" title="Article 6 Paragraph 1 Turtle" id="eg-article6-n3">
 
-          &lt;https://ai.wu.ac.at/policies/ocp/odrl-gdpr-compliance-profile/policy:gdpr-article6&gt; a ocp:Set ;
-              ocp:permission &lt;https://ai.wu.ac.at/policies/ocp/odrl-gdpr-compliance-profile/policy:gdpr-article6-para1&gt; ;
+          &lt;https://ai.wu.ac.at/policies/gdprcp/odrl-gdpr-compliance-profile/policy:gdpr-article6&gt; a ocp:Set ;
+              ocp:permission &lt;https://ai.wu.ac.at/policies/gdprcp/odrl-gdpr-compliance-profile/policy:gdpr-article6-para1&gt; ;
               odrl: &lt;https://ai.wu.ac.at/policies/ocp/odrl_regulatory_profile&gt; .
 
-          &lt;https://ai.wu.ac.at/policies/ocp/odrl-gdpr-compliance-profile/policy:gdpr-article6-legalbasis&gt; odrl:action ocp:Processing ;
+          &lt;https://ai.wu.ac.at/policies/gdprcp/odrl-gdpr-compliance-profile/policy:gdpr-article6-legalbasis&gt; odrl:action ocp:Processing ;
             ocp:data ocp:PersonalData ;
             odrl:predicateConstraint
               [ odrl:leftOperand ocp:legalBasis ;
@@ -611,7 +611,7 @@
 
           <pre class="example hljs n3" title="Article 46 Turtle" id="eg-article46-n3">
 
-          &lt;https://ai.wu.ac.at/policies/ocp/odrl-gdpr-compliance-profile/policy:gdpr-article46&gt; a ocp:Set ;
+          &lt;https://ai.wu.ac.at/policies/gdprcp/odrl-gdpr-compliance-profile/policy:gdpr-article46&gt; a ocp:Set ;
             odrl:profile &lt;https://ai.wu.ac.at/policies/ocp/odrl_regulatory_profile&gt; ;
               ocp:permission
                 [ odrl:action ocp:Transfer ;
@@ -737,7 +737,7 @@
 
           <pre class="example hljs n3" title="Article 13 Turtle" id="eg-article13-n3">
 
-          &lt;https://ai.wu.ac.at/policies/ocp/odrl-gdpr-compliance-profile/policy:gdpr-article13&gt; a ocp:Set ;
+          &lt;https://ai.wu.ac.at/policies/gdprcp/odrl-gdpr-compliance-profile/policy:gdpr-article13&gt; a ocp:Set ;
               odrl:profile &lt;https://ai.wu.ac.at/policies/ocp/odrl_regulatory_profile&gt; ;
               ocp:permission
                 [ odrl:action ocp:Collect ;
