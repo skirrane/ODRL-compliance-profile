@@ -1,354 +1,308 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xl="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="140.239013671875 40.82360076904297 850.52197265625 632.3519897460938" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" ><defs id="svgEditorDefs"><marker id="arrow10-8-left" markerHeight="8" markerUnits="strokeWidth" markerWidth="10" orient="auto" refX="3" refY="0" viewBox="0 -5 20 20"><path d="M 15 -5 L 0 0 L 15 5 z" fill="black"/></marker></defs><rect id="svgEditorBackground" x="141" y="41" width="849" height="632" style="fill: none; stroke: none;"/>
-  <metadata> Produced by OmniGraffle 7.5 
-    <dc:date>2017-09-26 13:41:33 +0000</dc:date>
-  </metadata>
-  <defs>
-    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="StickArrow_Marker" viewBox="-1 -3 7 6" markerWidth="7" markerHeight="6" color="#4e8f00">
-      <g>
-        <path d="M 4.48 0 L 0 0 M 0 -1.68 L 4.48 0 L 0 1.68" fill="none" stroke="currentColor" stroke-width="1"/>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg" id="svg4413" preserveAspectRatio="xMidYMid meet" height="100%" width="100%" viewBox="140.239013671875 40.82360076904297 850.52197265625 632.3519897460938" version="1.1">
+   <defs id="svgEditorDefs">
+      <marker viewBox="0 -5 20 20" refY="0" refX="3" orient="auto" markerWidth="10" markerUnits="strokeWidth" markerHeight="8" id="arrow10-8-left">
+         <path id="path4065" fill="black" d="M 15 -5 L 0 0 L 15 5 z" />
+      </marker>
+      <marker markerHeight="10" markerWidth="8" viewBox="-1 -5 8 10" id="UMLInheritance_Marker_2-8" markerUnits="strokeWidth" overflow="visible" orient="auto" style="color:#1b4262;overflow:visible">
+         <g id="g4090-0">
+            <path id="path4088-5" d="M 5.6,0 0,-3.2666667 v 6.5333334 z" style="fill:none;stroke:currentColor;stroke-width:1" />
+         </g>
+      </marker>
+      <marker markerHeight="10" markerWidth="8" viewBox="-1 -5 8 10" id="UMLInheritance_Marker_2-9" markerUnits="strokeWidth" overflow="visible" orient="auto" style="color:#1b4262;overflow:visible">
+         <g id="g4090-3">
+            <path id="path4088-3" d="M 5.6,0 0,-3.2666667 v 6.5333334 z" style="fill:none;stroke:currentColor;stroke-width:1" />
+         </g>
+      </marker>
+      <marker markerHeight="10" markerWidth="8" viewBox="-1 -5 8 10" id="UMLInheritance_Marker_2-4" markerUnits="strokeWidth" overflow="visible" orient="auto" style="color:#1b4262;overflow:visible">
+         <g id="g4090-5">
+            <path id="path4088-2" d="M 5.6,0 0,-3.2666667 v 6.5333334 z" style="fill:none;stroke:currentColor;stroke-width:1" />
+         </g>
+      </marker>
+      <marker markerHeight="10" markerWidth="8" viewBox="-1 -5 8 10" id="UMLInheritance_Marker_2-0" markerUnits="strokeWidth" overflow="visible" orient="auto" style="color:#1b4262;overflow:visible">
+         <g id="g4090-1">
+            <path id="path4088-4" d="M 5.6,0 0,-3.2666667 v 6.5333334 z" style="fill:none;stroke:currentColor;stroke-width:1" />
+         </g>
+      </marker>
+   </defs>
+   <rect style="fill: none; stroke: none;" height="632" width="849" y="41" x="141" id="svgEditorBackground" />
+   <metadata id="metadata4070"> Produced by OmniGraffle 7.5
+      <dc:date>2017-09-26 13:41:33 +0000</dc:date>
+      <rdf:RDF>
+         <cc:Work rdf:about="">
+            <dc:format>image/svg+xml</dc:format>
+            <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+            <dc:title></dc:title>
+         </cc:Work>
+      </rdf:RDF>
+   </metadata>
+   <defs id="defs4142">
+      <marker color="#4e8f00" markerHeight="6" markerWidth="7" viewBox="-1 -3 7 6" id="StickArrow_Marker" markerUnits="strokeWidth" overflow="visible" orient="auto">
+         <g id="g4074">
+            <path id="path4072" stroke-width="1" stroke="currentColor" fill="none" d="M 4.48 0 L 0 0 M 0 -1.68 L 4.48 0 L 0 1.68" />
+         </g>
+      </marker>
+      <marker color="#4e8f00" markerHeight="10" markerWidth="8" viewBox="-1 -5 8 10" id="UMLInheritance_Marker" markerUnits="strokeWidth" overflow="visible" orient="auto">
+         <g id="g4079">
+            <path id="path4077" stroke-width="1" stroke="currentColor" fill="none" d="M 5.6 0 L 0 -3.2666667 L 0 3.2666667 Z" />
+         </g>
+      </marker>
+      <font-face id="font-face4082" font-weight="bold" descent="-229.98047" ascent="770.0195" cap-height="719.7266" x-height="532.22656" slope="0" underline-thickness="49.316406" underline-position="-75.68359" units-per-em="1000" font-size="14" font-family="Helvetica">
+         <font-face-src>
+            <font-face-name name="Helvetica-Bold" />
+         </font-face-src>
+      </font-face>
+      <font-face id="font-face4084" font-weight="bold" font-style="italic" descent="-229.98047" ascent="770.0195" cap-height="719.7266" x-height="539.5508" slope="-857.1429" underline-thickness="49.316406" underline-position="-75.68359" units-per-em="1000" font-size="14" font-family="Helvetica">
+         <font-face-src>
+            <font-face-name name="Helvetica-BoldOblique" />
+         </font-face-src>
+      </font-face>
+      <font-face id="font-face4086" font-weight="500" font-style="italic" descent="-229.98047" ascent="770.0195" cap-height="717.28516" x-height="522.9492" slope="-1090.9091" underline-thickness="49.316406" underline-position="-75.68359" units-per-em="1000" font-size="11" font-family="Helvetica">
+         <font-face-src>
+            <font-face-name name="Helvetica-Oblique" />
+         </font-face-src>
+      </font-face>
+      <marker color="#1b4262" markerHeight="10" markerWidth="8" viewBox="-1 -5 8 10" id="UMLInheritance_Marker_2" markerUnits="strokeWidth" overflow="visible" orient="auto">
+         <g id="g4090">
+            <path id="path4088" stroke-width="1" stroke="currentColor" fill="none" d="M 5.6 0 L 0 -3.2666667 L 0 3.2666667 Z" />
+         </g>
+      </marker>
+      <font-face id="font-face4093" font-weight="bold" descent="-229.98047" ascent="770.0195" cap-height="719.7266" x-height="532.22656" slope="0" underline-thickness="49.316406" underline-position="-75.68359" units-per-em="1000" font-size="16" font-family="Helvetica">
+         <font-face-src>
+            <font-face-name name="Helvetica-Bold" />
+         </font-face-src>
+      </font-face>
+      <marker color="#be612d" markerHeight="10" markerWidth="8" viewBox="-1 -5 8 10" id="UMLInheritance_Marker_3" markerUnits="strokeWidth" overflow="visible" orient="auto">
+         <g id="g4097">
+            <path id="path4095" stroke-width="1" stroke="currentColor" fill="none" d="M 5.6 0 L 0 -3.2666667 L 0 3.2666667 Z" />
+         </g>
+      </marker>
+      <marker color="#9b60a9" markerHeight="10" markerWidth="8" viewBox="-1 -5 8 10" id="UMLInheritance_Marker_4" markerUnits="strokeWidth" overflow="visible" orient="auto">
+         <g id="g4102">
+            <path id="path4100" stroke-width="1" stroke="currentColor" fill="none" d="M 5.6 0 L 0 -3.2666667 L 0 3.2666667 Z" />
+         </g>
+      </marker>
+      <marker color="#9b60a9" markerHeight="6" markerWidth="7" viewBox="-1 -3 7 6" id="StickArrow_Marker_2" markerUnits="strokeWidth" overflow="visible" orient="auto">
+         <g id="g4107">
+            <path id="path4105" stroke-width="1" stroke="currentColor" fill="none" d="M 4.48 0 L 0 0 M 0 -1.68 L 4.48 0 L 0 1.68" />
+         </g>
+      </marker>
+      <marker color="#be612d" markerHeight="6" markerWidth="7" viewBox="-1 -3 7 6" id="StickArrow_Marker_3" markerUnits="strokeWidth" overflow="visible" orient="auto">
+         <g id="g4112">
+            <path id="path4110" stroke-width="1" stroke="currentColor" fill="none" d="M 4.48 0 L 0 0 M 0 -1.68 L 4.48 0 L 0 1.68" />
+         </g>
+      </marker>
+      <font-face id="font-face4115" font-weight="500" descent="-229.98047" ascent="770.0195" cap-height="717.28516" x-height="522.9492" slope="0" underline-thickness="49.316406" underline-position="-75.68359" units-per-em="1000" font-size="14" font-family="Helvetica">
+         <font-face-src>
+            <font-face-name name="Helvetica" />
+         </font-face-src>
+      </font-face>
+      <marker color="#941100" markerHeight="6" markerWidth="7" viewBox="-1 -3 7 6" id="StickArrow_Marker_4" markerUnits="strokeWidth" overflow="visible" orient="auto">
+         <g id="g4119">
+            <path id="path4117" stroke-width="1" stroke="currentColor" fill="none" d="M 4.48 0 L 0 0 M 0 -1.68 L 4.48 0 L 0 1.68" />
+         </g>
+      </marker>
+      <marker color="#0080ba" markerHeight="6" markerWidth="7" viewBox="-1 -3 7 6" id="StickArrow_Marker_5" markerUnits="strokeWidth" overflow="visible" orient="auto">
+         <g id="g4124">
+            <path id="path4122" stroke-width="1" stroke="currentColor" fill="none" d="M 4.48 0 L 0 0 M 0 -1.68 L 4.48 0 L 0 1.68" />
+         </g>
+      </marker>
+      <marker color="#1b4262" markerHeight="6" markerWidth="7" viewBox="-1 -3 7 6" id="StickArrow_Marker_6" markerUnits="strokeWidth" overflow="visible" orient="auto">
+         <g id="g4129">
+            <path id="path4127" stroke-width="1" stroke="currentColor" fill="none" d="M 4.48 0 L 0 0 M 0 -1.68 L 4.48 0 L 0 1.68" />
+         </g>
+      </marker>
+      <marker color="#521b93" markerHeight="6" markerWidth="7" viewBox="-1 -3 7 6" id="StickArrow_Marker_7" markerUnits="strokeWidth" overflow="visible" orient="auto">
+         <g id="g4134">
+            <path id="path4132" stroke-width="1" stroke="currentColor" fill="none" d="M 4.48 0 L 0 0 M 0 -1.68 L 4.48 0 L 0 1.68" />
+         </g>
+      </marker>
+      <marker color="#521b93" markerHeight="6" markerWidth="6" viewBox="-5 -3 6 6" id="FilledBall_Marker" markerUnits="strokeWidth" overflow="visible" orient="auto">
+         <g id="g4139">
+            <circle id="circle4137" stroke-width="1" stroke="currentColor" fill="currentColor" r="1.6799985" cy="0" cx="-1.6799992" />
+         </g>
+      </marker>
+   </defs>
+   <text y="180.28136" x="512.02881" style="fill:#1d4261;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="text4151">
+      <tspan style="font-weight:bold;font-size:14px;font-family:Helvetica;fill:#1d4261" id="tspan4148" y="187.37025" x="511.91315" font-weight="bold" font-size="14">permission</tspan>
+      <tspan style="font-weight:bold;font-size:14px;font-family:Helvetica;fill:#1d4261" id="e1_tspan" y="476.89334" x="191.0638" font-weight="bold" font-size="14">permission</tspan>
+   </text>
+   <text y="219.96638" x="509.19415" style="fill:#1d4261;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="text4156">
+      <tspan style="font-weight:bold;font-size:14px;font-family:Helvetica;fill:#1d4261" id="tspan4153" y="203.70319" x="512.24554" font-weight="bold" font-size="14">prohibition</tspan>
+      <tspan style="font-weight:bold;font-size:14px;font-family:Helvetica;fill:#1d4261" id="e2_tspan" y="493.22739" x="192.34515" font-weight="bold" font-size="14">prohibition</tspan>
+   </text>
+   <text y="594.13959" x="656.5957" style="fill:#1d4261;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="text4160">
+      <tspan style="font-style:italic;font-weight:bold;font-size:14px;font-family:Helvetica;fill:#1d4261" id="tspan4158" y="530.16852" x="653.09082" font-weight="bold" font-style="italic" font-size="14">function</tspan>
+   </text>
+   <text y="119.2656" x="642.42249" style="fill:#1d4261;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="text4164">
+      <tspan style="font-style:italic;font-weight:bold;font-size:14px;font-family:Helvetica;fill:#1d4261" id="tspan4162" y="167.4473" x="651.68787" font-weight="bold" font-style="italic" font-size="14">relation</tspan>
+   </text>
+   <text y="475.0845" x="316.43826" style="fill:#1d4261;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="text4170">
+      <tspan style="font-style:italic;font-weight:500;font-size:11px;font-family:Helvetica;fill:#1d4261" id="tspan4166" y="488.71399" x="293.97446" font-weight="500" font-style="italic" font-size="11">subClass</tspan>
+      <tspan style="font-style:italic;font-weight:500;font-size:11px;font-family:Helvetica;fill:#1d4261" id="e5_tspan" y="377.1207" x="772.51825" font-weight="500" font-style="italic" font-size="11">subClass</tspan>
+      <tspan style="font-style:italic;font-weight:500;font-size:11px;font-family:Helvetica;fill:#1d4261" id="e6_tspan" y="200.18051" x="414.61584" font-weight="500" font-style="italic" font-size="11">subClass</tspan>
+   </text>
+   <rect style="fill:#ffffff;fill-opacity:1;stroke:#1c4161;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1" id="rect4174" height="16.234789" width="53.858269" y="260.31189" x="381.20319" />
+   <rect style="fill:#1c4161;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="rect4176" height="20.615604" width="53.858269" y="239.69591" x="381.20319" />
+   <rect style="fill:none;fill-opacity:1;stroke:#1c4161;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1" id="rect4178" height="20.615604" width="53.858269" y="239.69591" x="381.20319" />
+   <text y="263.96317" x="208.05241" style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="text4182">
+      <tspan style="font-weight:bold;font-size:16px;font-family:Helvetica;fill:#ffffff" id="tspan4180" y="255.50375" x="395.68341" font-weight="bold" font-size="16">Set</tspan>
+   </text>
+   <text y="126.42308" x="830.20203" style="fill:#1d4261;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="text4184" />
+   <text y="579.96637" x="840.84772" style="fill:#1d4261;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="text4186" />
+   <text y="401.3837" x="574.39099" style="fill:#1d4261;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="text4188" />
+   <text y="438.2341" x="582.89496" style="fill:#1d4261;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="text4190" />
+   <text y="633.89319" x="835.17841" style="fill:#1d4261;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="text4192" />
+   <path style="fill:none;fill-opacity:1;stroke:#be612d;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#StickArrow_Marker_3)" id="path4194" d="m 736.2178,108.52777 v -22.14 -1.852425 c 0,-1.023065 -0.8294,-1.852425 -1.85245,-1.852425 h -113.15565 -4" />
+   <text y="61.226231" x="636.75317" style="fill:#1d4261;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="text4198">
+      <tspan style="font-weight:bold;font-size:14px;font-family:Helvetica;fill:#1d4261" id="tspan4196" y="98.349129" x="638.07593" font-weight="bold" font-size="14">hasPolicy</tspan>
+   </text>
+   <rect style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="rect4200" height="33.165356" width="85.039368" y="381.95889" x="465.97519" />
+   <rect style="fill:none;fill-opacity:1;stroke:#1c4161;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1" id="rect4202" height="33.165356" width="85.039368" y="381.95889" x="465.97519" />
+   <rect style="fill:#941100;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="rect4204" height="36" width="85.039368" y="345.95889" x="465.97519" />
+   <rect style="fill:none;fill-opacity:1;stroke:#1c4161;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1" id="rect4206" height="36" width="85.039368" y="345.95889" x="465.97519" />
+   <text y="402.71573" x="483.01306" style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="text4210">
+      <tspan style="font-weight:bold;font-size:16px;font-family:Helvetica;fill:#ffffff" id="tspan4208" y="369.45914" x="483.60861" font-weight="bold" font-size="16">Action</tspan>
+   </text>
+   <text y="323.01099" x="974.24402" style="fill:#1d4261;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="text4212" />
+   <text y="200.12387" x="512.02881" style="fill:#1d4261;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="text4217">
+      <tspan style="font-weight:bold;font-size:14px;font-family:Helvetica;fill:#1d4261" id="tspan4214" y="220.30676" x="513.38892" font-weight="bold" font-size="14">obligation</tspan>
+      <tspan style="font-weight:bold;font-size:14px;font-family:Helvetica;fill:#1d4261" id="e3_tspan" y="507.93188" x="192.53978" font-weight="bold" font-size="14">obligation</tspan>
+   </text>
+   <text y="334.01889" x="944.88971" style="fill:#1d4261;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="text4219" />
+   <text y="571.46246" x="462.18631" style="fill:#1d4261;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="text4221" />
+   <text y="642.32861" x="339.11539" style="fill:#1d4261;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="text4223" />
+   <rect style="fill:#ffffff;fill-opacity:1;stroke:#1c4161;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1" id="rect4225" height="78.405899" width="145.005" y="354.00488" x="213.04919" />
+   <rect style="fill:#79a701;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="rect4227" height="36" width="144" y="319.00989" x="214.05519" />
+   <rect style="fill:none;fill-opacity:1;stroke:#1c4161;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1" id="rect4229" height="36" width="144" y="318.00488" x="214.05519" />
+   <text y="369.7341" x="225.0603" style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="text4233">
+      <tspan style="font-weight:bold;font-size:16px;font-family:Helvetica;fill:#ffffff" id="tspan4231" y="341.5043" x="268.71899" font-weight="bold" font-size="16">Rule</tspan>
+   </text>
+   <rect style="fill:#ffffff;fill-opacity:1;stroke:#1c4161;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1" id="rect4237" height="27.212601" width="119.055" y="157.9649" x="237.7372" />
+   <rect style="fill:#686868;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="rect4239" height="20.512819" width="119.05512" y="136.4467" x="237.73746" />
+   <rect style="fill:none;fill-opacity:1;stroke:#1c4161;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1" id="rect4241" height="20.512819" width="119.05512" y="136.4467" x="237.73746" />
+   <text y="137.20311" x="247.73746" style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="text4243" />
+   <path id="path4245" style="fill:none;fill-opacity:1;stroke:#1b4262;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#StickArrow_Marker_6)" d="m 455.06973,154.49395 h -22.12411 c -0.0106,0 -0.0212,2e-5 -0.0318,8e-5 l -53.96537,0.28592 c -0.0106,5e-5 -0.0212,9e-5 -0.0318,9e-5 h -3.98412" />
+   <text y="157.43953" x="387.76511" style="fill:#1d4261;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="text4247" />
+   <text y="92.407333" x="364.62723" style="fill:#1d4261;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="text4251">
+      <tspan style="font-weight:bold;font-size:14px;font-family:Helvetica;fill:#1d4261" id="tspan4249" y="106.40733" x="364.73758" font-weight="bold" font-size="14">inheritFrom</tspan>
+   </text>
+   <path style="fill:none;fill-opacity:1;stroke:#1b4262;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#StickArrow_Marker_6)" id="path4253" d="m 455.06973,82.68292 h -22.14 -70.13715 c -3.31371,0 -6,2.686295 -6,6 v 10.063 13.84251 c 0,3.31371 2.68629,6 6,6 h 70.13715 4" />
+   <text y="373.03726" x="925.88708" style="fill:#1d4261;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="text4255" />
+   <text y="457.91519" x="875.86609" style="fill:#1d4261;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="text4257" />
+   <rect style="fill:#ffffff;fill-opacity:1;stroke:#1c4161;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1" id="rect4259" height="33.868698" width="158.74001" y="300.0249" x="688.33124" />
+   <rect style="fill:#0080ba;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="rect4261" height="37.881535" width="158.74016" y="260.71289" x="687.75122" />
+   <rect style="fill:none;fill-opacity:1;stroke:#1c4161;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1" id="rect4263" height="37.881535" width="158.74016" y="261.7189" x="688.75623" />
+   <text y="252.7536" x="772.14691" style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="text4267">
+      <tspan style="font-weight:bold;font-size:16px;font-family:Helvetica;fill:#ffffff" id="tspan4265" y="285.15329" x="729.1322" font-weight="bold" font-size="16">Constraint</tspan>
+   </text>
+   <rect style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="rect4269" height="32.031494" width="85.039368" y="144.52777" x="714.95795" />
+   <rect style="fill:none;fill-opacity:1;stroke:#1c4161;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1" id="rect4271" height="32.031494" width="85.039368" y="144.52777" x="714.95795" />
+   <rect style="fill:#be612d;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="rect4280" height="36" width="85.039368" y="108.52777" x="714.95795" />
+   <rect style="fill:none;fill-opacity:1;stroke:#1c4161;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1" id="rect4282" height="36" width="85.039368" y="108.52777" x="714.95795" />
+   <text y="117.02777" x="724.95789" style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="text4284" />
+   <text y="146.26559" x="645.25714" style="fill:#1d4261;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="text4286" />
+   <rect style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="rect4288" height="32.498688" width="85.039368" y="605.4389" x="678.97522" />
+   <rect style="fill:none;fill-opacity:1;stroke:#1c4161;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1" id="rect4290" height="32.498688" width="85.039368" y="605.4389" x="678.97522" />
+   <rect style="fill:#9b60a9;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="rect4296" height="36" width="85.039368" y="569.4389" x="678.97522" />
+   <rect style="fill:none;fill-opacity:1;stroke:#1c4161;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1" id="rect4298" height="36" width="85.039368" y="569.4389" x="678.97522" />
+   <text y="575.76331" x="737.13116" style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="text4302">
+      <tspan style="font-weight:bold;font-size:16px;font-family:Helvetica;fill:#ffffff" id="tspan4300" y="592.93842" x="701.48224" font-weight="bold" font-size="16">Party</tspan>
+   </text>
+   <rect style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="rect4304" height="33.165356" width="107.71653" y="606.17572" x="185.92717" />
+   <rect style="fill:none;fill-opacity:1;stroke:#1c4161;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1" id="rect4306" height="33.165356" width="107.71653" y="606.17572" x="185.92717" />
+   <rect style="fill:#79a701;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="rect4308" height="36" width="107.71653" y="570.17572" x="185.92717" />
+   <rect style="fill:none;fill-opacity:1;stroke:#1c4161;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1" id="rect4310" height="36" width="107.71653" y="570.17572" x="185.92717" />
+   <rect style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="rect4312" height="33.165356" width="104.88189" y="606.659" x="413.78522" />
+   <rect style="fill:none;fill-opacity:1;stroke:#1c4161;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1" id="rect4314" height="33.165356" width="104.88189" y="606.659" x="413.78522" />
+   <rect style="fill:#79a701;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="rect4316" height="36" width="104.88189" y="570.659" x="413.78522" />
+   <rect style="fill:none;fill-opacity:1;stroke:#1c4161;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1" id="rect4318" height="36" width="104.88189" y="570.659" x="413.78522" />
+   <rect style="fill:#ffffff;fill-opacity:1;stroke:#1c4161;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1" id="rect4322" height="70.866142" width="143.93311" y="101.58056" x="455.13663" />
+   <text y="105.25072" x="453.42535" style="fill:#1c4161;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="text4330">
+      <tspan style="font-weight:500;font-size:14px;font-family:Helvetica;fill:#1c4161" id="tspan4324" y="119.25052" x="509.03995" font-weight="500" font-size="14">profile</tspan>
+   </text>
+   <rect style="fill:#1c4161;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="rect4332" height="36.850391" width="143.93311" y="64.730171" x="455.06973" />
+   <rect style="fill:none;fill-opacity:1;stroke:#1c4161;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1" id="rect4334" height="36.850391" width="143.93311" y="64.730171" x="455.06973" />
+   <text y="69.554024" x="468.05252" style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="text4338">
+      <tspan style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:16px;font-family:Helvetica;-inkscape-font-specification:'Helvetica Bold';fill:#ffffff" id="tspan4336" y="87.476921" x="503.52982" font-weight="bold" font-size="16">Policy</tspan>
+   </text>
+   <text y="307.84039" x="591.39893" style="fill:#1d4261;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="text4340" />
+   <rect style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="e1_rect" height="33.165356" width="107.71653" y="606.17572" x="185.92717" />
+   <rect style="fill:none;fill-opacity:1;stroke:#1c4161;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1" id="e2_rect" height="33.165356" width="107.71653" y="606.17572" x="185.92717" />
+   <rect style="fill:#79a701;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="e3_rect" height="36" width="107.71653" y="570.17572" x="185.92717" />
+   <rect style="fill:none;fill-opacity:1;stroke:#1c4161;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1" id="e4_rect" height="36" width="107.71653" y="570.17572" x="185.92717" />
+   <rect style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="e5_rect" height="33.165356" width="107.71653" y="606.25952" x="525.7583" />
+   <rect style="fill:none;fill-opacity:1;stroke:#1c4161;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1" id="e6_rect" height="33.165356" width="107.71653" y="606.25952" x="525.7583" />
+   <rect style="fill:#79a701;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="e7_rect" height="36" width="107.71653" y="571.55774" x="525.75836" />
+   <rect style="fill:none;fill-opacity:1;stroke:#1c4161;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1" id="e8_rect" height="36" width="107.71653" y="570.25952" x="525.7583" />
+   <text y="574.96246" x="199.54848" style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="e8_text" />
+   <text y="571.46246" x="462.18631" style="fill:#1d4261;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="e1_text" />
+   <text y="642.32861" x="339.11539" style="fill:#1d4261;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="e2_text" />
+   <rect style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="e9_rect" height="33.165356" width="104.88189" y="606.17596" x="301.09488" />
+   <rect style="fill:none;fill-opacity:1;stroke:#1c4161;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1" id="e10_rect" height="33.165356" width="104.88189" y="606.17596" x="301.09488" />
+   <rect style="fill:#79a701;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="e11_rect" height="36" width="104.88189" y="570.17596" x="301.09488" />
+   <rect style="fill:none;fill-opacity:1;stroke:#1c4161;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1" id="e12_rect" height="36" width="104.88189" y="570.17596" x="301.09488" />
+   <text y="180.28136" x="512.02881" style="fill:#1d4261;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="e4_text" />
+   <text y="219.96638" x="509.19415" style="fill:#1d4261;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="e5_text" />
+   <text y="373.03726" x="925.88708" style="fill:#1d4261;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="e3_text" />
+   <rect style="fill:#ffffff;fill-opacity:1;stroke:#1c4161;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1" id="e17_rect" height="27.7596" width="158.74001" y="440.22989" x="692.62323" />
+   <rect style="fill:#0080ba;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="e18_rect" height="37.881535" width="158.74016" y="402.34888" x="692.62323" />
+   <rect style="fill:none;fill-opacity:1;stroke:#1c4161;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1" id="e19_rect" height="37.881535" width="158.74016" y="402.34888" x="692.62323" />
+   <text y="252.7536" x="772.14691" style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="e19_text" />
+   <text id="e1_texte" y="703.61" x="134.509" style="fill:black;font-family:Arial;font-size:20px;" />
+   <text id="e2_texte" y="577.688" x="24.1651" style="fill:black;font-family:Arial;font-size:20px;" />
+   <text id="e3_texte" y="581.583" x="16.3761" style="fill:black;font-family:Arial;font-size:20px;" />
+   <text transform="matrix(1, 0, 0, 1, 47.8162, 10.8719)" id="e5_texte" y="160.851" x="340.039" style="fill: rgb(29, 66, 97); font-size: 14.0202px; font-weight:bold;font-family:Helvetica;">conflict</text>
+   <text transform="matrix(1, 0, 0, 1, 47.8162, 10.8719)" id="e6_texte" y="582.7" x="152.957" style="fill:white;font-family:Helvetica;font-size:14.0202px;font-weight:bold;">Permission</text>
+   <text transform="matrix(1, 0, 0, 1, 47.8162, 10.8719)" id="e7_texte" y="583.997" x="270.338" style="fill:white;font-family:Helvetica;font-size:14.0202px;font-weight:bold;">
+      <tspan id="tspan4373" dx="" dy="" y="" x="270.338">Prohibition</tspan>
+   </text>
+   <text transform="matrix(1, 0, 0, 1, 47.8162, 10.8719)" id="e8_texte" y="583.183" x="384.327" style="fill:white;font-family:Helvetica;font-size:14.0202px;font-weight:bold;">Obligation</text>
+   <text transform="matrix(1, 0, 0, 1, 47.8162, 10.8719)" id="e9_texte" y="582.783" x="486.298" style="fill: white; font-family: Helvetica; font-size: 14.0202px; font-weight: bold;">Dispensation</text>
+   <text transform="matrix(1, 0, 0, 1, 47.8162, 10.8719)" id="e10_texte" y="225.675" x="464.592" style="fill:#1d4261;font-family:Helvetica;font-size:14.0202px;font-weight:bold;">dispensation</text>
+   <text transform="matrix(1, 0, 0, 1, 47.8162, 10.8719)" id="e4_texte" y="512.351" x="143.743" style="fill:#1d4261;font-family:Helvetica;font-size:14.0202px;font-weight:bold;">dispensation</text>
+   <polyline transform="matrix(1, 0, 0, 1, 40.9069, 13.6356)" points="173.833 383.793 148.501 383.793 148.501 446.148 205.011 446.148 205.011 432.508" id="e4_polyline" style="stroke: rgb(67, 143, 0); fill: none; stroke-width: 2.58px; marker-end:url(#StickArrow_Marker);" />
+   <polyline transform="matrix(1, 0, 0, 1, 40.9069, 13.6356)" points="303.414,419.842 303.414,496.811 675.681,498.853 676.655,537.515" id="e6_polyline" style="stroke:#4e8f00;fill:none;stroke-width:3px;marker-end:url(#StickArrow_Marker);" />
+   <polyline transform="matrix(1, 0, 0, 1, 40.9069, 13.6356)" points="251.777 531.886 196.242 531.886 196.242 560.14" id="e8_polyline" style="stroke: rgb(78, 143, 0); fill: none; stroke-width: 3px;" />
+   <line transform="matrix(1, 0, 0, 1, 40.9069, 13.6356)" style="stroke:rgb(78, 143, 0);fill:none;stroke-width:3px;" y2="556.243" x2="308.286" y1="531.886" x1="308.286" id="e9_line" />
+   <polyline transform="matrix(1, 0, 0, 1, 40.9069, 13.6356)" points="533.145,556.488 533.145,531.886 249.828,531.886 247.88,436.405" id="e10_polyline" style="stroke:rgb(78, 143, 0);fill:none;stroke-width:3px;marker-end:url(#UMLInheritance_Marker);" />
+   <line transform="matrix(1, 0, 0, 1, 40.9069, 13.6356)" style="stroke: rgb(78, 143, 0); fill: none; stroke-width: 3px;" y2="557.218" x2="428.125" y1="531.887" x1="428.125" id="e11_line" />
+   <text id="e14_texte" y="133.399" x="236.188" style="fill:black;font-family:Arial;font-size:20px;" />
+   <text id="e15_texte" y="131.45" x="238.137" style="fill:black;font-family:Arial;font-size:20px;" />
+   <text transform="matrix(1, 0, 0, 1, 40.9069, 13.6356)" id="e16_texte" y="139.245" x="208.908" style="fill:white;font-family:Helvetica;font-size:15.5887px;font-weight:bold;">ConflictTerm</text>
+   <text transform="matrix(1, 0, 0, 1, 40.9069, 13.6356)" id="e17_texte" y="118.784" x="683.39" style="fill:white; font-size:15.5887px; stroke:none;font-family:Helvetica;font-weight:bold;">Resource</text>
+   <polyline transform="matrix(1, 0, 0, 1, 40.9069, 13.6356)" points="364.612,225.351 364.612,192.639 440.166,192.639 440.166,179.686" id="e1_polyline" style="stroke:#1b4264;fill:none;stroke-width:3px;marker-end:url(#UMLInheritance_Marker_2);opacity:0.99" />
+   <line transform="matrix(1, 0, 0, 1, 40.9069, 13.6356)" style="stroke:#1b4262;fill:none;stroke-width:3px;marker-end:url(#UMLInheritance_Marker_2);" y2="341.119" x2="724.982" y1="389.374" x1="725.987" id="e2_line" />
+   <text id="e19_texte" y="424.909" x="780.663" style="fill:black;font-family:Arial;font-size:20px;" />
+   <text transform="matrix(1, 0, 0, 1, 40.9069, 13.6356)" id="e20_texte" y="413.695" x="656.774" style="fill: white; font-size:15.8803px; font-weight: bold;font-family:Helvetica;">PredicateConstraint</text>
+   <polyline points="502.163,174.529 502.163,287.128 286.014,287.128 286.014,299.192" id="e2_polyline" style="fill: none; stroke-width:3.05px;stroke:#1b4264;marker-end:url(#StickArrow_Marker_6);" />
+   <text id="e11_texte" y="378.615" x="278.977" style="fill:black;font-family:Arial;font-size:20px;" />
+   <text id="e12_texte" y="382.636" x="279.982" style="fill:black;font-family:Arial;font-size:20px;">
+      <tspan id="tspan4396" dy="1.25em" x="279.982" />
+   </text>
+   <text id="e18_texte" y="366.55" x="282.998" style="fill: black; font-size:14.0748px;font-family:Helvetica;" />
+   <text id="e21_texte" y="374.67899" x="251.832" style="font-size:14.07479954px;font-family:Helvetica;fill:#000000">
+      <tspan id="tspan4401" style="text-anchor:middle" x="283.87">legalBasis</tspan>
+      <tspan id="tspan4403" style="text-anchor:middle" dy="17.5935" x="283.87">......</tspan>
+      <tspan id="tspan4405" style="text-anchor:middle" dy="17.5935" x="283.87">......</tspan>
+   </text>
+   <text id="e24_texte" y="316.284" x="612.751" style="fill:#1d4261;font-family:Helvetica;font-size:14.0748px;font-weight:bold;font-style:italic;">constraint</text>
+   <polyline points="358.399,427.876 398.613,427.876 422.741,427.876 600.687,427.876 601.692,296.176 671.061,296.176" id="e25_polyline" style="stroke:#4e8f00;fill:none;stroke-width:3px;marker-end:url(#StickArrow_Marker);" />
+   <polyline points="359.404,329.353 553.436,327.342 552.43,265.011 640.901,264.005 637.885,146.38 697.2,146.38" id="e26_polyline" style="stroke:#4e8f00;fill:none;stroke-width:3px;marker-end:url(#StickArrow_Marker);" />
+   <line style="stroke:#4e8f00;fill:none;stroke-width:3px;marker-end:url(#StickArrow_Marker);" y2="382.636" x2="448.88" y1="382.636" x1="360.41" id="e28_line" />
+   <text id="e29_texte" y="373.588" x="393.586" style="fill:#1d4261;font-family:Helvetica;font-size:14.0748px;font-weight:bold;">action</text>
+   <a transform="translate(17.151056,-0.37284905)" id="a5572">
+      <g id="g5522">
+         <rect style="fill:#ffffff;fill-opacity:1;stroke:#1c4161;stroke-width:1.2409234;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1" id="rect4174-4" height="16.302063" width="82.593597" y="260.72443" x="265.86127" />
+         <rect style="fill:#1c4161;fill-opacity:1;stroke:#1c4161;stroke-width:1.24028301;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1" id="rect4178-0" height="20.683517" width="82.578247" y="240.10809" x="265.86093" />
+         <text y="263.65036" x="87.633759" style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-opacity:1" id="text4182-9">
+            <tspan style="font-weight:bold;font-size:16px;font-family:Helvetica;fill:#ffffff" id="tspan4180-6" y="255.19098" x="275.26474" font-weight="bold" font-size="16">Request</tspan>
+         </text>
       </g>
-    </marker>
-    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="UMLInheritance_Marker" viewBox="-1 -5 8 10" markerWidth="8" markerHeight="10" color="#4e8f00">
-      <g>
-        <path d="M 5.6 0 L 0 -3.2666667 L 0 3.2666667 Z" fill="none" stroke="currentColor" stroke-width="1"/>
-      </g>
-    </marker>
-    <font-face font-family="Helvetica" font-size="14" units-per-em="1000" underline-position="-75.68359" underline-thickness="49.316406" slope="0" x-height="532.22656" cap-height="719.7266" ascent="770.0195" descent="-229.98047" font-weight="bold">
-      <font-face-src>
-        <font-face-name name="Helvetica-Bold"/>
-      </font-face-src>
-    </font-face>
-    <font-face font-family="Helvetica" font-size="14" units-per-em="1000" underline-position="-75.68359" underline-thickness="49.316406" slope="-857.1429" x-height="539.5508" cap-height="719.7266" ascent="770.0195" descent="-229.98047" font-style="italic" font-weight="bold">
-      <font-face-src>
-        <font-face-name name="Helvetica-BoldOblique"/>
-      </font-face-src>
-    </font-face>
-    <font-face font-family="Helvetica" font-size="11" units-per-em="1000" underline-position="-75.68359" underline-thickness="49.316406" slope="-1090.9091" x-height="522.9492" cap-height="717.28516" ascent="770.0195" descent="-229.98047" font-style="italic" font-weight="500">
-      <font-face-src>
-        <font-face-name name="Helvetica-Oblique"/>
-      </font-face-src>
-    </font-face>
-    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="UMLInheritance_Marker_2" viewBox="-1 -5 8 10" markerWidth="8" markerHeight="10" color="#1b4262">
-      <g>
-        <path d="M 5.6 0 L 0 -3.2666667 L 0 3.2666667 Z" fill="none" stroke="currentColor" stroke-width="1"/>
-      </g>
-    </marker>
-    <font-face font-family="Helvetica" font-size="16" units-per-em="1000" underline-position="-75.68359" underline-thickness="49.316406" slope="0" x-height="532.22656" cap-height="719.7266" ascent="770.0195" descent="-229.98047" font-weight="bold">
-      <font-face-src>
-        <font-face-name name="Helvetica-Bold"/>
-      </font-face-src>
-    </font-face>
-    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="UMLInheritance_Marker_3" viewBox="-1 -5 8 10" markerWidth="8" markerHeight="10" color="#be612d">
-      <g>
-        <path d="M 5.6 0 L 0 -3.2666667 L 0 3.2666667 Z" fill="none" stroke="currentColor" stroke-width="1"/>
-      </g>
-    </marker>
-    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="UMLInheritance_Marker_4" viewBox="-1 -5 8 10" markerWidth="8" markerHeight="10" color="#9b60a9">
-      <g>
-        <path d="M 5.6 0 L 0 -3.2666667 L 0 3.2666667 Z" fill="none" stroke="currentColor" stroke-width="1"/>
-      </g>
-    </marker>
-    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="StickArrow_Marker_2" viewBox="-1 -3 7 6" markerWidth="7" markerHeight="6" color="#9b60a9">
-      <g>
-        <path d="M 4.48 0 L 0 0 M 0 -1.68 L 4.48 0 L 0 1.68" fill="none" stroke="currentColor" stroke-width="1"/>
-      </g>
-    </marker>
-    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="StickArrow_Marker_3" viewBox="-1 -3 7 6" markerWidth="7" markerHeight="6" color="#be612d">
-      <g>
-        <path d="M 4.48 0 L 0 0 M 0 -1.68 L 4.48 0 L 0 1.68" fill="none" stroke="currentColor" stroke-width="1"/>
-      </g>
-    </marker>
-    <font-face font-family="Helvetica" font-size="14" units-per-em="1000" underline-position="-75.68359" underline-thickness="49.316406" slope="0" x-height="522.9492" cap-height="717.28516" ascent="770.0195" descent="-229.98047" font-weight="500">
-      <font-face-src>
-        <font-face-name name="Helvetica"/>
-      </font-face-src>
-    </font-face>
-    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="StickArrow_Marker_4" viewBox="-1 -3 7 6" markerWidth="7" markerHeight="6" color="#941100">
-      <g>
-        <path d="M 4.48 0 L 0 0 M 0 -1.68 L 4.48 0 L 0 1.68" fill="none" stroke="currentColor" stroke-width="1"/>
-      </g>
-    </marker>
-    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="StickArrow_Marker_5" viewBox="-1 -3 7 6" markerWidth="7" markerHeight="6" color="#0080ba">
-      <g>
-        <path d="M 4.48 0 L 0 0 M 0 -1.68 L 4.48 0 L 0 1.68" fill="none" stroke="currentColor" stroke-width="1"/>
-      </g>
-    </marker>
-    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="StickArrow_Marker_6" viewBox="-1 -3 7 6" markerWidth="7" markerHeight="6" color="#1b4262">
-      <g>
-        <path d="M 4.48 0 L 0 0 M 0 -1.68 L 4.48 0 L 0 1.68" fill="none" stroke="currentColor" stroke-width="1"/>
-      </g>
-    </marker>
-    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="StickArrow_Marker_7" viewBox="-1 -3 7 6" markerWidth="7" markerHeight="6" color="#521b93">
-      <g>
-        <path d="M 4.48 0 L 0 0 M 0 -1.68 L 4.48 0 L 0 1.68" fill="none" stroke="currentColor" stroke-width="1"/>
-      </g>
-    </marker>
-    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledBall_Marker" viewBox="-5 -3 6 6" markerWidth="6" markerHeight="6" color="#521b93">
-      <g>
-        <circle cx="-1.6799992" cy="0" r="1.6799985" fill="currentColor" stroke="currentColor" stroke-width="1"/>
-      </g>
-    </marker>
-  </defs>
-  <g stroke="none" stroke-opacity="1" stroke-dasharray="none" fill="none" fill-opacity="1" transform="matrix(1, 0, 0, 1, 47.8162, 10.8719)">
-    <title>InfoModel 2024</title>
-    <g>
-      <title>Layer 1</title>
-      
-      
-      
-      
-      
-      
-      
-      <text transform="translate(464.2126 169.40945)" fill="#1d4261">
-        <tspan font-family="Helvetica" font-size="14" font-weight="bold" fill="#1d4261" x="-0.115662" y="7.0889" textLength="74.68945">permission</tspan>
-      <tspan font-family="Helvetica" font-size="14" font-weight="bold" fill="#1d4261" x="-320.965" y="296.612" textLength="74.68945" id="e1_tspan">permission</tspan></text>
-      <text transform="translate(461.37795 209.09449)" fill="#1d4261">
-        <tspan font-family="Helvetica" font-size="14" font-weight="bold" fill="#1d4261" x="3.05141" y="-16.2632" textLength="73.08984">prohibition</tspan>
-      <tspan font-family="Helvetica" font-size="14" font-weight="bold" fill="#1d4261" x="-316.849" y="273.261" textLength="73.08984" id="e2_tspan" dy="">prohibition</tspan></text>
-      
-      
-      <text transform="translate(608.7795 583.2677)" fill="#1d4261">
-        <tspan font-family="Helvetica" font-size="14" font-style="italic" font-weight="bold" fill="#1d4261" x="-3.50485" y="-63.9711" textLength="55.20703">function</tspan>
-      </text>
-      <text transform="translate(594.6063 108.3937)" fill="#1d4261">
-        <tspan font-family="Helvetica" font-size="14" font-style="italic" font-weight="bold" fill="#1d4261" x="9.26539" y="48.1817" textLength="50.56543">relation</tspan>
-      </text>
-      <text transform="translate(268.62205 464.2126)" fill="#1d4261">
-        <tspan font-family="Helvetica" font-size="11" font-style="italic" font-weight="500" fill="#1d4261" x="-22.4638" y="13.6295" textLength="45.24072">subClass</tspan>
-      <tspan font-family="Helvetica" font-size="11" font-style="italic" font-weight="500" fill="#1d4261" x="456.08" y="-97.9638" textLength="45.24072" id="e5_tspan">subClass</tspan><tspan font-family="Helvetica" font-size="11" font-style="italic" font-weight="500" fill="#1d4261" x="98.1776" y="-274.904" textLength="45.24072" id="e6_tspan">subClass</tspan></text>
-      
-      
-      
-      <rect x="333.387" y="249.44" width="53.85827" height="16.234789" fill="white"/>
-      <rect x="333.387" y="249.44" width="53.85827" height="16.234789" stroke="#1c4161" stroke-linecap="round" stroke-linejoin="miter" stroke-width="1"/>
-      <rect x="333.387" y="228.824" width="53.85827" height="20.615605" fill="#1c4161"/>
-      <rect x="333.387" y="228.824" width="53.85827" height="20.615605" stroke="#1c4161" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-      <text transform="translate(160.23622 253.09127)" fill="white">
-        <tspan font-family="Helvetica" font-size="16" font-weight="bold" fill="white" x="187.631" y="-8.45941" textLength="24.898438">Set</tspan>
-      </text>
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      <text transform="translate(782.3858 115.55118)" fill="#1d4261">
-        
-      </text>
-      
-      <text transform="translate(793.0315 569.0945)" fill="#1d4261">
-        
-      </text>
-      
-      <text transform="translate(526.5748 390.5118)" fill="#1d4261">
-        
-      </text>
-      <text transform="translate(535.07874 427.3622)" fill="#1d4261">
-        
-      </text>
-      
-      <text transform="translate(787.3622 623.0213)" fill="#1d4261">
-        
-      </text>
-      
-      
-      
-      
-      
-      
-      
-      
-      <path d="M 688.4016 97.65587 L 688.4016 75.51587 L 688.4016 73.663445 C 688.4016 72.64038 687.5722 71.81102 686.54915 71.81102 L 573.3935 71.81102 L 569.3935 71.81102" marker-end="url(#StickArrow_Marker_3)" stroke="#be612d" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <text transform="translate(588.937 50.35433)" fill="#1d4261">
-        <tspan font-family="Helvetica" font-size="14" font-weight="bold" fill="#1d4261" x="1.32273" y="37.1229" textLength="65.365234">hasPolicy</tspan>
-      </text>
-      
-      <rect x="418.159" y="371.087" width="85.03937" height="33.165354" fill="white"/>
-      <rect x="418.159" y="371.087" width="85.03937" height="33.165354" stroke="#1c4161" stroke-linecap="round" stroke-linejoin="miter" stroke-width="1"/>
-      <rect x="418.159" y="335.087" width="85.03937" height="36" fill="#941100"/>
-      <rect x="418.159" y="335.087" width="85.03937" height="36" stroke="#1c4161" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-      <text transform="translate(435.19685 391.84383)" fill="white">
-        <tspan font-family="Helvetica" font-size="16" font-weight="bold" fill="white" x="0.59555" y="-33.2566" textLength="49.77344">Action</tspan>
-      </text>
-      
-      <text transform="translate(926.4278 312.1391)" fill="#1d4261">
-        
-      </text>
-      
-      <text transform="translate(464.2126 189.25197)" fill="#1d4261">
-        <tspan font-family="Helvetica" font-size="14" font-weight="bold" fill="#1d4261" x="1.3601" y="20.1829" textLength="66.87598">obligation</tspan>
-      <tspan font-family="Helvetica" font-size="14" font-weight="bold" fill="#1d4261" x="-319.489" y="307.808" textLength="66.87598" id="e3_tspan">obligation</tspan></text>
-      <text transform="translate(897.0735 323.14698)" fill="#1d4261">
-        
-      </text>
-      
-      <text transform="translate(414.3701 560.59055)" fill="#1d4261">
-        
-      </text>
-      
-      <text transform="translate(291.2992 631.4567)" fill="#1d4261">
-        
-      </text>
-      
-      
-      
-      <rect x="165.233" y="343.133" width="145.005" height="78.4059" stroke="#1c4161" stroke-linecap="round" stroke-linejoin="miter" stroke-width="1"/>
-      
-      <rect x="166.239" y="308.138" width="144" height="36" fill="#79a701"/>
-      <rect x="166.239" y="307.133" width="144" height="36" stroke="#1c4161" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-      <text transform="translate(177.2441 358.8622)" fill="white">
-        <tspan font-family="Helvetica" font-size="16" font-weight="bold" fill="white" x="43.6587" y="-28.2298" textLength="34.671875">Rule</tspan>
-      </text>
-      
-      
-      
-      
-      
-      <rect x="190.927" y="136.034" width="120.06" height="29.2233" fill="white"/>
-      <rect x="189.921" y="147.093" width="119.055" height="27.2126" stroke="#1c4161" stroke-linecap="round" stroke-linejoin="miter" stroke-width="1"/>
-      <rect x="189.92126" y="125.5748" width="119.05512" height="20.51282" fill="#686868"/>
-      <rect x="189.92126" y="125.5748" width="119.05512" height="20.51282" stroke="#1c4161" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-      <text transform="translate(199.92126 126.33121)" fill="white">
-        
-        
-        
-      </text>
-      <path d="M 407.25353 143.62205 L 385.12942 143.62205 C 385.11883 143.62205 385.10823 143.62207 385.09764 143.62213 L 331.13227 143.90805 C 331.12167 143.9081 331.11108 143.90814 331.1005 143.90814 L 327.11638 143.90814" marker-end="url(#StickArrow_Marker_6)" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" style="stroke:#1b4262;"/>
-      <text transform="translate(339.9489 146.56763)" fill="#1d4261">
-        
-        
-      </text>
-      <text transform="translate(316.81102 81.53543)" fill="#1d4261">
-        <tspan font-family="Helvetica" font-size="14" font-weight="bold" fill="#1d4261" x=".11035156" y="14" textLength="77.7793">inheritFrom</tspan>
-      </text>
-      <path d="M 407.25353 71.81102 L 385.11353 71.81102 L 314.97638 71.81102 C 311.66267 71.81102 308.97638 74.497315 308.97638 77.81102 L 308.97638 87.87402 L 308.97638 101.71653 C 308.97638 105.03024 311.66267 107.71653 314.97638 107.71653 L 385.11353 107.71653 L 389.11353 107.71653" marker-end="url(#StickArrow_Marker_6)" stroke="#1b4262" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      <text transform="translate(878.0709 362.16535)" fill="#1d4261">
-        
-      </text>
-      <text transform="translate(828.0499 447.0433)" fill="#1d4261">
-        
-      </text>
-      
-      <rect x="640.515" y="289.153" width="158.74" height="33.8687" stroke="#1c4161" stroke-linecap="round" stroke-linejoin="miter" stroke-width="1"/>
-      
-      <rect x="639.935" y="249.841" width="158.74016" height="37.881533" fill="#0080ba"/>
-      <rect x="640.94" y="250.847" width="158.74016" height="37.881533" stroke="#1c4161" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-      <text transform="translate(724.3307 241.8817)" fill="white">
-        <tspan font-family="Helvetica" font-size="16" font-weight="bold" fill="white" x="-43.0147" y="32.3997" textLength="80">Constraint</tspan>
-      </text>
-      
-      <rect x="667.1417" y="133.65587" width="85.03937" height="32.031496" fill="white"/>
-      <rect x="667.1417" y="133.65587" width="85.03937" height="32.031496" stroke="#1c4161" stroke-linecap="round" stroke-linejoin="miter" stroke-width="1"/>
-      <text transform="translate(672.1417 141.17161)" fill="#1c4161">
-        <tspan font-family="Helvetica" font-size="14" font-weight="500" fill="#1c4161" x="28.178376" y="14" textLength="18.682617">uid</tspan>
-      <tspan font-family="Helvetica" font-size="14" font-weight="500" fill="#1c4161" x="38.5015" y="167.583" textLength="18.682617" id="e4_tspan">uid</tspan><tspan font-family="Helvetica" font-size="14" font-weight="500" fill="#1c4161" x="-221.883" y="253.037" textLength="18.682617" id="e7_tspan">uid</tspan><tspan font-family="Helvetica" font-size="14" font-weight="500" fill="#1c4161" x="-432" y="24.824" textLength="18.682617" id="e8_tspan">uid</tspan></text>
-      <rect x="667.1417" y="97.65587" width="85.03937" height="36" fill="#be612d"/>
-      <rect x="667.1417" y="97.65587" width="85.03937" height="36" stroke="#1c4161" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-      <text transform="translate(677.1417 106.15587)" fill="white">
-        
-      </text>
-      
-      
-      
-      
-      
-      
-      <text transform="translate(597.44094 135.3937)" fill="#1d4261">
-        
-      </text>
-      
-      
-      
-      
-      <rect x="631.159" y="594.567" width="85.03937" height="32.498688" fill="white"/>
-      <rect x="631.159" y="594.567" width="85.03937" height="32.498688" stroke="#1c4161" stroke-linecap="round" stroke-linejoin="miter" stroke-width="1"/>
-      <text transform="translate(684.31496 600.1407)" fill="#1c4161">
-        <tspan font-family="Helvetica" font-size="14" font-weight="500" fill="#1c4161" x="-19.9785" y="16.1751" textLength="18.682617">uid</tspan>
-      </text>
-      <rect x="631.159" y="558.567" width="85.03937" height="36" fill="#9b60a9"/>
-      <rect x="631.159" y="558.567" width="85.03937" height="36" stroke="#1c4161" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-      <text transform="translate(689.31496 564.8914)" fill="white">
-        <tspan font-family="Helvetica" font-size="16" font-weight="bold" fill="white" x="-35.6489" y="17.1751" textLength="40.023438">Party</tspan>
-      </text>
-      <rect x="138.11097717285105" y="595.303833007812" width="107.71653" height="33.165354" fill="white"/>
-      <rect x="138.11097717285105" y="595.303833007812" width="107.71653" height="33.165354" stroke="#1c4161" stroke-linecap="round" stroke-linejoin="miter" stroke-width="1"/>
-      <rect x="138.11097717285105" y="559.303833007812" width="107.71653" height="36" fill="#79a701"/>
-      <rect x="138.11097717285105" y="559.303833007812" width="107.71653" height="36" stroke="#1c4161" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-      
-      <rect x="365.9690246582031" y="595.787092716322" width="104.88189" height="33.165354" fill="white"/>
-      <rect x="365.9690246582031" y="595.787092716322" width="104.88189" height="33.165354" stroke="#1c4161" stroke-linecap="round" stroke-linejoin="miter" stroke-width="1"/>
-      <rect x="365.9690246582031" y="559.787092716322" width="104.88189" height="36" fill="#79a701"/>
-      <rect x="365.9690246582031" y="559.787092716322" width="104.88189" height="36" stroke="#1c4161" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-      
-      
-      
-      
-      
-      
-      
-      
-      <rect x="407.32043" y="90.70866" width="142.928" height="64.8341" fill="white"/>
-      <rect x="407.32043" y="90.70866" width="143.9331" height="70.86614" stroke="#1c4161" stroke-linecap="round" stroke-linejoin="miter" stroke-width="1"/>
-      <text transform="translate(412.32043 92.14173)" fill="#1c4161">
-        <tspan font-family="Helvetica" font-size="14" font-weight="500" fill="#1c4161" x="55.6146" y="13.9998" textLength="18.682617">uid</tspan>
-        <tspan font-family="Helvetica" font-size="14" font-weight="500" fill="#1c4161" x="47.90112" y="31" textLength="27.234375">profi</tspan>
-        <tspan font-family="Helvetica" font-size="14" font-weight="500" fill="#1c4161" x="75.135495" y="31" textLength="10.896484">le</tspan>
-      </text>
-      <rect x="407.25353" y="53.85827" width="143.9331" height="36.850393" fill="#1c4161"/>
-      <rect x="407.25353" y="53.85827" width="143.9331" height="36.850393" stroke="#1c4161" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-      <text transform="translate(417.25353 62.783464)" fill="white">
-        <tspan font-size="16" font-weight="bold" fill="white" x="35.4773" y="17.9229" textLength="47.13281" dy="">Policy</tspan>
-      </text>
-      
-      
-      <text transform="translate(543.5827 296.9685)" fill="#1d4261">
-        
-        
-      </text>
-      
-      
-      
-      
-    <rect x="138.11097717285105" y="595.303833007812" width="107.71653" height="33.165354" fill="white" id="e1_rect"/><rect x="138.11097717285105" y="595.303833007812" width="107.71653" height="33.165354" stroke="#1c4161" stroke-linecap="round" stroke-linejoin="miter" stroke-width="1" id="e2_rect"/><rect x="138.11097717285105" y="559.303833007812" width="107.71653" height="36" fill="#79a701" id="e3_rect"/><rect x="138.11097717285105" y="559.303833007812" width="107.71653" height="36" stroke="#1c4161" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" id="e4_rect"/><rect x="477.94207763671875" y="595.3876509360217" width="107.71653" height="33.165354" fill="white" id="e5_rect"/><rect x="477.94207763671875" y="595.3876509360217" width="107.71653" height="33.165354" stroke="#1c4161" stroke-linecap="round" stroke-linejoin="miter" stroke-width="1" id="e6_rect"/><rect x="477.9421691894531" y="560.6858687094592" width="107.71653" height="36" fill="#79a701" id="e7_rect"/><rect x="477.94207763671875" y="559.3876509360217" width="107.71653" height="36" stroke="#1c4161" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" id="e8_rect"/><text transform="translate(151.73228 564.09055)" fill="white" id="e8_text">
-        
-      </text><text transform="translate(414.3701 560.59055)" fill="#1d4261" id="e1_text">
-        
-      </text><text transform="translate(291.2992 631.4567)" fill="#1d4261" id="e2_text">
-        
-      </text><rect x="253.278686523437" y="595.304077148437" width="104.88189" height="33.165354" fill="white" id="e9_rect"/><rect x="253.278686523437" y="595.304077148437" width="104.88189" height="33.165354" stroke="#1c4161" stroke-linecap="round" stroke-linejoin="miter" stroke-width="1" id="e10_rect"/><rect x="253.278686523437" y="559.304077148437" width="104.88189" height="36" fill="#79a701" id="e11_rect"/><rect x="253.278686523437" y="559.304077148437" width="104.88189" height="36" stroke="#1c4161" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" id="e12_rect"/><text transform="translate(464.2126 169.40945)" fill="#1d4261" id="e4_text">
-        
-      </text><text transform="translate(461.37795 209.09449)" fill="#1d4261" id="e5_text">
-        
-      </text><text transform="translate(878.0709 362.16535)" fill="#1d4261" id="e3_text">
-        
-      </text><rect x="644.807" y="429.358" width="158.74" height="27.7596" stroke="#1c4161" stroke-linecap="round" stroke-linejoin="miter" stroke-width="1" id="e17_rect"/><rect x="644.807" y="391.477" width="158.74016" height="37.881533" fill="#0080ba" id="e18_rect"/><rect x="644.807" y="391.477" width="158.74016" height="37.881533" stroke="#1c4161" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" id="e19_rect"/><text transform="translate(724.3307 241.8817)" fill="white" id="e19_text">
-        
-      </text></g>
-  </g>
-<text style="fill:black;font-family:Arial;font-size:20px;" x="134.509" y="703.61" id="e1_texte"/><text style="fill:black;font-family:Arial;font-size:20px;" x="24.1651" y="577.688" id="e2_texte"/><text style="fill:black;font-family:Arial;font-size:20px;" x="16.3761" y="581.583" id="e3_texte"/><text style="fill: rgb(29, 66, 97); font-size: 14.0202px; font-weight:bold;font-family:Helvetica;" x="340.039" y="160.851" id="e5_texte" transform="matrix(1, 0, 0, 1, 47.8162, 10.8719)">conflict</text><text style="fill:white;font-family:Helvetica;font-size:14.0202px;font-weight:bold;" x="152.957" y="582.7" id="e6_texte" transform="matrix(1, 0, 0, 1, 47.8162, 10.8719)">Permission</text><text style="fill:white;font-family:Helvetica;font-size:14.0202px;font-weight:bold;" x="270.338" y="583.997" id="e7_texte" transform="matrix(1, 0, 0, 1, 47.8162, 10.8719)"><tspan x="270.338" y="" dy="" dx="">Prohibition</tspan></text><text style="fill:white;font-family:Helvetica;font-size:14.0202px;font-weight:bold;" x="384.327" y="583.183" id="e8_texte" transform="matrix(1, 0, 0, 1, 47.8162, 10.8719)">Obligation</text><text style="fill: white; font-family: Helvetica; font-size: 14.0202px; font-weight: bold;" x="486.298" y="582.783" id="e9_texte" transform="matrix(1, 0, 0, 1, 47.8162, 10.8719)">Dispensation</text><text style="fill:#1d4261;font-family:Helvetica;font-size:14.0202px;font-weight:bold;" x="464.592" y="225.675" id="e10_texte" transform="matrix(1, 0, 0, 1, 47.8162, 10.8719)">dispensation</text><text style="fill:#1d4261;font-family:Helvetica;font-size:14.0202px;font-weight:bold;" x="143.743" y="512.351" id="e4_texte" transform="matrix(1, 0, 0, 1, 47.8162, 10.8719)">dispensation</text><polyline style="stroke: rgb(67, 143, 0); fill: none; stroke-width: 2.58px; marker-end:url(#StickArrow_Marker);" id="e4_polyline" points="173.833 383.793 148.501 383.793 148.501 446.148 205.011 446.148 205.011 432.508" transform="matrix(1, 0, 0, 1, 40.9069, 13.6356)"/><polyline style="stroke:#4e8f00;fill:none;stroke-width:3px;marker-end:url(#StickArrow_Marker);" id="e6_polyline" points="303.414,419.842 303.414,496.811 675.681,498.853 676.655,537.515" transform="matrix(1, 0, 0, 1, 40.9069, 13.6356)"/><polyline style="stroke: rgb(78, 143, 0); fill: none; stroke-width: 3px;" id="e8_polyline" points="251.777 531.886 196.242 531.886 196.242 560.14" transform="matrix(1, 0, 0, 1, 40.9069, 13.6356)"/><line id="e9_line" x1="308.286" y1="531.886" x2="308.286" y2="556.243" style="stroke:rgb(78, 143, 0);fill:none;stroke-width:3px;" transform="matrix(1, 0, 0, 1, 40.9069, 13.6356)"/><polyline style="stroke:rgb(78, 143, 0);fill:none;stroke-width:3px;marker-end:url(#UMLInheritance_Marker);" id="e10_polyline" points="533.145,556.488 533.145,531.886 249.828,531.886 247.88,436.405" transform="matrix(1, 0, 0, 1, 40.9069, 13.6356)"/><line id="e11_line" x1="428.125" y1="531.887" x2="428.125" y2="557.218" style="stroke: rgb(78, 143, 0); fill: none; stroke-width: 3px;" transform="matrix(1, 0, 0, 1, 40.9069, 13.6356)"/><text style="fill:black;font-family:Arial;font-size:20px;" x="236.188" y="133.399" id="e14_texte"/><text style="fill:black;font-family:Arial;font-size:20px;" x="238.137" y="131.45" id="e15_texte"/><text style="fill:white;font-family:Helvetica;font-size:15.5887px;font-weight:bold;" x="208.908" y="139.245" id="e16_texte" transform="matrix(1, 0, 0, 1, 40.9069, 13.6356)">ConflictTerm</text><text style="fill:white; font-size:15.5887px; stroke:none;font-family:Helvetica;font-weight:bold;" x="683.39" y="118.784" id="e17_texte" transform="matrix(1, 0, 0, 1, 40.9069, 13.6356)">Resource</text><polyline style="stroke:#1b4264;fill:none;stroke-width:3px;marker-end:url(#UMLInheritance_Marker_2);" id="e1_polyline" points="364.612,225.351 364.612,192.639 440.166,192.639 440.166,179.686" transform="matrix(1, 0, 0, 1, 40.9069, 13.6356)"/><line id="e2_line" x1="725.987" y1="389.374" x2="724.982" y2="341.119" style="stroke:#1b4262;fill:none;stroke-width:3px;marker-end:url(#UMLInheritance_Marker_2);" transform="matrix(1, 0, 0, 1, 40.9069, 13.6356)"/><text style="fill:black;font-family:Arial;font-size:20px;" x="780.663" y="424.909" id="e19_texte"/><text style="fill: white; font-size:15.8803px; font-weight: bold;font-family:Helvetica;" x="656.774" y="413.695" id="e20_texte" transform="matrix(1, 0, 0, 1, 40.9069, 13.6356)">PredicateConstraint</text><polyline style="fill: none; stroke-width:3.05px;stroke:#1b4264;marker-end:url(#StickArrow_Marker_6);" id="e2_polyline" points="502.163,174.529 502.163,287.128 286.014,287.128 286.014,299.192"/><text style="fill:black;font-family:Arial;font-size:20px;" x="278.977" y="378.615" id="e11_texte"></text><text style="fill:black;font-family:Arial;font-size:20px;" x="279.982" y="382.636" id="e12_texte"><tspan x="279.982" dy="1.25em"></tspan></text><text style="fill:black;font-family:Helvetica;font-size:14.0748px;" x="272.945" y="371.577" id="e13_texte">uid</text><text style="fill: black; font-size:14.0748px;font-family:Helvetica;" x="282.998" y="366.55" id="e18_texte"></text><text style="fill:black;font-family:Helvetica;font-size:14.0748px;" x="251.832" y="390.679" id="e21_texte"><tspan x="283.87" style="text-anchor:middle;">legalBasis</tspan><tspan x="283.87" dy="1.25em" style="text-anchor:middle;">......</tspan><tspan x="283.87" dy="1.25em" style="text-anchor:middle;">......</tspan></text><text style="fill:#1d4261;font-family:Helvetica;font-size:14.0748px;font-weight:bold;font-style:italic;" x="612.751" y="316.284" id="e24_texte">constraint</text><polyline style="stroke:#4e8f00;fill:none;stroke-width:3px;marker-end:url(#StickArrow_Marker);" id="e25_polyline" points="358.399,427.876 398.613,427.876 422.741,427.876 600.687,427.876 601.692,296.176 671.061,296.176"/><polyline style="stroke:#4e8f00;fill:none;stroke-width:3px;marker-end:url(#StickArrow_Marker);" id="e26_polyline" points="359.404,329.353 553.436,327.342 552.43,265.011 640.901,264.005 637.885,146.38 697.2,146.38"/><line id="e28_line" x1="360.41" y1="382.636" x2="448.88" y2="382.636" style="stroke:#4e8f00;fill:none;stroke-width:3px;marker-end:url(#StickArrow_Marker);"/><text style="fill:#1d4261;font-family:Helvetica;font-size:14.0748px;font-weight:bold;" x="393.586" y="373.588" id="e29_texte">action</text></svg>
+   </a>
+   <polyline transform="matrix(1.4787313,0,0,1.1946418,32.883796,-429.27945)" points="251.777 531.886 196.242 531.886 196.242 560.14" id="e8_polyline-0" style="fill:none;stroke:#1b4264;stroke-width:2.25713634px;stroke-opacity:1" />
+</svg>

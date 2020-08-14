@@ -36,7 +36,12 @@
                     company:    "University of Bath",
                     companyURL: "https://www.bath.ac.uk/",
                     mailto:     "jap@cs.bath.ac.uk"
-                }],
+                },{   name:        "Simon Steyskal",
+                    url:        "http://www.steyskal.info/",
+                    company:    "Siemens AG Austria",
+                    companyURL: "https://new.siemens.com/at/de.html",
+                    mailto:     "simon.steyskal@siemens.com"
+            }],
       };
     </script>
     <style>
@@ -467,7 +472,7 @@
 	</ul>
 
 		<p class="note">
-			We need to determine where we are going to host this page as it effects the namespace "@context": "https://ai.wu.ac.at/policies/orcp/odrl_regulatory_profile.jsonid",
+			We need to determine where we are going to host this page as it effects the namespace "@context": "https://ai.wu.ac.at/policies/orcp/odrl_regulatory_profile.jsonld",
 		</p>
 
 	<section id="permission">
@@ -501,7 +506,7 @@
 
 <pre id="eg-article6-json-ld" title="Article 6 Paragraph 1 JSON-LD"  class="example hljs json">
 {
-    "@context": "https://ai.wu.ac.at/policies/orcp/odrl_regulatory_profile.jsonid",
+    "@context": "https://ai.wu.ac.at/policies/orcp/odrl_regulatory_profile.jsonld",
     "@type": "Set",
     "uid": "http://example.com/policy:gdpr-article6",
     "profile": "http://example.com/odrl:profile:regulatory-compliance",
@@ -579,7 +584,7 @@
 
 <pre id="eg-article6-json-ld" title="Article 6 Paragraph 1 JSON-LD"  class="example hljs json">
 {
-    "@context": "https://ai.wu.ac.at/policies/orcp/odrl_regulatory_profile.jsonid",
+    "@context": "https://ai.wu.ac.at/policies/orcp/odrl_regulatory_profile.jsonld",
     "@type": "Set",
     "uid": "http://example.com/policy:gdpr-article6",
     "profile": "http://example.com/odrl:profile:regulatory-compliance",
@@ -662,7 +667,7 @@
 
 <pre id="eg-article46-json-ld" title="Article 46 JSON-LD" class="example hljs json">
  {
-    "@context": "https://ai.wu.ac.at/policies/orcp/odrl_regulatory_profile.jsonid",
+    "@context": "https://ai.wu.ac.at/policies/orcp/odrl_regulatory_profile.jsonld",
     "@type": "Set",
     "uid": "http://example.com/policy:gdpr-article46",
     "profile": "http://example.com/odrl:profile:regulatory-compliance",
@@ -773,7 +778,7 @@
 
 <pre id="eg-article6-json-ld" title="Article 6 Paragraph 1 JSON-LD"  class="example hljs json">
 {
-    "@context": "https://ai.wu.ac.at/policies/orcp/odrl_regulatory_profile.jsonid",
+    "@context": "https://ai.wu.ac.at/policies/orcp/odrl_regulatory_profile.jsonld",
     "@type": "Set",
     "uid": "http://example.com/policy:gdpr-article6",
     "profile": "http://example.com/odrl:profile:regulatory-compliance",
@@ -1000,7 +1005,7 @@
 
 <pre id="eg-article6-json-ld" title="Article 6 Paragraph 1 JSON-LD"  class="example hljs json">
 {
-    "@context": "https://ai.wu.ac.at/policies/orcp/odrl_regulatory_profile.jsonid",
+    "@context": "https://ai.wu.ac.at/policies/orcp/odrl_regulatory_profile.jsonld",
     "@type": "Set",
     "uid": "http://example.com/policy:gdpr-article6",
     "profile": "http://example.com/odrl:profile:regulatory-compliance",
@@ -1107,7 +1112,7 @@
 
 <pre id="eg-article6-req-json-ld" title="Permission request JSON-LD with legal basis" class="example hljs json">
 {
-    "@context": "https://ai.wu.ac.at/policies/orcp/odrl_regulatory_profile.jsonid",
+    "@context": "https://ai.wu.ac.at/policies/orcp/odrl_regulatory_profile.jsonld",
     "@type": "Set",
     "uid": "http://example.com/policy:bp-processing-withLegalBasis",
     "profile": "http://example.com/odrl:profile:regulatory-compliance",
@@ -1145,7 +1150,7 @@
 
 <pre id="eg-article6-req-json-ld" title="Permission request JSON-LD without legal basis" class="example hljs json">
 {
-    "@context": "https://ai.wu.ac.at/policies/orcp/odrl_regulatory_profile.jsonid",
+    "@context": "https://ai.wu.ac.at/policies/orcp/odrl_regulatory_profile.jsonld",
     "@type": "Set",
     "uid": "http://example.com/policy:bp-processing-withoutLegalBasis",
     "profile": "http://example.com/odrl:profile:regulatory-compliance",
@@ -1211,7 +1216,7 @@
 
 <pre id="eg-article46-json-ld" title="Article 46 JSON-LD" class="example hljs json">
  {
-    "@context": "https://ai.wu.ac.at/policies/orcp/odrl_regulatory_profile.jsonid",
+    "@context": "https://ai.wu.ac.at/policies/orcp/odrl_regulatory_profile.jsonld",
     "@type": "Set",
     "uid": "http://example.com/policy:gdpr-article46",
     "profile": "http://example.com/odrl:profile:regulatory-compliance",
@@ -1318,7 +1323,7 @@
 
 <pre id="eg-article46-req-json-ld" title="Permission request JSON-LD with appropriate safeguards" class="example hljs json">
  {
-    "@context": "https://ai.wu.ac.at/policies/orcp/odrl_regulatory_profile.jsonid",
+    "@context": "https://ai.wu.ac.at/policies/orcp/odrl_regulatory_profile.jsonld",
     "@type": "Set",
     "uid": "http://example.com/policy:bp-transfer-withSafeguards",
     "profile": "http://example.com/odrl:profile:regulatory-compliance",
@@ -1367,7 +1372,7 @@
 
 <pre id="eg-article46-req-json-ld" title="Permission request JSON-LD without appropriate safeguards" class="example hljs json">
  {
-    "@context": "https://ai.wu.ac.at/policies/orcp/odrl_regulatory_profile.jsonid",
+    "@context": "https://ai.wu.ac.at/policies/orcp/odrl_regulatory_profile.jsonld",
     "@type": "Set",
     "uid": "http://example.com/policy:bp-transfer-withoutSafeguards",
     "profile": "http://example.com/odrl:profile:regulatory-compliance",
