@@ -757,32 +757,32 @@
                   [ odrl:leftOperand gdprcp:controllerIdentity ;
                     odrl:operator odrl:isA ;
                     odrl:rightOperand gdprcp:Controller
-                  ],
+                  ] ;
                 ocp:predicateConstraint
                   [ odrl:leftOperand gdprcp:controllerContactDetails ;
                     odrl:operator odrl:isA ;
                     odrl:rightOperand xsd:string
-                  ],
+                  ] ;
                 ocp:softPredicateConstraint
                   [ odrl:leftOperand gdprcp:controllersRepresentative ;
                     odrl:operator odrl:isA ;
                     odrl:rightOperand gdprcp:Representative
-                  ],
+                  ] ;
                 ocp:softPredicateConstraint
                   [ odrl:leftOperand gdprcp:dataProtectionOfficer ;
                     odrl:operator odrl:isA ;
                     odrl:rightOperand gdprcp:DataProtectionOfficer
-                  ],
+                  ] ;
                 ocp:predicateConstraint
                   [ odrl:leftOperand gdprcp:purpose ;
                     odrl:operator odrl:isA ;
                     odrl:rightOperand gdprcp:Purpose
-                  ],
+                  ] ;
                 ocp:predicateConstraint
                   [ odrl:leftOperand gdprcp:legalBasis ;
                     odrl:operator odrl:isA ;
                     odrl:rightOperand gdprcp:LegalBasis
-                  ],
+                  ] ;
                 ocp:softPredicateConstraint
                   [ odrl:leftOperand gdprcp:legalBasis ;
                     odrl:operator odrl:isA ;
@@ -792,7 +792,7 @@
                         odrl:operator odrl:isA ;
                         odrl:rightOperand xsd:string
                       ]
-                  ],
+                  ] ;
                 ocp:softPredicateConstraint
                   [ odrl:or (
                     [ odrl:leftOperand gdprcp:recipent ;
@@ -803,7 +803,7 @@
                       odrl:operator odrl:isA ;
                       odrl:rightOperand gdprcp:RecipentCategory
                     ] )
-                  ] ,
+                  ] ;
                 ocp:softPredicateConstraint
                 [ odrl:leftOperand odrl:action ;
                   odrl:operator odrl:isA ;
