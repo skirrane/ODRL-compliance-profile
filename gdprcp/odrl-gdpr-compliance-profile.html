@@ -340,9 +340,9 @@
 
         gdprcp:GDPR-article6 a ocp:Set ;
             odrl:profile ocp:odrl_regulatory_profile ;
-            ocp:permission gdprcp:GDPR-article6-legalbasis .
+            ocp:permission gdprcp:GDPR-article6-legalbasisWithProhibition .
 
-        gdprcp:GDPR-article6-legalbasis odrl:action gdprcp:Processing ;
+        gdprcp:GDPR-article6-legalbasisWithProhibition odrl:action gdprcp:Processing ;
           gdprcp:data gdprcp:PersonalData ;
           ocp:predicateConstraint
             [ odrl:leftOperand gdprcp:legalBasis ;
@@ -429,9 +429,9 @@
 
         gdprcp:GDPR-article6 a ocp:Set ;
             odrl:profile ocp:odrl_regulatory_profile ;
-            ocp:permission gdprcp:GDPR-article6-legalbasis .
+            ocp:permission gdprcp:GDPR-article6-legalbasisWithProhibitionDispensation .
 
-        gdprcp:GDPR-article6-legalbasis odrl:action gdprcp:Processing ;
+        gdprcp:GDPR-article6-legalbasisWithProhibitionDispensation odrl:action gdprcp:Processing ;
             gdprcp:data gdprcp:PersonalData ;
             ocp:predicateConstraint
               [ odrl:leftOperand gdprcp:legalBasis ;
@@ -585,7 +585,7 @@
 
         <section id="gdpr-transfer-article46">
           <h4>Article 46, Paragraphs 1 to 3</h3>
-          <p> According to Article 46, Paragraphs 1 and 2, of the GDPR:</p>
+          <p> According to Article 46, Paragraphs 1, 2 & 3 of the GDPR:</p>
 
           <i>
           	<p>1. In the absence of a decision pursuant to Article 45(3), a controller or processor may transfer personal data to a third country or an international organisation only if the controller or processor has provided appropriate safeguards, and on condition that enforceable data subject rights and effective legal remedies for data subjects are available.
@@ -603,6 +603,13 @@
           	<p>(e) an approved code of conduct pursuant to Article 40 together with binding and enforceable commitments of the controller or processor in the third country to apply the appropriate safeguards, including as regards data subjects' rights; or </p>
 
           	<p>(f) an approved certification mechanism pursuant to Article 42 together with binding and enforceable commitments of the controller or processor in the third country to apply the appropriate safeguards, including as regards data subjects' rights. </p>
+
+            <p>3.Subject to the authorisation from the competent supervisory authority, the appropriate safeguards referred to in paragraph 1 may also be provided for, in particular, by: </p>
+
+            <p>(a) contractual clauses between the controller or processor and the controller, processor or the recipient of the personal data in the third country or international organisation; or </p>
+
+            <p>(b) provisions to be inserted into administrative arrangements between public authorities or bodies which include enforceable and effective data subject rights.</p>
+
           </i>
 
           <p class="note">GDPR Article 46 paragraphs 4 & 5 are deemed out of scope. GDPR Article 46 paragraphs 4 provides guidelines for the supervisory authority and Article 46 paragraphs 5 is an opening clause.</p>
@@ -757,33 +764,28 @@
                   [ odrl:leftOperand gdprcp:controllerIdentity ;
                     odrl:operator odrl:isA ;
                     odrl:rightOperand gdprcp:Controller
-                  ] ;
-                ocp:predicateConstraint
+                  ] ,
                   [ odrl:leftOperand gdprcp:controllerContactDetails ;
                     odrl:operator odrl:isA ;
                     odrl:rightOperand xsd:string
-                  ] ;
-                ocp:softPredicateConstraint
-                  [ odrl:leftOperand gdprcp:controllersRepresentative ;
-                    odrl:operator odrl:isA ;
-                    odrl:rightOperand gdprcp:Representative
-                  ] ;
-                ocp:softPredicateConstraint
-                  [ odrl:leftOperand gdprcp:dataProtectionOfficer ;
-                    odrl:operator odrl:isA ;
-                    odrl:rightOperand gdprcp:DataProtectionOfficer
-                  ] ;
-                ocp:predicateConstraint
+                  ] ,
                   [ odrl:leftOperand gdprcp:purpose ;
                     odrl:operator odrl:isA ;
                     odrl:rightOperand gdprcp:Purpose
-                  ] ;
-                ocp:predicateConstraint
+                  ] ,
                   [ odrl:leftOperand gdprcp:legalBasis ;
                     odrl:operator odrl:isA ;
                     odrl:rightOperand gdprcp:LegalBasis
                   ] ;
                 ocp:softPredicateConstraint
+                  [ odrl:leftOperand gdprcp:controllersRepresentative ;
+                    odrl:operator odrl:isA ;
+                    odrl:rightOperand gdprcp:Representative
+                  ] ,
+                  [ odrl:leftOperand gdprcp:dataProtectionOfficer ;
+                    odrl:operator odrl:isA ;
+                    odrl:rightOperand gdprcp:DataProtectionOfficer
+                  ] ,
                   [ odrl:leftOperand gdprcp:legalBasis ;
                     odrl:operator odrl:isA ;
                     odrl:rightOperand gdprcp:LegitimateInterest ;
@@ -792,8 +794,7 @@
                         odrl:operator odrl:isA ;
                         odrl:rightOperand xsd:string
                       ]
-                  ] ;
-                ocp:softPredicateConstraint
+                  ] ,
                   [ odrl:or (
                     [ odrl:leftOperand gdprcp:recipent ;
                       odrl:operator odrl:isA ;
@@ -803,29 +804,83 @@
                       odrl:operator odrl:isA ;
                       odrl:rightOperand gdprcp:RecipentCategory
                     ] )
-                  ] ;
-                ocp:softPredicateConstraint
-                [ odrl:leftOperand odrl:action ;
+                  ] ,
+                  [ odrl:leftOperand odrl:action ;
+                    odrl:operator odrl:isA ;
+                    odrl:rightOperand gdprcp:Transfer ;
+                    ocp:predicateConstraint
+                      [ odrl:or (
+                        [ odrl:leftOperand gdprcp:organisationType ;
+                          odrl:operator odrl:isA ;
+                          odrl:rightOperand gdprcp:InternationalOrganisation
+                        ]
+                        [ odrl:leftOperand gdprcp:recipientLocation ;
+                          odrl:operator odrl:isA ;
+                          odrl:rightOperand gdprcp:ThirdCountry
+                        ] )
+                      ] ;
+                    ocp:obligation gdprcp:GDPR-article46-para2, gdprcp:GDPR-article46-para3
+                  ]
+              ] , gdprcp:GDPR-article13-para2 , gdprcp:GDPR-article13-para3 .
+
+          gdprcp:GDPR-article13-para2 ocp:predicateConstraint
+            [ odrl:or (
+              [ odrl:leftOperand gdprcp:storagePeriod ;
+                odrl:operator odrl:isA ;
+                odrl:rightOperand xsd:string
+              ]
+              [ odrl:leftOperand gdprcp:storageCriteria ;
+                odrl:operator odrl:isA ;
+                odrl:rightOperand xsd:string
+              ] )
+            ] ,
+            [ odrl:leftOperand gdprcp:dataSubjectRights ;
+              odrl:operator odrl:isA ;
+              odrl:rightOperand gdprcp:AccessRight
+            ] ,
+            [ odrl:leftOperand gdprcp:dataSubjectRights ;
+              odrl:operator odrl:isA ;
+              odrl:rightOperand gdprcp:RectificationRight
+            ] ,
+            [ odrl:leftOperand gdprcp:dataSubjectRights ;
+              odrl:operator odrl:isA ;
+              odrl:rightOperand gdprcp:ErasureRight
+            ] ,
+            [ odrl:leftOperand gdprcp:dataSubjectRights ;
+              odrl:operator odrl:isA ;
+              odrl:rightOperand gdprcp:RestrictionOfProcessing
+            ] ,
+            [ odrl:leftOperand gdprcp:dataSubjectRights ;
+              odrl:operator odrl:isA ;
+              odrl:rightOperand gdprcp:Portability
+            ] ,
+            [ odrl:leftOperand gdprcp:dataSubjectRights ;
+              odrl:operator odrl:isA ;
+              odrl:rightOperand gdprcp:LodgeAComplaint
+            ] ,
+            [ odrl:leftOperand gdprcp:personalDataProvisionRequirements ;
+              odrl:operator odrl:isA ;
+              odrl:rightOperand xsd:string
+            ] ,
+            [ odrl:leftOperand gdprcp:automatedDecisonMakeing ;
+              odrl:operator odrl:isA ;
+              odrl:rightOperand xsd:string
+            ] ,
+            [ odrl:leftOperand gdprcp:legalBasis ;
+              odrl:operator odrl:isA ;
+              odrl:rightOperand gdprcp:Consent ;
+              ocp:PredicateConstraint
+                [ odrl:leftOperand gdprcp:dataSubjectRights ;
                   odrl:operator odrl:isA ;
-                  odrl:rightOperand gdprcp:Transfer ;
-                  ocp:PredicateConstraint
-                    [ odrl:or (
-                      [ odrl:leftOperand gdprcp:organisationType ;
-                        odrl:operator odrl:isA ;
-                        odrl:rightOperand gdprcp:InternationalOrganisation
-                      ]
-                      [ odrl:leftOperand gdprcp:recipientLocation ;
-                        odrl:operator odrl:isA ;
-                        odrl:rightOperand gdprcp:ThirdCountry
-                      ] )
-                    ],
-                  ocp:predicateConstraint
-                    [ odrl:leftOperand gdprcp:adequacyDecisionByCommission ;
-                      odrl:operator odrl:isA ;
-                      odrl:rightOperand xsd:boolean
-                    ] ;
-                  ocp:obligation gdprcp:GDPR-article46-para2, gdprcp:GDPR-article46-para3 .
-              ] .
+                  odrl:rightOperand gdprcp:WithdrawConsent
+                ]
+            ] .
+
+          gdprcp:GDPR-article13-para3 ocp:softPredicateConstraint
+            [ odrl:leftOperand gdprcp:furtherProcessing ;
+              odrl:operator odrl:isA ;
+              odrl:rightOperand gdprcp:Processing
+            ] .
           </pre>
         </section>
 
