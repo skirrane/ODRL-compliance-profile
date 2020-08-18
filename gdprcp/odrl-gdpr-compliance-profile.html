@@ -791,11 +791,14 @@
                   [ odrl:leftOperand gdprcp:legalBasis ;
                     odrl:operator odrl:isA ;
                     odrl:rightOperand gdprcp:LegitimateInterest ;
-                    ocp:PredicateConstraint
-                      [ odrl:leftOperand gdprcp:legitimateInterest ;
-                        odrl:operator odrl:isA ;
-                        odrl:rightOperand xsd:string
-                      ]
+                    ocp:Obligation
+                    [
+                      ocp:PredicateConstraint
+                        [ odrl:leftOperand gdprcp:legitimateInterest ;
+                          odrl:operator odrl:isA ;
+                          odrl:rightOperand xsd:string
+                        ]
+                    ]
                   ] ,
                   [ odrl:or (
                     [ odrl:leftOperand gdprcp:recipent ;
@@ -810,18 +813,20 @@
                   [ odrl:leftOperand odrl:action ;
                     odrl:operator odrl:isA ;
                     odrl:rightOperand gdprcp:Transfer ;
-                    ocp:predicateConstraint
-                      [ odrl:or (
-                        [ odrl:leftOperand gdprcp:organisationType ;
-                          odrl:operator odrl:isA ;
-                          odrl:rightOperand gdprcp:InternationalOrganisation
-                        ]
-                        [ odrl:leftOperand gdprcp:recipientLocation ;
-                          odrl:operator odrl:isA ;
-                          odrl:rightOperand gdprcp:ThirdCountry
-                        ] )
-                      ] ;
-                    ocp:obligation gdprcp:GDPR-article46-para2, gdprcp:GDPR-article46-para3
+                    ocp:obligation
+                    [
+                      ocp:predicateConstraint
+                        [ odrl:or (
+                          [ odrl:leftOperand gdprcp:organisationType ;
+                            odrl:operator odrl:isA ;
+                            odrl:rightOperand gdprcp:InternationalOrganisation
+                          ]
+                          [ odrl:leftOperand gdprcp:recipientLocation ;
+                            odrl:operator odrl:isA ;
+                            odrl:rightOperand gdprcp:ThirdCountry
+                          ] )
+                        ] ;
+                    ] ,  gdprcp:GDPR-article46-para2, gdprcp:GDPR-article46-para3
                   ]
               ] , gdprcp:GDPR-article13-para2 , gdprcp:GDPR-article13-para3 .
 
@@ -871,11 +876,14 @@
             [ odrl:leftOperand gdprcp:legalBasis ;
               odrl:operator odrl:isA ;
               odrl:rightOperand gdprcp:Consent ;
-              ocp:PredicateConstraint
-                [ odrl:leftOperand gdprcp:dataSubjectRights ;
-                  odrl:operator odrl:isA ;
-                  odrl:rightOperand gdprcp:WithdrawConsent
-                ]
+              ocp:obligation
+              [
+                ocp:PredicateConstraint
+                  [ odrl:leftOperand gdprcp:dataSubjectRights ;
+                    odrl:operator odrl:isA ;
+                    odrl:rightOperand gdprcp:WithdrawConsent
+                  ]
+              ]
             ] .
 
           gdprcp:GDPR-article13-para3 ocp:softPredicateConstraint
