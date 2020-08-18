@@ -648,15 +648,13 @@
                   odrl:operator odrl:isA ;
                   odrl:rightOperand gdprcp:LegalRemediesForDataSubjects
                 ],
-                [ odrl:or (
-                  [ odrl:leftOperand gdprcp:appropriateSafeguards ;
-                    odrl:operator odrl:isAnyOf ;
-                    odrl:rightOperand ( gdprcp:LegallyBindingEnforceableInstrument
-                                        gdprcp:BindingCorporateRules
-                                        gdprcp:StandardDataProtectionClauses
-                                        gdprcp:ApprovedCodeOfConduct
-                                        gdprcp:ApprovedCertificateMechanism )
-                  ] )
+                [ odrl:leftOperand gdprcp:appropriateSafeguards ;
+                  odrl:operator odrl:isAnyOf ;
+                  odrl:rightOperand ( gdprcp:LegallyBindingEnforceableInstrument
+                                      gdprcp:BindingCorporateRules
+                                      gdprcp:StandardDataProtectionClauses
+                                      gdprcp:ApprovedCodeOfConduct
+                                      gdprcp:ApprovedCertificateMechanism )
                 ] .
 
             gdprcp:GDPR-article46-para3 ocp:predicateConstraint
