@@ -139,9 +139,9 @@
 
           <p>The ODRL GDPR Compliance Profile model defines the following top-level Actions:</p>
           <ul>
-            <li><code>Process</code> - actions that involve processing by parties. </li>
+            <li><code>Process</code> - actions that involve processing by a party. </li>
             <li><code>Transfer</code> - actions that involve transfers between parties.</li>
-            <li><code>Collect</code> - actions that involve processing by parties. </li>
+            <li><code>Collect</code> - actions that involve collection by a party. </li>
             <li><code>Contact</code> - actions that involve making first contact with a party. </li>
         	</ul>
 
@@ -176,7 +176,7 @@
             <li><code>AccessRights</code></li>
             <li><code>RectificationRights</code></li>
             <li><code>ErasureRights</code></li>
-            <li><code>RestrictionOfProcessing</code></li>
+            <li><code>RestrictionOfProcessingRights</code></li>
             <li><code>PortabilityRights</code></li>
             <li><code>ComplaintRights</code></li>
             <li><code>PersonalDataProvisionRequirements</code></li>
@@ -237,7 +237,6 @@
         	<ul>
         		<li><code>PublicAuthorityTask</code></li>
         		<li><code>Recommendations</code></li>
-        		<li><code>FurtherProcessing</code></li>
         	</ul>
         </section>
 
@@ -272,6 +271,15 @@
         <section id="action-property">
         	<h4>action property</h4>
           <p>An Action class indicates an operation that can be exercised on an Asset. An Action is associated with the Resource via the <code><em>action</em></code> property in a Rule.</p>
+
+          <p>The profile has the following sub-properties of <code><em>action</em></code>:</p>
+          <ul>
+            <li><code>process</code></li>
+            <li><code>transfer</code></li>
+            <li><code>collect</code></li>
+            <li><code>contact</code></li>
+            <li><code>furtherProcess</code></li>
+          </ul>
         </section>
 
         <section id="relation-property">
@@ -318,6 +326,11 @@
         <section id="purpose-property">
           <h4>purpose property</h4>
           <p> A property used to assert the purpose for the processing. This property is used to link a Rule to a Purpose.</p>
+
+          <p>The profile has the following sub-properties of <code><em>purpose</em></code>:</p>
+          <ul>
+            <li><code>furtherPurpose</code></li>
+          </ul>
         </section>
 
         <section id="location-property">
@@ -976,7 +989,7 @@
             ] ,
             [ odrl:leftOperand gdprcp:dataSubjectRights ;
               odrl:operator odrl:isA ;
-              odrl:rightOperand gdprcp:RestrictionOfProcessing
+              odrl:rightOperand gdprcp:RestrictionOfProcessingRights
             ] ,
             [ odrl:leftOperand gdprcp:dataSubjectRights ;
               odrl:operator odrl:isA ;
@@ -1002,11 +1015,11 @@
                 odrl:rightOperand gdprcp:WithdrawConsentRights
               ] .
 
-          gdprcp:GDPR-article13-para3-obl3 gdprcp:furtherProcessing gdprcp:FurtherProcessing ;
+          gdprcp:GDPR-article13-para3-obl3 gdprcp:furtherProcess gdprcp:Process ;
             ocp:PredicateConstraint
-              [ odrl:leftOperand gdprcp:purpose ;
+              [ odrl:leftOperand gdprcp:furtherPurpose ;
                 odrl:operator odrl:isA ;
-                odrl:rightOperand gdprcp:FurtherProcessing
+                odrl:rightOperand gdprcp:Purpose
               ] .
 
           </pre>
@@ -1195,7 +1208,7 @@
               ] ,
               [ odrl:leftOperand gdprcp:dataSubjectRights ;
                 odrl:operator odrl:isA ;
-                odrl:rightOperand gdprcp:RestrictionOfProcessing
+                odrl:rightOperand gdprcp:RestrictionOfProcessingRights
               ] ,
               [ odrl:leftOperand gdprcp:dataSubjectRights ;
                 odrl:operator odrl:isA ;
@@ -1229,7 +1242,7 @@
               <blockquote>
                 <p>Request for permission to collect personal data from a source other than the data subject.</p>
               </blockquote>
-
+              <p>TO BE ADVISED</p>
           </section>
 
       </section>
