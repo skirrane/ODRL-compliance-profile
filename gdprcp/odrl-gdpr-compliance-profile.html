@@ -55,9 +55,10 @@
     	th { background: #ddd; }
     	th, td { border: 1px solid #888; margin: 0; padding: 0.3em 0.5em; }
     </style>
-</head>
+  </head>
 
   <body>
+
     <section id="abstract">
       <p>The Open Digital Rights Language (ODRL) is a policy expression language that provides a flexible and interoperable information model, vocabulary, and encoding mechanisms for representing statements about the usage of content and services. </p>
 
@@ -125,7 +126,7 @@
     </section>
 
     <section id="GDPRComplianceModel">
-    	<h2>GDPR Compliance Profile Vocabulary</h2>
+    	<h2>GDPR Compliance Profile Core Vocabulary</h2>
 
       <p>This section describes how the ODRL Compliance Profile extends the <a href="https://ai.wu.ac.at/policies/ocp/odrl-compliance-profile/"> ODRL Compliance Profile </a> vocabularies.</p>
 
@@ -142,8 +143,13 @@
             <li><code>Transfer</code> - actions that involve transfers between parties.</li>
             <li><code>Collect</code> - actions that involve processing by parties. </li>
             <li><code>Contact</code> - actions that involve making first contact with a party. </li>
-
         	</ul>
+
+          <section id="rightsAndFreedomsEffected-property">
+            <h5>rightsAndFreedomsEffected property</h5>
+            <p> A property used to assert that the rights and freedoms of the data subject are / are not effected. This property can either be <code><em>true</em></code> or <code><em>false</em></code>. </p>
+          </section>
+
         </section>
 
         <section id="resource-class">
@@ -201,6 +207,11 @@
             <li><code>RecipientCategory</code></li>
         	</ul>
 
+          <section id="organisationType-property">
+            <h5>organisationType property</h5>
+            <p> A property used to assert the type of organisation. This property associates a party with an OrganisationType. </p>
+          </section>
+
         </section>
 
         <section id="legalBasis-class">
@@ -218,17 +229,6 @@
         	</ul>
         </section>
 
-        <section id="location-class">
-        	<h4>Location Class</h4>
-          <p> A class denoting the location of the processing. </p>
-        	<p>The profile has the following subclasses of type <code><em> Location </em></code> that are associated with an action via the <code>location</code> property:</p>
-
-        	<ul>
-        		<li><code>ThirdCountry</code></li>
-        		<li><code>EU</code></li>
-        	</ul>
-        </section>
-
         <section id="purpose-class">
         	<h4>Purpose Class</h4>
           <p> A class denoting the reason for the processing. </p>
@@ -241,6 +241,16 @@
         	</ul>
         </section>
 
+        <section id="location-class">
+        	<h4>Location Class</h4>
+          <p> A class denoting the location of the processing. </p>
+        	<p>The profile has the following subclasses of type <code><em> Location </em></code> that are associated with an action via the <code>location</code> property:</p>
+
+        	<ul>
+        		<li><code>ThirdCountry</code></li>
+        		<li><code>EU</code></li>
+        	</ul>
+        </section>
 
         <section id="provision-class">
           <h4>Provision Class</h4>
@@ -258,7 +268,13 @@
       <section id="properties">
         <h3>GDPR Compliance Profile Properties</h3>
 
-        <section id="relation">
+
+        <section id="action-property">
+        	<h4>action property</h4>
+          <p>An Action class indicates an operation that can be exercised on an Asset. An Action is associated with the Resource via the <code><em>action</em></code> property in a Rule.</p>
+        </section>
+
+        <section id="relation-property">
           <h4>relation property</h4>
           <p>A <code><em>relation</em></code> property is used to link a Rule to a Resource. The <code><em>relation</em></code> property itself is abstract; sub-properties represent explicit semantics of the relationship between the Resource and the Rule.</p>
           <p>The profile has the following sub-properties of <code><em>relation</em></code>:</p>
@@ -279,7 +295,7 @@
           </ul>
         </section>
 
-        <section id="function">
+        <section id="function-property">
           <h4>function property</h4>
           <p>A <code><em>function</em></code> property is used to link a Rule to a Party, indicating the function undertaken by the Party in respect to the Rule that links to it. The <code><em>function</em></code> property itself is abstract; sub-properties represent explicit semantics of the functional role between the Party and the Rule.</p>
           <p>The profile has the following sub-properties of <code><em>function</em></code>:</p>
@@ -294,50 +310,33 @@
           </ul>
         </section>
 
-        <section id="legalBasis">
+        <section id="legalBasis-property">
           <h4>legalBasis property</h4>
           <p> A property used to assert the legal basis for processing. This property is used to link a Rule to a LegalBasis.</p>
         </section>
 
-        <section id="purpose">
+        <section id="purpose-property">
           <h4>purpose property</h4>
           <p> A property used to assert the purpose for the processing. This property is used to link a Rule to a Purpose.</p>
         </section>
 
-        <section id="processingLocation">
-          <h4> processingLocation property</h4>
-          <p> A property used to assert the location of the processing. This property is used to link a Rule to a Location.</p>
+        <section id="location-property">
+          <h4>location property</h4>
+          <p>A <code><em>location</em></code> property is used to link a Rule to a Location, indicating where the function undertaken by the Party is located. The <code><em>location</em></code> property itself is abstract; sub-properties represent explicit semantics of the functional role between the Party and the Rule.</p>
+
+          <p>The profile has the following sub-properties of <code><em>relation</em></code>:</p>
+          <ul>
+            <li><code>processingLocation</code></li>
+            <li><code>recipientLocation</code></li>
+          </ul>
         </section>
 
-        <section id="recipientLocation">
-          <h4> recipientLocation property</h4>
-          <p> A property used to assert the location where the recipient is located. This property is used to link a Rule to a Location.</p>
-        </section>
-
-        <section id="organisationType">
-          <h4>organisationType property</h4>
-          <p> A property used to assert the type of organisation. This property is used to link a Rule to a Party.</p>
-        </section>
-
-        <section id="appropriateSafeguards">
-          <h4>appropriateSafeguards property</h4>
-          <p> A property used to assert the type of safeguards that are in place. This property is used to link a Rule to a Resource of type AppropriateSafeguards.</p>
-        </section>
-
-        <section id="dataSubjectProvisions">
-          <h4>dataSubjectProvisions property</h4>
-          <p> A property used to assert the data subject provisions that are in place. This property is used to link a Rule to a Resource of type DataSubjectProvisions.</p>
-        </section>
-
-        <section id="rightsAndFreedomsEffected">
-          <h4>rightsAndFreedomsEffected property</h4>
-          <p> A property used to assert that the rights and freedoms of the data subject are / are not effected. </p>
-        </section>
-
-        <section id="provision">
+        <section id="provision-property">
           <h4>provision property</h4>
           <p> A property used to assert that data has been gathered directly or indirectly. </p>
         </section>
+
+
 
       </section>
     </section>
@@ -535,9 +534,9 @@
 
     </section>
 
-    <section id="example">
+    <section id="GDPRArticleExamples">
       <h2>Extracts from the General Data Protection Regulation</h2>
-      <p> In this section we demonstrate how Article 6 Lawfulness of processing and Article 46 Transfers subject to appropriate safeguards would be modelled using the proposed ODRL GDPR Compliance Profile.</p>
+      <p> In this section we demonstrate how several articles from the GDPR can be modelled using the proposed ODRL GDPR Compliance Profile.</p>
 
       <section id="gdpr-lawfulness">
       	<h3>GDPR Lawfulness of Processing</h3>
@@ -1013,215 +1012,226 @@
           </pre>
         </section>
 
-        <section id="gdpr-info-article14-ex">
-        	<h4>Business policy request to collect personal data.</h3>
-        	<blockquote>
-        		<p>Request for permission to collect personal data in order to provide recommendations.</p>
-        	</blockquote>
+        <section id="gdpr-info-article13-ex">
+          	<h4>Business policy request to collect personal data from the data subject.</h3>
+          	<blockquote>
+          		<p>Request for permission to collect personal data in order to provide recommendations.</p>
+          	</blockquote>
 
-          <pre class="example hljs n3" title="Permission request Turtle without recipients" id="eg-article13-req-n3">
-          &lt;http://example-company.com/policy:bp-collect-for-recommendations&gt; a ocp:Set ;
-              odrl:profile ocp:odrl_regulatory_profile ;
-              ocp:permission
-                [ odrl:action gdprcp:Collect ;
-                  gdprcp:data gdprcp:PersonalData ;
-                  gdprcp:controller &lt;http://example-company.com/CompanyA_Ireland&gt; ;
-                  gdprcp:organisationType gdprcp:InternationalOrganisation ;
-                  gdprcp:controllerContactDetails "CompanyA, IFIC, Dublin, Ireland"^^xsd:string ;
-                  gdprcp:purpose gdprcp:Recommendations ;
-                  gdprcp:legalBasis gdprcp:Consent
-                 ] .
-          </pre>
+            <pre class="example hljs n3" title="Permission request Turtle without recipients" id="eg-article13-req-n3">
+            &lt;http://example-company.com/policy:bp-collect-for-recommendations&gt; a ocp:Set ;
+                odrl:profile ocp:odrl_regulatory_profile ;
+                ocp:permission
+                  [ odrl:action gdprcp:Collect ;
+                    gdprcp:data gdprcp:PersonalData ;
+                    gdprcp:controller &lt;http://example-company.com/CompanyA_Ireland&gt; ;
+                    gdprcp:organisationType gdprcp:InternationalOrganisation ;
+                    gdprcp:controllerContactDetails "CompanyA, IFIC, Dublin, Ireland"^^xsd:string ;
+                    gdprcp:purpose gdprcp:Recommendations ;
+                    gdprcp:legalBasis gdprcp:Consent
+                   ] .
+            </pre>
         </section>
       </section>
-    <section id="gdpr-information-indirect">
-      <h2>GDPR Information for Data Subjects Indirect Collection</h2>
-      <p>Article 14 Information to be provided where personal data have not been obtained from the data subject</p>
 
-      <section id="gdpr-info-article14">
-        <h4>Article 14, Paragraphs 1 to 4</h3>
+      <section id="gdpr-information-indirect">
+          <h2>GDPR Information for Data Subjects Indirect Collection</h2>
+          <p>Article 14 Information to be provided where personal data have not been obtained from the data subject</p>
 
-        <p>According to Article 14, Paragraphs 1 to 5, of the GDPR:</p>
+          <section id="gdpr-info-article14">
+            <h4>Article 14, Paragraphs 1 to 4</h3>
 
-        <i>
-          <p>1.Where personal data have not been obtained from the data subject, the controller shall provide the data subject with the following information: </p>
+            <p>According to Article 14, Paragraphs 1 to 5, of the GDPR:</p>
 
-          <p>(a) the identity and the contact details of the controller and, where applicable, of the controller's representative; </p>
+            <i>
+              <p>1.Where personal data have not been obtained from the data subject, the controller shall provide the data subject with the following information: </p>
 
-          <p>(b) the contact details of the data protection officer, where applicable; </p>
+              <p>(a) the identity and the contact details of the controller and, where applicable, of the controller's representative; </p>
 
-          <p>(c) the purposes of the processing for which the personal data are intended as well as the legal basis for the processing; </p>
+              <p>(b) the contact details of the data protection officer, where applicable; </p>
 
-          <p>(d) the categories of personal data concerned; </p>
+              <p>(c) the purposes of the processing for which the personal data are intended as well as the legal basis for the processing; </p>
 
-          <p>(e) the recipients or categories of recipients of the personal data, if any;</p>
+              <p>(d) the categories of personal data concerned; </p>
 
-          <p>(f)where applicable, that the controller intends to transfer personal data to a recipient in a third country or international organisation and the existence or absence of an adequacy decision by the Commission, or in the case of transfers referred to in Article 46 or 47, or the second subparagraph of Article 49(1), reference to the appropriate or suitable safeguards and the means to obtain a copy of them or where they have been made available. </p>
+              <p>(e) the recipients or categories of recipients of the personal data, if any;</p>
 
-          <p>2.In addition to the information referred to in paragraph 1, the controller shall provide the data subject with the following information necessary to ensure fair and transparent processing in respect of the data subject: </p>
+              <p>(f)where applicable, that the controller intends to transfer personal data to a recipient in a third country or international organisation and the existence or absence of an adequacy decision by the Commission, or in the case of transfers referred to in Article 46 or 47, or the second subparagraph of Article 49(1), reference to the appropriate or suitable safeguards and the means to obtain a copy of them or where they have been made available. </p>
 
-          <p>(a) the period for which the personal data will be stored, or if that is not possible, the criteria used to determine that period; </p>
+              <p>2.In addition to the information referred to in paragraph 1, the controller shall provide the data subject with the following information necessary to ensure fair and transparent processing in respect of the data subject: </p>
 
-          <p>(b) where the processing is based on point (f) of Article 6(1), the legitimate interests pursued by the controller or by a third party; </p>
+              <p>(a) the period for which the personal data will be stored, or if that is not possible, the criteria used to determine that period; </p>
 
-          <p>(c) the existence of the right to request from the controller access to and rectification or erasure of personal data or restriction of processing concerning the data subject and to object to processing as well as the right to data portability; </p>
+              <p>(b) where the processing is based on point (f) of Article 6(1), the legitimate interests pursued by the controller or by a third party; </p>
 
-          <p>(d) where processing is based on point (a) of Article 6(1) or point (a) of Article 9(2), the existence of the right to withdraw consent at any time, without affecting the lawfulness of processing based on consent before its withdrawal; </p>
+              <p>(c) the existence of the right to request from the controller access to and rectification or erasure of personal data or restriction of processing concerning the data subject and to object to processing as well as the right to data portability; </p>
 
-          <p>(e) the right to lodge a complaint with a supervisory authority; </p>
+              <p>(d) where processing is based on point (a) of Article 6(1) or point (a) of Article 9(2), the existence of the right to withdraw consent at any time, without affecting the lawfulness of processing based on consent before its withdrawal; </p>
 
-          <p>(f) from which source the personal data originate, and if applicable, whether it came from publicly accessible sources; </p>
+              <p>(e) the right to lodge a complaint with a supervisory authority; </p>
 
-          <p>(g) the existence of automated decision-making, including profiling, referred to in Article 22(1) and (4) and, at least in those cases, meaningful information about the logic involved, as well as the significance and the envisaged consequences of such processing for the data subject. </p>
+              <p>(f) from which source the personal data originate, and if applicable, whether it came from publicly accessible sources; </p>
 
-          <p>3.The controller shall provide the information referred to in paragraphs 1 and 2: </p>
+              <p>(g) the existence of automated decision-making, including profiling, referred to in Article 22(1) and (4) and, at least in those cases, meaningful information about the logic involved, as well as the significance and the envisaged consequences of such processing for the data subject. </p>
 
-          <p>(a) within a reasonable period after obtaining the personal data, but at the latest within one month, having regard to the specific circumstances in which the personal data are processed; </p>
+              <p>3.The controller shall provide the information referred to in paragraphs 1 and 2: </p>
 
-          <p>(b) if the personal data are to be used for communication with the data subject, at the latest at the time of the first communication to that data subject; or </p>
+              <p>(a) within a reasonable period after obtaining the personal data, but at the latest within one month, having regard to the specific circumstances in which the personal data are processed; </p>
 
-          <p>(c) if a disclosure to another recipient is envisaged, at the latest when the personal data are first disclosed. 4.Where the controller intends to further process the personal data for a purpose other than that for which the personal data were obtained, the controller shall provide the data subject prior to that further processing with information on that other purpose and with any relevant further information as referred to in paragraph 2. </p>
+              <p>(b) if the personal data are to be used for communication with the data subject, at the latest at the time of the first communication to that data subject; or </p>
 
-          <p>5.Paragraphs 1 to 4 shall not apply where and insofar as: </p>
+              <p>(c) if a disclosure to another recipient is envisaged, at the latest when the personal data are first disclosed. 4.Where the controller intends to further process the personal data for a purpose other than that for which the personal data were obtained, the controller shall provide the data subject prior to that further processing with information on that other purpose and with any relevant further information as referred to in paragraph 2. </p>
 
-          <p>(a) the data subject already has the information; </p>
+              <p>5.Paragraphs 1 to 4 shall not apply where and insofar as: </p>
 
-          <p>(b) the provision of such information proves impossible or would involve a disproportionate effort, in particular for processing for archiving purposes in the public interest, scientific or historical research purposes or statistical purposes, subject to the conditions and safeguards referred to in Article 89(1) or in so far as the obligation referred to in paragraph 1 of this Article is likely to render impossible or seriously impair the achievement of the objectives of that processing. In such cases the controller shall take appropriate measures to protect the data subject's rights and freedoms and legitimate interests, including making the information publicly available; </p>
+              <p>(a) the data subject already has the information; </p>
 
-          <p>(c) obtaining or disclosure is expressly laid down by Union or Member State law to which the controller is subject and which provides appropriate measures to protect the data subject's legitimate interests; or </p>
+              <p>(b) the provision of such information proves impossible or would involve a disproportionate effort, in particular for processing for archiving purposes in the public interest, scientific or historical research purposes or statistical purposes, subject to the conditions and safeguards referred to in Article 89(1) or in so far as the obligation referred to in paragraph 1 of this Article is likely to render impossible or seriously impair the achievement of the objectives of that processing. In such cases the controller shall take appropriate measures to protect the data subject's rights and freedoms and legitimate interests, including making the information publicly available; </p>
 
-          <p>(d) where the personal data must remain confidential subject to an obligation of professional secrecy regulated by Union or Member State law, including a statutory obligation of secrecy. 4.5.2016 L 119/42 Official Journal of the European Union EN </p>
-        </i>
+              <p>(c) obtaining or disclosure is expressly laid down by Union or Member State law to which the controller is subject and which provides appropriate measures to protect the data subject's legitimate interests; or </p>
 
-        <p class="note">GDPR Article 14 paragraph 3 is temporal in nature. References to articles 47 and 49 have not yet been modelled. We need to think about how best to model these. </p>
+              <p>(d) where the personal data must remain confidential subject to an obligation of professional secrecy regulated by Union or Member State law, including a statutory obligation of secrecy. 4.5.2016 L 119/42 Official Journal of the European Union EN </p>
+            </i>
 
-        <blockquote>
-          <p><b>Example: Article 14 Information to be provided where personal data have not been obtained from the data subject.</b></p>
-        </blockquote>
+            <p class="note">GDPR Article 14 paragraph 3 is temporal in nature. References to articles 47 and 49 have not yet been modelled. We need to think about how best to model these. </p>
 
-        <pre class="example hljs n3" title="Article 13 Turtle" id="eg-article14-n3">
+            <blockquote>
+              <p><b>Example: Article 14 Information to be provided where personal data have not been obtained from the data subject.</b></p>
+            </blockquote>
 
-        gdprcp:GDPR-article14 a ocp:Set ;
-          odrl:profile ocp:odrl_regulatory_profile ;
-          ocp:permission gdprcp:GDPR-article14-para1-perm1 ,
-            gdprcp:GDPR-article14-para1-perm2 ,
-            gdprcp:GDPR-article14-para1-perm3 ,
-            gdprcp:GDPR-article14-para2-obl1 ,
-            gdprcp:GDPR-article14-para2-obl2 ,
-            gdprcp:GDPR-article14-para3-obl1 .
+            <pre class="example hljs n3" title="Article 13 Turtle" id="eg-article14-n3">
 
-        gdprcp:GDPR-article14-para1-perm1 odrl:action gdprcp:Contact ;
-          gdprcp:data gdprcp:PersonalData ;
-          gdprcp:provision gdprcp:Indirect;
-          gdprcp:obligation gdprcp:GDPR-article14-para1-obl1 .
+            gdprcp:GDPR-article14 a ocp:Set ;
+              odrl:profile ocp:odrl_regulatory_profile ;
+              ocp:permission gdprcp:GDPR-article14-para1-perm1 ,
+                gdprcp:GDPR-article14-para1-perm2 ,
+                gdprcp:GDPR-article14-para1-perm3 ,
+                gdprcp:GDPR-article14-para2-obl1 ,
+                gdprcp:GDPR-article14-para2-obl2 ,
+                gdprcp:GDPR-article14-para3-obl1 .
 
-        gdprcp:GDPR-article14-para1-obl1 ocp:predicateConstraint
-          [ odrl:leftOperand gdprcp:controller ;
-            odrl:operator odrl:isA ;
-            odrl:rightOperand gdprcp:Controller
-          ] ,
-          [ odrl:leftOperand gdprcp:controllerContactDetails ;
-            odrl:operator odrl:isA ;
-            odrl:rightOperand gdprcp:ControllerContactDetails
-          ] ,
-          [ odrl:leftOperand gdprcp:purpose ;
-            odrl:operator odrl:isA ;
-            odrl:rightOperand gdprcp:Purpose
-          ] ,
-          [ odrl:leftOperand gdprcp:legalBasis ;
-            odrl:operator odrl:isA ;
-            odrl:rightOperand gdprcp:LegalBasis
-          ] ,
-          [ odrl:leftOperand gdprcp:categories ;
-            odrl:operator odrl:isA ;
-            odrl:rightOperand gdprcp:PersonalDataCategories
-          ] ;
-        ocp:softPredicateConstraint
-          [ odrl:leftOperand gdprcp:controllersRepresentative ;
-            odrl:operator odrl:isA ;
-            odrl:rightOperand gdprcp:ControllersRepresentative
-          ] ,
-          [ odrl:leftOperand gdprcp:dataProtectionOfficer ;
-            odrl:operator odrl:isA ;
-            odrl:rightOperand gdprcp:DataProtectionOfficer
-          ] ,
-          [ odrl:or (
-            [ odrl:leftOperand gdprcp:recipient ;
-              odrl:operator odrl:isA ;
-              odrl:rightOperand gdprcp:Recipient
-            ]
-            [ odrl:leftOperand gdprcp:recipient ;
-              odrl:operator odrl:isA ;
-              odrl:rightOperand gdprcp:RecipientCategory
-            ] )
-          ] ,
-          [ odrl:leftOperand gdprcp:action ;
-            odrl:operator odrl:isA ;
-            odrl:rightOperand gdprcp:Transfer
-          ] .
+            gdprcp:GDPR-article14-para1-perm1 odrl:action gdprcp:Contact ;
+              gdprcp:data gdprcp:PersonalData ;
+              gdprcp:provision gdprcp:Indirect;
+              gdprcp:obligation gdprcp:GDPR-article14-para1-obl1 .
 
-        gdprcp:GDPR-article46-para1-perm2 odrl:action gdprcp:Transfer ;
-          gdprcp:organisationType gdprcp:InternationalOrganisation ;
-          ocp:obligation gdprcp:GDPR-article46-para1-obl1 ,
-            gdprcp:GDPR-article46-para2-3-obl1 .
+            gdprcp:GDPR-article14-para1-obl1 ocp:predicateConstraint
+              [ odrl:leftOperand gdprcp:controller ;
+                odrl:operator odrl:isA ;
+                odrl:rightOperand gdprcp:Controller
+              ] ,
+              [ odrl:leftOperand gdprcp:controllerContactDetails ;
+                odrl:operator odrl:isA ;
+                odrl:rightOperand gdprcp:ControllerContactDetails
+              ] ,
+              [ odrl:leftOperand gdprcp:purpose ;
+                odrl:operator odrl:isA ;
+                odrl:rightOperand gdprcp:Purpose
+              ] ,
+              [ odrl:leftOperand gdprcp:legalBasis ;
+                odrl:operator odrl:isA ;
+                odrl:rightOperand gdprcp:LegalBasis
+              ] ,
+              [ odrl:leftOperand gdprcp:categories ;
+                odrl:operator odrl:isA ;
+                odrl:rightOperand gdprcp:PersonalDataCategories
+              ] ;
+            ocp:softPredicateConstraint
+              [ odrl:leftOperand gdprcp:controllersRepresentative ;
+                odrl:operator odrl:isA ;
+                odrl:rightOperand gdprcp:ControllersRepresentative
+              ] ,
+              [ odrl:leftOperand gdprcp:dataProtectionOfficer ;
+                odrl:operator odrl:isA ;
+                odrl:rightOperand gdprcp:DataProtectionOfficer
+              ] ,
+              [ odrl:or (
+                [ odrl:leftOperand gdprcp:recipient ;
+                  odrl:operator odrl:isA ;
+                  odrl:rightOperand gdprcp:Recipient
+                ]
+                [ odrl:leftOperand gdprcp:recipient ;
+                  odrl:operator odrl:isA ;
+                  odrl:rightOperand gdprcp:RecipientCategory
+                ] )
+              ] ,
+              [ odrl:leftOperand gdprcp:action ;
+                odrl:operator odrl:isA ;
+                odrl:rightOperand gdprcp:Transfer
+              ] .
 
-        gdprcp:GDPR-article46-para1-perm3 odrl:action gdprcp:Transfer ;
-          gdprcp:recipientLocation gdprcp:ThirdCountry ;
-          ocp:obligation gdprcp:GDPR-article46-para1-obl1 ,
-            gdprcp:GDPR-article46-para2-3-obl1 .
+            gdprcp:GDPR-article46-para1-perm2 odrl:action gdprcp:Transfer ;
+              gdprcp:organisationType gdprcp:InternationalOrganisation ;
+              ocp:obligation gdprcp:GDPR-article46-para1-obl1 ,
+                gdprcp:GDPR-article46-para2-3-obl1 .
 
-        gdprcp:GDPR-article14-para2-obl1 ocp:predicateConstraint
-          [ odrl:or (
-            [ odrl:leftOperand gdprcp:storagePeriod ;
-              odrl:operator odrl:isA ;
-              odrl:rightOperand gdprcp:StoragePeriod
-            ]
-            [ odrl:leftOperand gdprcp:storageCriteria ;
-              odrl:operator odrl:isA ;
-              odrl:rightOperand gdprcp:StorageCriteria
-            ] )
-          ] ,
-          [ odrl:leftOperand gdprcp:dataSubjectRights ;
-            odrl:operator odrl:isA ;
-            odrl:rightOperand gdprcp:AccessRight
-          ] ,
-          [ odrl:leftOperand gdprcp:dataSubjectRights ;
-            odrl:operator odrl:isA ;
-            odrl:rightOperand gdprcp:RectificationRight
-          ] ,
-          [ odrl:leftOperand gdprcp:dataSubjectRights ;
-            odrl:operator odrl:isA ;
-            odrl:rightOperand gdprcp:ErasureRight
-          ] ,
-          [ odrl:leftOperand gdprcp:dataSubjectRights ;
-            odrl:operator odrl:isA ;
-            odrl:rightOperand gdprcp:RestrictionOfProcessing
-          ] ,
-          [ odrl:leftOperand gdprcp:dataSubjectRights ;
-            odrl:operator odrl:isA ;
-            odrl:rightOperand gdprcp:PortabilityRights
-          ] ,
-          [ odrl:leftOperand gdprcp:dataSubjectRights ;
-            odrl:operator odrl:isA ;
-            odrl:rightOperand gdprcp:ComplaintRights
-          ] ,
-          [ odrl:leftOperand gdprcp:source ;
-            odrl:operator odrl:isA ;
-            odrl:rightOperand gdprcp:Source
-          ] ,
-          [ odrl:leftOperand gdprcp:automatedDecisionMaking ;
-            odrl:operator odrl:isA ;
-            odrl:rightOperand gdprcp:AutomatedDecisionMaking
-          ] .
+            gdprcp:GDPR-article46-para1-perm3 odrl:action gdprcp:Transfer ;
+              gdprcp:recipientLocation gdprcp:ThirdCountry ;
+              ocp:obligation gdprcp:GDPR-article46-para1-obl1 ,
+                gdprcp:GDPR-article46-para2-3-obl1 .
 
-        gdprcp:GDPR-article14-para2-obl2 gdprcp:legalBasis gdprcp:Consent ;
-          ocp:PredicateConstraint
-            [ odrl:leftOperand gdprcp:dataSubjectRights ;
-              odrl:operator odrl:isA ;
-              odrl:rightOperand gdprcp:WithdrawConsentRights
-            ] .
+            gdprcp:GDPR-article14-para2-obl1 ocp:predicateConstraint
+              [ odrl:or (
+                [ odrl:leftOperand gdprcp:storagePeriod ;
+                  odrl:operator odrl:isA ;
+                  odrl:rightOperand gdprcp:StoragePeriod
+                ]
+                [ odrl:leftOperand gdprcp:storageCriteria ;
+                  odrl:operator odrl:isA ;
+                  odrl:rightOperand gdprcp:StorageCriteria
+                ] )
+              ] ,
+              [ odrl:leftOperand gdprcp:dataSubjectRights ;
+                odrl:operator odrl:isA ;
+                odrl:rightOperand gdprcp:AccessRight
+              ] ,
+              [ odrl:leftOperand gdprcp:dataSubjectRights ;
+                odrl:operator odrl:isA ;
+                odrl:rightOperand gdprcp:RectificationRight
+              ] ,
+              [ odrl:leftOperand gdprcp:dataSubjectRights ;
+                odrl:operator odrl:isA ;
+                odrl:rightOperand gdprcp:ErasureRight
+              ] ,
+              [ odrl:leftOperand gdprcp:dataSubjectRights ;
+                odrl:operator odrl:isA ;
+                odrl:rightOperand gdprcp:RestrictionOfProcessing
+              ] ,
+              [ odrl:leftOperand gdprcp:dataSubjectRights ;
+                odrl:operator odrl:isA ;
+                odrl:rightOperand gdprcp:PortabilityRights
+              ] ,
+              [ odrl:leftOperand gdprcp:dataSubjectRights ;
+                odrl:operator odrl:isA ;
+                odrl:rightOperand gdprcp:ComplaintRights
+              ] ,
+              [ odrl:leftOperand gdprcp:source ;
+                odrl:operator odrl:isA ;
+                odrl:rightOperand gdprcp:Source
+              ] ,
+              [ odrl:leftOperand gdprcp:automatedDecisionMaking ;
+                odrl:operator odrl:isA ;
+                odrl:rightOperand gdprcp:AutomatedDecisionMaking
+              ] .
 
-        </pre>
+            gdprcp:GDPR-article14-para2-obl2 gdprcp:legalBasis gdprcp:Consent ;
+              ocp:PredicateConstraint
+                [ odrl:leftOperand gdprcp:dataSubjectRights ;
+                  odrl:operator odrl:isA ;
+                  odrl:rightOperand gdprcp:WithdrawConsentRights
+                ] .
+
+            </pre>
+          </section>
+
+          <section id="gdpr-info-article14-ex">
+              <h4>Business policy request to collect personal data from a third party.</h3>
+              <blockquote>
+                <p>Request for permission to collect personal data from a source other than the data subject.</p>
+              </blockquote>
+
+          </section>
+
       </section>
 
     </section>
