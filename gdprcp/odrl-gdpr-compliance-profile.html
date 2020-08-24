@@ -302,7 +302,7 @@
             <li><code>responsibleParty</code></li>
             <li><code>controllersRepresentative</code></li>
             <li><code>dataProtectionOfficer</code></li>
-            <li><code>provision</code></li>
+            <li><code>provider</code></li>
           </ul>
         </section>
 
@@ -892,7 +892,7 @@
 
           gdprcp:GDPR-article13-para1-perm1 odrl:action gdprcp:Collect ;
             gdprcp:data gdprcp:PersonalData ;
-            gdprcp:provision gdprcp:DataSubject ;
+            gdprcp:provider gdprcp:DataSubject ;
             gdprcp:obligation gdprcp:GDPR-article13-para1-obl1 ,
               gdprcp:GDPR-article13-para1-obl2 .
 
@@ -1115,7 +1115,7 @@
 
             gdprcp:GDPR-article14-para1-perm1 odrl:action gdprcp:Contact ;
               gdprcp:data gdprcp:PersonalData ;
-              gdprcp:provision gdprcp:ThirdParty ;
+              gdprcp:provider gdprcp:ThirdParty ;
               gdprcp:obligation gdprcp:GDPR-article14-para1-obl1 .
 
             gdprcp:GDPR-article14-para1-obl1 ocp:predicateConstraint
@@ -1208,7 +1208,7 @@
                 odrl:operator odrl:isA ;
                 odrl:rightOperand gdprcp:ComplaintRights
               ] ,
-              [ odrl:leftOperand gdprcp:provision ;
+              [ odrl:leftOperand gdprcp:provider ;
                 odrl:operator odrl:isA ;
                 odrl:rightOperand gdprcp:ThirdParty
               ] ,
