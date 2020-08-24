@@ -145,18 +145,13 @@
             <li><code>Contact</code> - actions that involve making first contact with a party. </li>
         	</ul>
 
-          <section id="rightsAndFreedomsEffected-property">
-            <h5>rightsAndFreedomsEffected property</h5>
-            <p> A property used to assert that the rights and freedoms of the data subject are / are not effected. This property can either be <code><em>true</em></code> or <code><em>false</em></code>. </p>
-          </section>
-
         </section>
 
         <section id="resource-class">
         	<h4>Resource Class</h4>
         	<p>A <code>Resource</code> class is a resource or a collection of resources that are the subject of a Rule. The Resource can be any form of identifiable resource, such as data/information, content/media, applications, services, or physical artefacts.
 
-        	<p>Based on the analysis of Articles 6 and 46 of the GDPR, we propose the following entities of type <code><em> Resource </em></code>:</p>
+        	<p>Based on the analysis of the GDPR, we propose the following entities of type <code><em> Resource </em></code>:</p>
 
         	<ul>
         		<li><code>PersonalData</code></li>
@@ -188,29 +183,24 @@
             <li><code>Source</code></li>
             <li><code>AutomatedDecisionMaking</code></li>
         	</ul>
+
         </section>
 
         <section id="party-class">
         	<h4>Party Class </h4>
         	<p>A <code>Party</code> is an entity or a collection of entities that undertake roles in a Rule, such as a person, collection of people, organisation, or agent. The <code>Party</code> performs (or does not perform) Actions or has a function in an Obligation.</p>
-          <p>The Party class has the following properties:</p>
 
-        	<p>Based on the analysis of Articles 6 and 46 of the GDPR, we propose the following entities of type <code><em>Party</em></code>:</p>
+        	<p>Based on the analysis of the GDPR, we propose the following entities of type <code><em>Party</em></code>:</p>
         	<ul>
         		<li><code>Controller</code></li>
         		<li><code>Processor</code></li>
-        		<li><code>PublicAuthority</code></li>
-        		<li><code>InternationalOrganisation</code></li>
             <li><code>DataProtectionOfficer</code></li>
             <li><code>ControllersRepresentative</code></li>
             <li><code>Recipient</code></li>
             <li><code>RecipientCategory</code></li>
+            <li><code>DataSubject</code></li>
+            <li><code>ThirdParty</code></li>
         	</ul>
-
-          <section id="organisationType-property">
-            <h5>organisationType property</h5>
-            <p> A property used to assert the type of organisation. This property associates a party with an OrganisationType. </p>
-          </section>
 
         </section>
 
@@ -238,27 +228,26 @@
         		<li><code>PublicAuthorityTask</code></li>
         		<li><code>Recommendations</code></li>
         	</ul>
+
         </section>
 
         <section id="location-class">
-        	<h4>Location Class</h4>
+          <h4>Location Class</h4>
           <p> A class denoting the location of the processing. </p>
-        	<p>The profile has the following subclasses of type <code><em> Location </em></code> that are associated with an action via the <code>location</code> property:</p>
-
-        	<ul>
-        		<li><code>ThirdCountry</code></li>
-        		<li><code>EU</code></li>
-        	</ul>
-        </section>
-
-        <section id="provision-class">
-          <h4>Provision Class</h4>
-          <p> A class denoting how the data has been gathered. </p>
-          <p>The profile has the following subclasses of type <code><em> Provision </em></code> that are associated with an action via the <code>provision</code> property:</p>
+          <p>The profile has the following subclasses of type <code><em> Location </em></code> that are associated with an action via the <code>location</code> property:</p>
 
           <ul>
-            <li><code>Direct</code></li>
-            <li><code>Indirect</code></li>
+            <li><code>ThirdCountry</code></li>
+            <li><code>EU</code></li>
+          </ul>
+        </section>
+
+        <section id="organisationType-class">
+          <h4>OrganisationType class</h4>
+          <p> A class denoting the type of organisation. Based on the analysis of the GDPR, we propose the following entities of type <code><em>Party</em></code>:</p>
+          <ul>
+            <li><code>PublicAuthority</code></li>
+            <li><code>InternationalOrganisation</code></li>
           </ul>
         </section>
 
@@ -266,7 +255,6 @@
 
       <section id="properties">
         <h3>GDPR Compliance Profile Properties</h3>
-
 
         <section id="action-property">
         	<h4>action property</h4>
@@ -298,7 +286,6 @@
             <li><code>personalDataProvisionRequirements</code></li>
             <li><code>automatedDecisionMaking</code></li>
             <li><code>personalDataCategories</code></li>
-            <li><code>source</code></li>
             <li><code>automatedDecisionMaking</code></li>
           </ul>
         </section>
@@ -315,6 +302,7 @@
             <li><code>responsibleParty</code></li>
             <li><code>controllersRepresentative</code></li>
             <li><code>dataProtectionOfficer</code></li>
+            <li><code>provision</code></li>
           </ul>
         </section>
 
@@ -344,12 +332,15 @@
           </ul>
         </section>
 
-        <section id="provision-property">
-          <h4>provision property</h4>
-          <p> A property used to assert that data has been gathered directly or indirectly. </p>
+        <section id="organisationType-property">
+          <h4>organisationType property</h4>
+          <p> A property used to assert the type of organisation. This property associates a <code><em>Party</em></code> with an OrganisationType. </p>
         </section>
 
-
+        <section id="rightsAndFreedomsEffected-property">
+          <h5>rightsAndFreedomsEffected property</h5>
+          <p> A property used to assert that the rights and freedoms of the data subject are / are not effected. This property can either be <code><em>true</em></code> or <code><em>false</em></code>. </p>
+        </section>
 
       </section>
     </section>
@@ -894,15 +885,14 @@
             odrl:profile ocp:odrl_regulatory_profile ;
             ocp:permission gdprcp:GDPR-article13-para1-perm1 ,
               gdprcp:GDPR-article13-para1-perm2 ,
-              gdprcp:GDPR-article13-para1-perm3 ,
-              gdprcp:GDPR-article13-para2-obl1 ,
+              gdprcp:GDPR-article13-para1-perm3 ;
+            ocp:obligation gdprcp:GDPR-article13-para2-obl1 ,
               gdprcp:GDPR-article13-para2-obl2 ,
               gdprcp:GDPR-article13-para3-obl1 .
 
           gdprcp:GDPR-article13-para1-perm1 odrl:action gdprcp:Collect ;
             gdprcp:data gdprcp:PersonalData ;
-            gdprcp:source gdprcp:DataSubject ;
-            gdprcp:provision gdprcp:Direct ;
+            gdprcp:provision gdprcp:DataSubject ;
             gdprcp:obligation gdprcp:GDPR-article13-para1-obl1 ,
               gdprcp:GDPR-article13-para1-obl2 .
 
@@ -1118,14 +1108,14 @@
               odrl:profile ocp:odrl_regulatory_profile ;
               ocp:permission gdprcp:GDPR-article14-para1-perm1 ,
                 gdprcp:GDPR-article14-para1-perm2 ,
-                gdprcp:GDPR-article14-para1-perm3 ,
-                gdprcp:GDPR-article14-para2-obl1 ,
+                gdprcp:GDPR-article14-para1-perm3 ;
+              ocp:obligation gdprcp:GDPR-article14-para2-obl1 ,
                 gdprcp:GDPR-article14-para2-obl2 ,
                 gdprcp:GDPR-article14-para3-obl1 .
 
             gdprcp:GDPR-article14-para1-perm1 odrl:action gdprcp:Contact ;
               gdprcp:data gdprcp:PersonalData ;
-              gdprcp:provision gdprcp:Indirect;
+              gdprcp:provision gdprcp:ThirdParty ;
               gdprcp:obligation gdprcp:GDPR-article14-para1-obl1 .
 
             gdprcp:GDPR-article14-para1-obl1 ocp:predicateConstraint
@@ -1218,9 +1208,9 @@
                 odrl:operator odrl:isA ;
                 odrl:rightOperand gdprcp:ComplaintRights
               ] ,
-              [ odrl:leftOperand gdprcp:source ;
+              [ odrl:leftOperand gdprcp:provision ;
                 odrl:operator odrl:isA ;
-                odrl:rightOperand gdprcp:Source
+                odrl:rightOperand gdprcp:ThirdParty
               ] ,
               [ odrl:leftOperand gdprcp:automatedDecisionMaking ;
                 odrl:operator odrl:isA ;
