@@ -453,7 +453,7 @@
           gdprcp:data gdprcp:PersonalData ;
           ocp:predicateConstraint
             [ odrl:or (
-              [ odrl:leftOperand gdprcp:organisationType ;
+              [ odrl:leftOperand gdprcp:recipientOrganisationType ;
                 odrl:operator odrl:isA ;
                 odrl:rightOperand gdprcp:InternationalOrganisation
               ]
@@ -741,7 +741,7 @@
 
           gdprcp:GDPR-article46-para1-perm1 odrl:action gdprcp:Transfer ;
             gdprcp:data gdprcp:PersonalData ;
-            gdprcp:organisationType gdprcp:InternationalOrganisation ;
+            gdprcp:recipientOrganisationType gdprcp:InternationalOrganisation ;
             ocp:obligation gdprcp:GDPR-article46-para1-obl1 ,
               gdprcp:GDPR-article46-para2-3-obl1 .
 
@@ -792,7 +792,7 @@
                 [ odrl:action gdprcp:Transfer ;
                   gdprcp:data gdprcp:PersonalData ;
                   gdprcp:responsibleParty gdprcp:Controller ;
-                  gdprcp:organisationType gdprcp:InternationalOrganisation ;
+                  gdprcp:recipientOrganisationType gdprcp:InternationalOrganisation ;
                   gdprcp:sender &lt;http://example-company.com/CompanyA_Ireland&gt; ;
                   gdprcp:recipient &lt;http://example-company.com/CompanyA_USA&gt; ;
                   gdprcp:recipientLocation gdprcp:ThirdCountry ;
@@ -817,7 +817,7 @@
                 [ odrl:action gdprcp:Transfer ;
                   gdprcp:data gdprcp:PersonalData ;
                   gdprcp:responsibleParty gdprcp:Controller ;
-                  gdprcp:organisationType gdprcp:InternationalOrganisation ;
+                  gdprcp:recipientOrganisationType gdprcp:InternationalOrganisation ;
                   gdprcp:sender &lt;http://example-company.com/CompanyA_Ireland&gt; ;
                   gdprcp:recipient &lt;http://example-company.com/CompanyA_USA&gt; ;
                   gdprcp:recipientLocation gdprcp:ThirdCountry ;
@@ -945,7 +945,7 @@
               ] .
 
           gdprcp:GDPR-article46-para1-perm2 odrl:action gdprcp:Transfer ;
-            gdprcp:organisationType gdprcp:InternationalOrganisation ;
+            gdprcp:recipientOrganisationType gdprcp:InternationalOrganisation ;
             ocp:obligation gdprcp:GDPR-article46-para1-obl1 ,
               gdprcp:GDPR-article46-para2-3-obl1 .
 
@@ -1028,7 +1028,7 @@
                   [ odrl:action gdprcp:Collect ;
                     gdprcp:data gdprcp:PersonalData ;
                     gdprcp:controller &lt;http://example-company.com/CompanyA_Ireland&gt; ;
-                    gdprcp:organisationType gdprcp:InternationalOrganisation ;
+                    gdprcp:recipientOrganisationType gdprcp:InternationalOrganisation ;
                     gdprcp:controllerContactDetails "CompanyA, IFIC, Dublin, Ireland"^^xsd:string ;
                     gdprcp:purpose gdprcp:Recommendations ;
                     gdprcp:legalBasis gdprcp:Consent
@@ -1164,7 +1164,7 @@
               ] .
 
             gdprcp:GDPR-article46-para1-perm2 odrl:action gdprcp:Transfer ;
-              gdprcp:organisationType gdprcp:InternationalOrganisation ;
+              gdprcp:recipientOrganisationType gdprcp:InternationalOrganisation ;
               ocp:obligation gdprcp:GDPR-article46-para1-obl1 ,
                 gdprcp:GDPR-article46-para2-3-obl1 .
 
