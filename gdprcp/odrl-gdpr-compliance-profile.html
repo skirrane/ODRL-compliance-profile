@@ -680,7 +680,7 @@
 
           gdprcp:GDPR-article6 a ocp:Set ;
               odrl:profile ocp:odrl_regulatory_profile ;
-              ocp:permission gdprcp:GDPR-article6-para1 .
+              ocp:permission gdprcp:GDPR-article6-para1-perm1 .
 
           gdprcp:GDPR-article6-para1-perm1 odrl:action gdprcp:Process ;
             gdprcp:data gdprcp:PersonalData ;
@@ -728,7 +728,7 @@
 
         <pre class="example" title="Permission request Turtle with legal basis" id="eg-article6-req-n3-pass">
 
-            &lt;http://example.com/policy:policy:bp-processing-withLegalBasis&gt; a ocp:Set ;
+            &lt;http://example.com/policy:policy:bp-processing-withLegalBasis&gt; a ocp:Request ;
                 odrl:profile ocp:odrl_regulatory_profile ;
                 ocp:permission
                 [ odrl:action gdprcp:Process ;
@@ -748,7 +748,7 @@
 
         <pre class="example" title="Permission request Turtle without legal basis" id="eg-article6-req-n3-fail">
 
-            &lt;http://example.com/policy:bp-processing-withoutLegalBasis&gt; a ocp:Set ;
+            &lt;http://example.com/policy:bp-processing-withoutLegalBasis&gt; a ocp:Request ;
                 odrl:profile ocp:odrl_regulatory_profile ;
                 ocp:permission
                   [ odrl:action gdprcp:Process ;
@@ -768,7 +768,7 @@
 
         <pre class="example" title="Permission request Turtle with legal basis" id="eg-article6-req-n3-pass">
 
-            &lt;http://example.com/policy:policy:bp-processing-withLegalBasis&gt; a ocp:Set ;
+            &lt;http://example.com/policy:policy:bp-processing-withLegalBasis&gt; a ocp:Request ;
                 odrl:profile ocp:odrl_regulatory_profile ;
                 ocp:permission
                 [ odrl:action gdprcp:Process ;
@@ -789,7 +789,7 @@
 
         <pre class="example" title="Permission request Turtle without legal basis" id="eg-article6-req-n3-fail">
 
-            &lt;http://example.com/policy:bp-processing-withoutLegalBasis&gt; a ocp:Set ;
+            &lt;http://example.com/policy:bp-processing-withoutLegalBasis&gt; a ocp:Request ;
                 odrl:profile ocp:odrl_regulatory_profile ;
                 ocp:permission
                   [ odrl:action gdprcp:Process ;
@@ -912,7 +912,7 @@
 
         <pre class="example hljs n3" title="Request Turtle with appropriate safeguards" id="eg-article46-req-n3">
 
-          &lt;http://example.com/policy:bp-transfer-withSafeguards&gt; a ocp:Set ;
+          &lt;http://example.com/policy:bp-transfer-withSafeguards&gt; a ocp:Request ;
               odrl:profile ocp:odrl_regulatory_profile ;
               ocp:permission
                 [ odrl:action gdprcp:Transfer ;
@@ -938,7 +938,7 @@
         <pre class="example hljs n3" title="Permission request Turtle without appropriate safeguards"
           id="eg-article46-req-n3">
 
-          &lt;http://example-company.com/policy:bp-transfer-withoutSafeguards&gt; a ocp:Set ;
+          &lt;http://example-company.com/policy:bp-transfer-withoutSafeguards&gt; a ocp:Request ;
               odrl:profile ocp:odrl_regulatory_profile ;
               ocp:permission
                 [ odrl:action gdprcp:Transfer ;
@@ -1176,7 +1176,7 @@
           </blockquote>
 
           <pre class="example hljs n3" title="Permission request Turtle without recipients" id="eg-article13-req-n3">
-            &lt;http://example-company.com/policy:bp-collect-for-recommendations&gt; a ocp:Set ;
+            &lt;http://example-company.com/policy:bp-collect-for-recommendations&gt; a ocp:Request ;
                 odrl:profile ocp:odrl_regulatory_profile ;
                 ocp:permission
                   [ odrl:action gdprcp:Collect ;
