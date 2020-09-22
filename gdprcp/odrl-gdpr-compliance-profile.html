@@ -1033,6 +1033,8 @@
                 data subject.</b></p>
           </blockquote>
 
+          <p class="note">The obligations should be tied to an action. </p>
+
           <pre class="example hljs n3" title="Article 13 Turtle" id="eg-article13-n3">
 
           gdprcp:GDPR-article13 a ocp:Set ;
@@ -1159,12 +1161,19 @@
                 odrl:rightOperand gdprcp:WithdrawConsentRights
               ] .
 
-          gdprcp:GDPR-article13-para3-obl3 gdprcp:furtherProcess gdprcp:Process ;
+          gdprcp:GDPR-article13-para3-obl1 gdprcp:furtherProcess gdprcp:Process ;
             ocp:PredicateConstraint
               [ odrl:leftOperand gdprcp:furtherPurpose ;
                 odrl:operator odrl:isA ;
                 odrl:rightOperand gdprcp:Purpose
-              ] .
+              ] ;
+            ocp:permission gdprcp:GDPR-article13-para3-obl1-perm1 .
+
+          gdprcp:GDPR-article13-para3-obl1-perm1 odrl:action gdprcp:FurtherProcess ;
+            gdprcp:data gdprcp:PersonalData ;
+            gdprcp:provider gdprcp:DataSubject ;
+            gdprcp:obligation gdprcp:GDPR-article13-para1-obl2 .
+
 
           </pre>
       </section>
@@ -1258,7 +1267,9 @@
               time of the first communication to that data subject; or </p>
 
             <p>(c) if a disclosure to another recipient is envisaged, at the latest when the personal data are first
-              disclosed. 4.Where the controller intends to further process the personal data for a purpose other than
+              disclosed. </p>
+
+            <p>4.Where the controller intends to further process the personal data for a purpose other than
               that for which the personal data were obtained, the controller shall provide the data subject prior to
               that further processing with information on that other purpose and with any relevant further information
               as referred to in paragraph 2. </p>
@@ -1298,12 +1309,15 @@
               odrl:profile ocp:odrl_regulatory_profile ;
               ocp:permission gdprcp:GDPR-article14-para1-perm1 ,
                 gdprcp:GDPR-article14-para1-perm2 ,
-                gdprcp:GDPR-article14-para1-perm3 ;
+                gdprcp:GDPR-article14-para1-perm3 ,
+                gdprcp:GDPR-article13-para3-perm1 ,
+                gdprcp:GDPR-article13-para3-perm2 ,
+                gdprcp:GDPR-article13-para3-perm3 ;
               ocp:obligation gdprcp:GDPR-article14-para2-obl1 ,
                 gdprcp:GDPR-article14-para2-obl2 ,
                 gdprcp:GDPR-article14-para3-obl1 .
 
-            gdprcp:GDPR-article14-para1-perm1 odrl:action gdprcp:Contact ;
+            gdprcp:GDPR-article14-para1-perm1 odrl:action gdprcp:Obtain ;
               gdprcp:data gdprcp:PersonalData ;
               gdprcp:provider gdprcp:ThirdParty ;
               gdprcp:obligation gdprcp:GDPR-article14-para1-obl1 .
@@ -1354,11 +1368,15 @@
               ] .
 
             gdprcp:GDPR-article46-para1-perm2 odrl:action gdprcp:Transfer ;
+              gdprcp:data gdprcp:PersonalData ;
+              gdprcp:provider gdprcp:ThirdParty ;
               gdprcp:recipientOrganisationType gdprcp:InternationalOrganisation ;
               ocp:obligation gdprcp:GDPR-article46-para1-obl1 ,
                 gdprcp:GDPR-article46-para2-3-obl1 .
 
             gdprcp:GDPR-article46-para1-perm3 odrl:action gdprcp:Transfer ;
+              gdprcp:data gdprcp:PersonalData ;
+              gdprcp:provider gdprcp:ThirdParty ;
               gdprcp:recipientLocation gdprcp:ThirdCountry ;
               ocp:obligation gdprcp:GDPR-article46-para1-obl1 ,
                 gdprcp:GDPR-article46-para2-3-obl1 .
@@ -1414,6 +1432,44 @@
                   odrl:rightOperand gdprcp:WithdrawConsentRights
                 ] .
 
+            gdprcp:GDPR-article13-para3-perm1 odrl:action gdprcp:Obtain ;
+              gdprcp:data gdprcp:PersonalData ;
+              gdprcp:provider gdprcp:ThirdParty ;
+              ocp:TemporalConstraint
+                [ odrl:leftOperand gdprcp:obtainedDuration ;
+                  odrl:operator odrl:lteq ;
+                  odrl:rightOperand ocp:OneMonth
+                ] ;
+              ocp:obligation gdprcp:GDPR-article14-para2-obl1 ,
+                gdprcp:GDPR-article14-para2-obl2 ,
+                gdprcp:GDPR-article14-para3-obl1 .
+
+            gdprcp:GDPR-article13-para3-perm2 odrl:action gdprcp:Communication ;
+              gdprcp:data gdprcp:PersonalData ;
+              gdprcp:provider gdprcp:ThirdParty ;
+              gdprcp:communicationParty gdprcp:DataSubject ;
+              ocp:obligation gdprcp:GDPR-article14-para2-obl1 ,
+                gdprcp:GDPR-article14-para2-obl2 ,
+                gdprcp:GDPR-article14-para3-obl1 .
+
+            gdprcp:GDPR-article13-para3-perm3 odrl:action gdprcp:Disclosure ;
+              gdprcp:data gdprcp:PersonalData ;
+              gdprcp:provider gdprcp:ThirdParty ;
+              gdprcp:disclosureParty gdprcp:AnotherRecipient ;
+              ocp:obligation gdprcp:GDPR-article14-para2-obl1 ,
+                gdprcp:GDPR-article14-para2-obl2 ,
+                gdprcp:GDPR-article14-para3-obl1 .
+            </pre>
+
+            <pre class="example hljs n3" title="Temporal Entities" id="eg-article14-n3">
+
+              ocp:OneMonth
+                rdf:type owl:Class ;
+                rdfs:subClassOf [
+                    rdf:type owl:Restriction ;
+                    owl:cardinality 1 ;
+                    owl:onProperty :months ;
+                  ] ;
             </pre>
       </section>
 
